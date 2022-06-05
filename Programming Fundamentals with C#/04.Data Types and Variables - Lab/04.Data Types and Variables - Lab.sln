@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.Convert Meters to Km", "01.Convert Meters to Km\01.Convert Meters to Km.csproj", "{7136831D-009B-4881-88A9-9C696450E4E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Pounds to Dollars", "02. Pounds to Dollars\02. Pounds to Dollars.csproj", "{A48FE470-C044-4BDE-8CCF-873900AF72D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Sum of Real Numbers", "03.Sum of Real Numbers\03.Sum of Real Numbers.csproj", "{0E05AC0D-B312-46B8-8076-04E9319C8ED8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7136831D-009B-4881-88A9-9C696450E4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7136831D-009B-4881-88A9-9C696450E4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7136831D-009B-4881-88A9-9C696450E4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7136831D-009B-4881-88A9-9C696450E4E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A48FE470-C044-4BDE-8CCF-873900AF72D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A48FE470-C044-4BDE-8CCF-873900AF72D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A48FE470-C044-4BDE-8CCF-873900AF72D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A48FE470-C044-4BDE-8CCF-873900AF72D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E05AC0D-B312-46B8-8076-04E9319C8ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E05AC0D-B312-46B8-8076-04E9319C8ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E05AC0D-B312-46B8-8076-04E9319C8ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E05AC0D-B312-46B8-8076-04E9319C8ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4ED6D765-F9E2-4EA1-B6CF-617D6E07ACE0}
+	EndGlobalSection
+EndGlobal
