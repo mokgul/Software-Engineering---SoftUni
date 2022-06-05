@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. Chars to String", "09. 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Lower or Upper", "10. Lower or Upper\10. Lower or Upper.csproj", "{BA8783F4-FF48-4986-85F3-579FBB259C0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.Refactor Vol of Pyra", "11.Refactor Vol of Pyra\11.Refactor Vol of Pyra.csproj", "{A88EA937-040B-42F9-8251-61453D329450}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.Refactor Special Num", "12.Refactor Special Num\12.Refactor Special Num.csproj", "{4D91C25E-C926-40E2-BCCB-CA7FCC96E32A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{BA8783F4-FF48-4986-85F3-579FBB259C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA8783F4-FF48-4986-85F3-579FBB259C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA8783F4-FF48-4986-85F3-579FBB259C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88EA937-040B-42F9-8251-61453D329450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88EA937-040B-42F9-8251-61453D329450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88EA937-040B-42F9-8251-61453D329450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88EA937-040B-42F9-8251-61453D329450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D91C25E-C926-40E2-BCCB-CA7FCC96E32A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D91C25E-C926-40E2-BCCB-CA7FCC96E32A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D91C25E-C926-40E2-BCCB-CA7FCC96E32A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D91C25E-C926-40E2-BCCB-CA7FCC96E32A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
