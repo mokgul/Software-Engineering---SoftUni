@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Pounds to Dollars", "02
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.Sum of Real Numbers", "03.Sum of Real Numbers\03.Sum of Real Numbers.csproj", "{0E05AC0D-B312-46B8-8076-04E9319C8ED8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.Centuries to Minutes", "04.Centuries to Minutes\04.Centuries to Minutes.csproj", "{211B9AE3-3E04-4A52-A17A-7CED06084030}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Special Numbers", "05. Special Numbers\05. Special Numbers.csproj", "{863CC799-DFF2-4258-9BDE-65E56232299D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{0E05AC0D-B312-46B8-8076-04E9319C8ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E05AC0D-B312-46B8-8076-04E9319C8ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E05AC0D-B312-46B8-8076-04E9319C8ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{211B9AE3-3E04-4A52-A17A-7CED06084030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{211B9AE3-3E04-4A52-A17A-7CED06084030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{211B9AE3-3E04-4A52-A17A-7CED06084030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{211B9AE3-3E04-4A52-A17A-7CED06084030}.Release|Any CPU.Build.0 = Release|Any CPU
+		{863CC799-DFF2-4258-9BDE-65E56232299D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{863CC799-DFF2-4258-9BDE-65E56232299D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{863CC799-DFF2-4258-9BDE-65E56232299D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{863CC799-DFF2-4258-9BDE-65E56232299D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
