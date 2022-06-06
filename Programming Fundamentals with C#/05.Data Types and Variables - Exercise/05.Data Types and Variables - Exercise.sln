@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01. Integer Operations", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Sum Digits", "02. Sum Digits\02. Sum Digits.csproj", "{DC1DF56B-C292-492A-A5DD-3FC4088A5403}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Elevator", "03. Elevator\03. Elevator.csproj", "{583D942F-E492-4E5C-AFF7-720ED3759437}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Sum of Chars", "04. Sum of Chars\04. Sum of Chars.csproj", "{22DCB8FF-6645-4344-BDE7-43C420292FB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{DC1DF56B-C292-492A-A5DD-3FC4088A5403}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC1DF56B-C292-492A-A5DD-3FC4088A5403}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC1DF56B-C292-492A-A5DD-3FC4088A5403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583D942F-E492-4E5C-AFF7-720ED3759437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583D942F-E492-4E5C-AFF7-720ED3759437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583D942F-E492-4E5C-AFF7-720ED3759437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583D942F-E492-4E5C-AFF7-720ED3759437}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22DCB8FF-6645-4344-BDE7-43C420292FB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22DCB8FF-6645-4344-BDE7-43C420292FB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22DCB8FF-6645-4344-BDE7-43C420292FB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22DCB8FF-6645-4344-BDE7-43C420292FB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,7 +6,14 @@ namespace _02._Sum_Digits
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            int number = int.Parse(Console.ReadLine());
+            int digitSum = 0;
+            while (number > 0)
+            {
+                digitSum += number % 10;
+                number /= 10;
+            }
+            Console.WriteLine(digitSum);
         }
     }
 }
