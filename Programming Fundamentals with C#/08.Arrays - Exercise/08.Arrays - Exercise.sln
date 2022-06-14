@@ -3,19 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Train", "01. Train\01. Train.csproj", "{2FAB24F5-2DF0-4DDF-84AD-13350C35BF84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01. Train", "01. Train\01. Train.csproj", "{2FAB24F5-2DF0-4DDF-84AD-13350C35BF84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Common Elements", "02. Common Elements\02. Common Elements.csproj", "{4399C200-AFD0-481F-BBA4-5B292E5ABEA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02. Common Elements", "02. Common Elements\02. Common Elements.csproj", "{4399C200-AFD0-481F-BBA4-5B292E5ABEA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Zig-Zag Arrays", "03. Zig-Zag Arrays\03. Zig-Zag Arrays.csproj", "{FD4A51CC-0349-4523-AB7A-4E4DFB13D412}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "03. Zig-Zag Arrays", "03. Zig-Zag Arrays\03. Zig-Zag Arrays.csproj", "{FD4A51CC-0349-4523-AB7A-4E4DFB13D412}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Array Rotation", "04. Array Rotation\04. Array Rotation.csproj", "{E87246EC-EBDB-4012-B95A-EC282B5EF595}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "04. Array Rotation", "04. Array Rotation\04. Array Rotation.csproj", "{E87246EC-EBDB-4012-B95A-EC282B5EF595}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Top Integers", "05. Top Integers\05. Top Integers.csproj", "{FDA7F783-6268-4496-8DFB-BDCE5018646C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "05. Top Integers", "05. Top Integers\05. Top Integers.csproj", "{FDA7F783-6268-4496-8DFB-BDCE5018646C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Equal Sum", "06. Equal Sum\06. Equal Sum.csproj", "{03383E28-9BB1-4D19-85AD-FEC398BB1262}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "06. Equal Sum", "06. Equal Sum\06. Equal Sum.csproj", "{03383E28-9BB1-4D19-85AD-FEC398BB1262}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. Max Sequence of Equal Elements", "07. Max Sequence of Equal Elements\07. Max Sequence of Equal Elements.csproj", "{E2EDA7FE-8DCF-4FFA-9B40-D08AF8492582}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07. Max Sequence of Equal Elements", "07. Max Sequence of Equal Elements\07. Max Sequence of Equal Elements.csproj", "{E2EDA7FE-8DCF-4FFA-9B40-D08AF8492582}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08. Magic Sum", "08. Magic Sum\08. Magic Sum.csproj", "{B31AFF8D-3C26-4D34-818B-02BAE9CB76F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. Kamino Factory", "09. Kamino Factory\09. Kamino Factory.csproj", "{FD5306B2-59C5-45B0-8F22-3A8E36BF4F0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. LadyBugs", "10. LadyBugs\10. LadyBugs.csproj", "{DF2B2007-1CD0-4786-AB38-AA7E69F26C9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +57,18 @@ Global
 		{E2EDA7FE-8DCF-4FFA-9B40-D08AF8492582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2EDA7FE-8DCF-4FFA-9B40-D08AF8492582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2EDA7FE-8DCF-4FFA-9B40-D08AF8492582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B31AFF8D-3C26-4D34-818B-02BAE9CB76F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B31AFF8D-3C26-4D34-818B-02BAE9CB76F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B31AFF8D-3C26-4D34-818B-02BAE9CB76F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B31AFF8D-3C26-4D34-818B-02BAE9CB76F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD5306B2-59C5-45B0-8F22-3A8E36BF4F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD5306B2-59C5-45B0-8F22-3A8E36BF4F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD5306B2-59C5-45B0-8F22-3A8E36BF4F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD5306B2-59C5-45B0-8F22-3A8E36BF4F0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF2B2007-1CD0-4786-AB38-AA7E69F26C9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF2B2007-1CD0-4786-AB38-AA7E69F26C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF2B2007-1CD0-4786-AB38-AA7E69F26C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF2B2007-1CD0-4786-AB38-AA7E69F26C9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
