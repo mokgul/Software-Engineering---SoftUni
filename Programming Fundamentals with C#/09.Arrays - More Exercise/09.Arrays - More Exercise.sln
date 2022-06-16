@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Recursive Fibonacci", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Fold and Sum", "04. Fold and Sum\04. Fold and Sum.csproj", "{DE659BBB-735C-41D8-8751-9073F1129B43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Longest Increasing Subsequence", "05. Longest Increasing Subsequence\05. Longest Increasing Subsequence.csproj", "{88777630-A459-45FB-A271-CF7FF9DE167C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DE659BBB-735C-41D8-8751-9073F1129B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE659BBB-735C-41D8-8751-9073F1129B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE659BBB-735C-41D8-8751-9073F1129B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88777630-A459-45FB-A271-CF7FF9DE167C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88777630-A459-45FB-A271-CF7FF9DE167C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88777630-A459-45FB-A271-CF7FF9DE167C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88777630-A459-45FB-A271-CF7FF9DE167C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
