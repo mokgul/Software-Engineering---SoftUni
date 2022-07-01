@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>_2._1._Simple_Calculations___Celsius_to_Fahrenheit</RootNamespace>
+  </PropertyGroup>
+
+</Project>

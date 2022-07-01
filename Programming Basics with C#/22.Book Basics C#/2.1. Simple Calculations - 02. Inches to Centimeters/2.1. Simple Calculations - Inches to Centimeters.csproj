@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>_2._1._Simple_Calculations___02._Inches_to_Centimeters</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="D:\Software-Engineering---SoftUni\Programming Basics with C#\22.Book Basics C#\2.1. Simple Calculations - Inches to Centimeters\2.1. Simple Calculations - Inches to Centimeters.csproj" Link="2.1. Simple Calculations - Inches to Centimeters.csproj" />
+  </ItemGroup>
+
+</Project>
