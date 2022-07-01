@@ -45,6 +45,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - GUI Converter BGN to EUR", "2.1. Simple Calculations - GUI Converter BGN to EUR\2.1. Simple Calculations - GUI Converter BGN to EUR.csproj", "{3B8547C6-55A8-4E36-855E-9ECB970B1681}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Training Lab", "2.2. Simple Conditions - Exam Problems - Training Lab\2.2. Simple Calculations - Exam Problems - Training Lab.csproj", "{F63A37F2-6A04-4D26-BBA4-1330604D110A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Vegetable Market", "2.2. Simple Calculations - Exam Problems - Vegetable Market\2.2. Simple Calculations - Exam Problems - Vegetable Market.csproj", "{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Change Tiles", "2.2. Simple Calculations - Exam Problems - Change Tiles\2.2. Simple Calculations - Exam Problems - Change Tiles.csproj", "{C290CA5E-ED9B-4AE2-88A2-9D079DCECAE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Money", "2.2. Simple Calculations - Exam Problems - Money\2.2. Simple Calculations - Exam Problems - Money.csproj", "{321E2FC7-8917-429E-B4CD-6F55D184FBED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Daily Earnings", "2.2. Simple Calculations - Exam Problems - Daily Earnings\2.2. Simple Calculations - Exam Problems - Daily Earnings.csproj", "{8CB35A41-8643-47C1-B654-A6CAB28CC245}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +145,26 @@ Global
 		{3B8547C6-55A8-4E36-855E-9ECB970B1681}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B8547C6-55A8-4E36-855E-9ECB970B1681}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B8547C6-55A8-4E36-855E-9ECB970B1681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F63A37F2-6A04-4D26-BBA4-1330604D110A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F63A37F2-6A04-4D26-BBA4-1330604D110A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F63A37F2-6A04-4D26-BBA4-1330604D110A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F63A37F2-6A04-4D26-BBA4-1330604D110A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C290CA5E-ED9B-4AE2-88A2-9D079DCECAE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C290CA5E-ED9B-4AE2-88A2-9D079DCECAE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C290CA5E-ED9B-4AE2-88A2-9D079DCECAE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C290CA5E-ED9B-4AE2-88A2-9D079DCECAE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{321E2FC7-8917-429E-B4CD-6F55D184FBED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321E2FC7-8917-429E-B4CD-6F55D184FBED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321E2FC7-8917-429E-B4CD-6F55D184FBED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321E2FC7-8917-429E-B4CD-6F55D184FBED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CB35A41-8643-47C1-B654-A6CAB28CC245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CB35A41-8643-47C1-B654-A6CAB28CC245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CB35A41-8643-47C1-B654-A6CAB28CC245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CB35A41-8643-47C1-B654-A6CAB28CC245}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
