@@ -17,85 +17,111 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.First steps in coding - S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.First steps in coding - Sumator", "1.First steps in coding - Sumator\1.First steps in coding - Sumator.csproj", "{049C27F0-BF41-481E-A64D-AEF26BBDC23E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Square area", "2.1. Simple Calculations - Square area\2.1. Simple Calculations - Square area.csproj", "{018BC9BE-CEE4-446E-BA25-3057C844185D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Square area", "2.1. Simple Calculations - Square area\2.1. Simple Calculations - Square area.csproj", "{018BC9BE-CEE4-446E-BA25-3057C844185D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Greeting by Name", "2.1. Simple Calculations - Greeting by Name\2.1. Simple Calculations - Greeting by Name.csproj", "{0B59A9E1-7349-4CEF-A495-02979895043F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Greeting by Name", "2.1. Simple Calculations - Greeting by Name\2.1. Simple Calculations - Greeting by Name.csproj", "{0B59A9E1-7349-4CEF-A495-02979895043F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1.Simple Calculations - Inches to centimeters", "2.1.Simple Calculations - Inches to centimeters\2.1.Simple Calculations - Inches to centimeters.csproj", "{91165A04-DB37-4C4A-9C10-0D047C121474}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1.Simple Calculations - Inches to centimeters", "2.1.Simple Calculations - Inches to centimeters\2.1.Simple Calculations - Inches to centimeters.csproj", "{91165A04-DB37-4C4A-9C10-0D047C121474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Concatenate Data", "2.1. Simple Calculations - Concatenate Data\2.1. Simple Calculations - Concatenate Data.csproj", "{7E10BFFA-7812-4B63-9F06-F1BDD8A4B31A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Concatenate Data", "2.1. Simple Calculations - Concatenate Data\2.1. Simple Calculations - Concatenate Data.csproj", "{7E10BFFA-7812-4B63-9F06-F1BDD8A4B31A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Trapeziod Area", "2.1. Simple Calculations - Trapeziod Area\2.1. Simple Calculations - Trapeziod Area.csproj", "{C49EFD98-111B-43D6-AB72-651E83FB1C7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Trapeziod Area", "2.1. Simple Calculations - Trapeziod Area\2.1. Simple Calculations - Trapeziod Area.csproj", "{C49EFD98-111B-43D6-AB72-651E83FB1C7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Circle Area and Perimeter", "2.1. Simple Calculations - Circle Area and Perimeter\2.1. Simple Calculations - Circle Area and Perimeter.csproj", "{3DE99543-69FD-40F5-9F3A-E9F6651C0463}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Circle Area and Perimeter", "2.1. Simple Calculations - Circle Area and Perimeter\2.1. Simple Calculations - Circle Area and Perimeter.csproj", "{3DE99543-69FD-40F5-9F3A-E9F6651C0463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - 2D Rectangle Area", "2.1. Simple Calculations - 2D Rectangle Area\2.1. Simple Calculations - 2D Rectangle Area.csproj", "{FC04476B-394C-4CE8-B681-973AE6D5B9E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - 2D Rectangle Area", "2.1. Simple Calculations - 2D Rectangle Area\2.1. Simple Calculations - 2D Rectangle Area.csproj", "{FC04476B-394C-4CE8-B681-973AE6D5B9E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Triangle Area", "2.1. Simple Calculations - Triangle Area\2.1. Simple Calculations - Triangle Area.csproj", "{6390AED9-83B8-4BF7-AA32-21C4A555A302}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Triangle Area", "2.1. Simple Calculations - Triangle Area\2.1. Simple Calculations - Triangle Area.csproj", "{6390AED9-83B8-4BF7-AA32-21C4A555A302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Celsius to Fahrenheit", "2.1. Simple Calculations - Celsius to Fahrenheit\2.1. Simple Calculations - Celsius to Fahrenheit.csproj", "{3ADB5D95-4E80-403E-A56D-19B0DA68E564}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Celsius to Fahrenheit", "2.1. Simple Calculations - Celsius to Fahrenheit\2.1. Simple Calculations - Celsius to Fahrenheit.csproj", "{3ADB5D95-4E80-403E-A56D-19B0DA68E564}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Radians to Degrees", "2.1. Simple Calculations - Radians to Degrees\2.1. Simple Calculations - Radians to Degrees.csproj", "{10687F6B-572C-490D-968A-140DA54CCF21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Radians to Degrees", "2.1. Simple Calculations - Radians to Degrees\2.1. Simple Calculations - Radians to Degrees.csproj", "{10687F6B-572C-490D-968A-140DA54CCF21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - USD to BGN", "2.1. Simple Calculations - USD to BGN\2.1. Simple Calculations - USD to BGN.csproj", "{B5C224D3-02DC-4C29-8501-50EC4B8519CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - USD to BGN", "2.1. Simple Calculations - USD to BGN\2.1. Simple Calculations - USD to BGN.csproj", "{B5C224D3-02DC-4C29-8501-50EC4B8519CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - Currency Converter", "2.1. Simple Calculations - Currency Converter\2.1. Simple Calculations - Currency Converter.csproj", "{A5EC6210-91C6-4BB3-81B2-7C0491E8392B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - Currency Converter", "2.1. Simple Calculations - Currency Converter\2.1. Simple Calculations - Currency Converter.csproj", "{A5EC6210-91C6-4BB3-81B2-7C0491E8392B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - 1000 Days After Birth", "2.1. Simple Calculations - 1000 Days After Birth\2.1. Simple Calculations - 1000 Days After Birth.csproj", "{3FC98A4E-A1E5-46CC-9F79-A1F8258C87BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - 1000 Days After Birth", "2.1. Simple Calculations - 1000 Days After Birth\2.1. Simple Calculations - 1000 Days After Birth.csproj", "{3FC98A4E-A1E5-46CC-9F79-A1F8258C87BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Training Lab", "2.2. Simple Conditions - Exam Problems - Training Lab\2.2. Simple Calculations - Exam Problems - Training Lab.csproj", "{F63A37F2-6A04-4D26-BBA4-1330604D110A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.2. Simple Calculations - Exam Problems - Vegetable Market", "2.2. Simple Calculations - Exam Problems - Vegetable Market\2.2. Simple Calculations - Exam Problems - Vegetable Market.csproj", "{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Vegetable Market", "2.2. Simple Calculations - Exam Problems - Vegetable Market\2.2. Simple Calculations - Exam Problems - Vegetable Market.csproj", "{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.2. Simple Calculations - Exam Problems - Change Tiles", "2.2. Simple Calculations - Exam Problems - Change Tiles\2.2. Simple Calculations - Exam Problems - Change Tiles.csproj", "{C290CA5E-ED9B-4AE2-88A2-9D079DCECAE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Change Tiles", "2.2. Simple Calculations - Exam Problems - Change Tiles\2.2. Simple Calculations - Exam Problems - Change Tiles.csproj", "{C290CA5E-ED9B-4AE2-88A2-9D079DCECAE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.2. Simple Calculations - Exam Problems - Money", "2.2. Simple Calculations - Exam Problems - Money\2.2. Simple Calculations - Exam Problems - Money.csproj", "{321E2FC7-8917-429E-B4CD-6F55D184FBED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Money", "2.2. Simple Calculations - Exam Problems - Money\2.2. Simple Calculations - Exam Problems - Money.csproj", "{321E2FC7-8917-429E-B4CD-6F55D184FBED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.2. Simple Calculations - Exam Problems - Daily Earnings", "2.2. Simple Calculations - Exam Problems - Daily Earnings\2.2. Simple Calculations - Exam Problems - Daily Earnings.csproj", "{8CB35A41-8643-47C1-B654-A6CAB28CC245}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.2. Simple Calculations - Exam Problems - Daily Earnings", "2.2. Simple Calculations - Exam Problems - Daily Earnings\2.2. Simple Calculations - Exam Problems - Daily Earnings.csproj", "{8CB35A41-8643-47C1-B654-A6CAB28CC245}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Excellent Result", "3.1. Simple Conditions - Excellent Result\3.1. Simple Conditions - Excellent Result.csproj", "{9B8C2988-BB05-4A67-B978-24A164E9D172}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Excellent Result", "3.1. Simple Conditions - Excellent Result\3.1. Simple Conditions - Excellent Result.csproj", "{9B8C2988-BB05-4A67-B978-24A164E9D172}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Excellent or Not", "3.1. Simple Conditions - Excellent or Not\3.1. Simple Conditions - Excellent or Not.csproj", "{B06668BF-B1F1-4D15-AB0F-5C3D46651C02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Excellent or Not", "3.1. Simple Conditions - Excellent or Not\3.1. Simple Conditions - Excellent or Not.csproj", "{B06668BF-B1F1-4D15-AB0F-5C3D46651C02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Even or Odd", "3.1. Simple Conditions - Even or Odd\3.1. Simple Conditions - Even or Odd.csproj", "{B6655738-2346-4AA5-B115-0F42303E1766}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Even or Odd", "3.1. Simple Conditions - Even or Odd\3.1. Simple Conditions - Even or Odd.csproj", "{B6655738-2346-4AA5-B115-0F42303E1766}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Greater Number", "3.1. Simple Conditions - Greater Number\3.1. Simple Conditions - Greater Number.csproj", "{BC4915F5-1394-4EE9-91F8-D502D751E724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Greater Number", "3.1. Simple Conditions - Greater Number\3.1. Simple Conditions - Greater Number.csproj", "{BC4915F5-1394-4EE9-91F8-D502D751E724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Number 0-9 to Text", "3.1. Simple Conditions - Number 0-9 to Text\3.1. Simple Conditions - Number 0-9 to Text.csproj", "{44762B13-B169-4910-9736-BB96C387BC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Number 0-9 to Text", "3.1. Simple Conditions - Number 0-9 to Text\3.1. Simple Conditions - Number 0-9 to Text.csproj", "{44762B13-B169-4910-9736-BB96C387BC10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Bonus Score", "3.1. Simple Conditions - Bonus Score\3.1. Simple Conditions - Bonus Score.csproj", "{ABE6D27B-84F7-4862-9CF8-58EEB5767A74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Bonus Score", "3.1. Simple Conditions - Bonus Score\3.1. Simple Conditions - Bonus Score.csproj", "{ABE6D27B-84F7-4862-9CF8-58EEB5767A74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Sum Seconds", "3.1. Simple Conditions - Sum Seconds\3.1. Simple Conditions - Sum Seconds.csproj", "{6AA91393-58A6-463D-AE73-E746E25BEF75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Sum Seconds", "3.1. Simple Conditions - Sum Seconds\3.1. Simple Conditions - Sum Seconds.csproj", "{6AA91393-58A6-463D-AE73-E746E25BEF75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Metric Converter", "3.1. Simple Conditions - Metric Converter\3.1. Simple Conditions - Metric Converter.csproj", "{54E106D1-FE39-46CF-97A6-070541080D6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Metric Converter", "3.1. Simple Conditions - Metric Converter\3.1. Simple Conditions - Metric Converter.csproj", "{54E106D1-FE39-46CF-97A6-070541080D6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Password Guess", "3.1. Simple Conditions - Password Guess\3.1. Simple Conditions - Password Guess.csproj", "{0F3FBC0B-7FA2-46EB-B8BF-9341F73C61BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Password Guess", "3.1. Simple Conditions - Password Guess\3.1. Simple Conditions - Password Guess.csproj", "{0F3FBC0B-7FA2-46EB-B8BF-9341F73C61BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Number 100-200", "3.1. Simple Conditions - Number 100-200\3.1. Simple Conditions - Number 100-200.csproj", "{947221B7-D613-4D15-ACAA-F1D491D61FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Number 100-200", "3.1. Simple Conditions - Number 100-200\3.1. Simple Conditions - Number 100-200.csproj", "{947221B7-D613-4D15-ACAA-F1D491D61FE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Equal Words", "3.1. Simple Conditions - Equal Words\3.1. Simple Conditions - Equal Words.csproj", "{AEDACF01-7260-48AC-833D-B08BB7D28852}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Equal Words", "3.1. Simple Conditions - Equal Words\3.1. Simple Conditions - Equal Words.csproj", "{AEDACF01-7260-48AC-833D-B08BB7D28852}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Speed Info", "3.1. Simple Conditions - Speed Info\3.1. Simple Conditions - Speed Info.csproj", "{54ACA4F4-D405-4135-AD1A-68EDDAF39811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Speed Info", "3.1. Simple Conditions - Speed Info\3.1. Simple Conditions - Speed Info.csproj", "{54ACA4F4-D405-4135-AD1A-68EDDAF39811}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Area of Figures", "3.1. Simple Conditions - Area of Figures\3.1. Simple Conditions - Area of Figures.csproj", "{81DA5A19-DF88-4DBC-80CA-85103300870F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Area of Figures", "3.1. Simple Conditions - Area of Figures\3.1. Simple Conditions - Area of Figures.csproj", "{81DA5A19-DF88-4DBC-80CA-85103300870F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Time + 15 Minutes", "3.1. Simple Conditions - Time + 15 Minutes\3.1. Simple Conditions - Time + 15 Minutes.csproj", "{98197671-F6B1-439C-B070-6ACCE0669931}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Time + 15 Minutes", "3.1. Simple Conditions - Time + 15 Minutes\3.1. Simple Conditions - Time + 15 Minutes.csproj", "{98197671-F6B1-439C-B070-6ACCE0669931}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - 3 Equal Numbers", "3.1. Simple Conditions - 3 Equal Numbers\3.1. Simple Conditions - 3 Equal Numbers.csproj", "{97CF6871-2FE6-4DED-BE7F-22F3B7B4F0E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - 3 Equal Numbers", "3.1. Simple Conditions - 3 Equal Numbers\3.1. Simple Conditions - 3 Equal Numbers.csproj", "{97CF6871-2FE6-4DED-BE7F-22F3B7B4F0E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.1. Simple Conditions - Number 0-100 to Text", "3.1. Simple Conditions - Number 0-100 to Text\3.1. Simple Conditions - Number 0-100 to Text.csproj", "{DA253825-A7D5-4422-9245-E44CC69FEDA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.1. Simple Conditions - Number 0-100 to Text", "3.1. Simple Conditions - Number 0-100 to Text\3.1. Simple Conditions - Number 0-100 to Text.csproj", "{DA253825-A7D5-4422-9245-E44CC69FEDA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.2. Simple Conditions - Exam Problems - Transport Price", "3.2. Simple Conditions - Exam Problems - Transport Price\3.2. Simple Conditions - Exam Problems - Transport Price.csproj", "{4144731E-9A4D-4616-80AA-9F2FC879D1DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.2. Simple Conditions - Exam Problems - Transport Price", "3.2. Simple Conditions - Exam Problems - Transport Price\3.2. Simple Conditions - Exam Problems - Transport Price.csproj", "{4144731E-9A4D-4616-80AA-9F2FC879D1DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.1. Simple Calculations - GUI Converter BGN to EUR", "2.1. Simple Calculations - GUI Converter BGN to EUR\2.1. Simple Calculations - GUI Converter BGN to EUR.csproj", "{1ED593F1-67BD-4B6B-B3CC-BBCFAE02C499}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.1. Simple Calculations - GUI Converter BGN to EUR", "2.1. Simple Calculations - GUI Converter BGN to EUR\2.1. Simple Calculations - GUI Converter BGN to EUR.csproj", "{1ED593F1-67BD-4B6B-B3CC-BBCFAE02C499}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.2. Simple Conditions - Exam Problems - Pipes In Pool", "3.2. Simple Conditions - Exam Problems - Pipes In Pool\3.2. Simple Conditions - Exam Problems - Pipes In Pool.csproj", "{F12A3864-B352-4783-8547-21C8C37B07CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.2. Simple Conditions - Exam Problems - Pipes In Pool", "3.2. Simple Conditions - Exam Problems - Pipes In Pool\3.2. Simple Conditions - Exam Problems - Pipes In Pool.csproj", "{F12A3864-B352-4783-8547-21C8C37B07CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.2. Simple Conditions - Exam Problems - Sleepy Tom Cat", "3.2. Simple Conditions - Exam Problems - Sleepy Tom Cat\3.2. Simple Conditions - Exam Problems - Sleepy Tom Cat.csproj", "{A2F63332-D6B2-4387-A31C-FF14B2EDB2E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.2. Simple Conditions - Exam Problems - Sleepy Tom Cat", "3.2. Simple Conditions - Exam Problems - Sleepy Tom Cat\3.2. Simple Conditions - Exam Problems - Sleepy Tom Cat.csproj", "{A2F63332-D6B2-4387-A31C-FF14B2EDB2E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.2. Simple Conditions - Exam Problems - Harvest", "3.2. Simple Conditions - Exam Problems - Harvest\3.2. Simple Conditions - Exam Problems - Harvest.csproj", "{05B22DBF-E518-4DF5-BEB0-D3D680E57D40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.2. Simple Conditions - Exam Problems - Harvest", "3.2. Simple Conditions - Exam Problems - Harvest\3.2. Simple Conditions - Exam Problems - Harvest.csproj", "{05B22DBF-E518-4DF5-BEB0-D3D680E57D40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.2. Simple Conditions - Exam Problems - Firm", "3.2. Simple Conditions - Exam Problems - Firm\3.2. Simple Conditions - Exam Problems - Firm.csproj", "{50DE5C7C-A33B-418D-8264-94808431703A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.2. Simple Conditions - Exam Problems - Firm", "3.2. Simple Conditions - Exam Problems - Firm\3.2. Simple Conditions - Exam Problems - Firm.csproj", "{50DE5C7C-A33B-418D-8264-94808431703A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.2. Simple Calculations - Exam Problems - Training Lab", "2.2. Simple Calculations - Exam Problems - Training Lab\2.2. Simple Calculations - Exam Problems - Training Lab.csproj", "{C33602F3-027B-4601-B7AF-5B83E76937C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Personal Titles", "4.1. Complex Conditions - Personal Titles\4.1. Complex Conditions - Personal Titles.csproj", "{02383FA8-BD2D-496E-BFDD-1D3987B60580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Small Shop", "4.1. Complex Conditions - Small Shop\4.1. Complex Conditions - Small Shop.csproj", "{D3907E66-C90A-4AA1-B175-481AA8DEB279}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Point in Rectangle", "4.1. Complex Conditions - Point in Rectangle\4.1. Complex Conditions - Point in Rectangle.csproj", "{BCE1825F-E22C-4E46-8FEE-43ADB623B38D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Fruit or Vegetable", "4.1. Complex Conditions - Fruit or Vegetable\4.1. Complex Conditions - Fruit or Vegetable.csproj", "{6FA27D5C-681F-4FA0-A8E1-03CEBAB13359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Invalid Number", "4.1. Complex Conditions - Invalid Number\4.1. Complex Conditions - Invalid Number.csproj", "{DE861E43-9FC0-4132-97B5-9090E19F0FD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Point on Rectangle Border", "4.1. Complex Conditions - Point on Rectangle Border\4.1. Complex Conditions - Point on Rectangle Border.csproj", "{40BC439D-F934-47FA-A6E1-80A2DCF329C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Fruit Shop", "4.1. Complex Conditions - Fruit Shop\4.1. Complex Conditions - Fruit Shop.csproj", "{B35234AE-7D3C-4B26-ABBE-6EAB4DC2ED99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Trade Comissions", "4.1. Complex Conditions - Trade Comissions\4.1. Complex Conditions - Trade Comissions.csproj", "{F1C00C4A-F9AF-4B8C-8D28-F6A118DCE0DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Day of Week", "4.1. Complex Conditions - Day of Week\4.1. Complex Conditions - Day of Week.csproj", "{EF1E354F-C365-4313-861D-5109532F3774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Animal Type", "4.1. Complex Conditions - Animal Type\4.1. Complex Conditions - Animal Type.csproj", "{B79E220B-5E8D-4FFF-95C9-312D447B20B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Cinema", "4.1. Complex Conditions - Cinema\4.1. Complex Conditions - Cinema.csproj", "{339DF647-F0C6-4AB0-9063-1276652763C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Volleyball", "4.1. Complex Conditions - Volleyball\4.1. Complex Conditions - Volleyball.csproj", "{78ABB97C-3BCA-4EF8-9DE9-9602071C0B4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.1. Complex Conditions - Point in the Figure", "4.1. Complex Conditions - Point in the Figure\4.1. Complex Conditions - Point in the Figure.csproj", "{61D64DB3-92F7-485E-A050-EB73C62F00CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -183,10 +209,6 @@ Global
 		{3FC98A4E-A1E5-46CC-9F79-A1F8258C87BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FC98A4E-A1E5-46CC-9F79-A1F8258C87BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FC98A4E-A1E5-46CC-9F79-A1F8258C87BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F63A37F2-6A04-4D26-BBA4-1330604D110A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F63A37F2-6A04-4D26-BBA4-1330604D110A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F63A37F2-6A04-4D26-BBA4-1330604D110A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F63A37F2-6A04-4D26-BBA4-1330604D110A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7FA7051-9E8B-4A97-9F78-AB3C99ED0FB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -291,6 +313,62 @@ Global
 		{50DE5C7C-A33B-418D-8264-94808431703A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50DE5C7C-A33B-418D-8264-94808431703A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50DE5C7C-A33B-418D-8264-94808431703A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C33602F3-027B-4601-B7AF-5B83E76937C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33602F3-027B-4601-B7AF-5B83E76937C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33602F3-027B-4601-B7AF-5B83E76937C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33602F3-027B-4601-B7AF-5B83E76937C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02383FA8-BD2D-496E-BFDD-1D3987B60580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02383FA8-BD2D-496E-BFDD-1D3987B60580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02383FA8-BD2D-496E-BFDD-1D3987B60580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02383FA8-BD2D-496E-BFDD-1D3987B60580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3907E66-C90A-4AA1-B175-481AA8DEB279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3907E66-C90A-4AA1-B175-481AA8DEB279}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3907E66-C90A-4AA1-B175-481AA8DEB279}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3907E66-C90A-4AA1-B175-481AA8DEB279}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCE1825F-E22C-4E46-8FEE-43ADB623B38D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE1825F-E22C-4E46-8FEE-43ADB623B38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE1825F-E22C-4E46-8FEE-43ADB623B38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE1825F-E22C-4E46-8FEE-43ADB623B38D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA27D5C-681F-4FA0-A8E1-03CEBAB13359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FA27D5C-681F-4FA0-A8E1-03CEBAB13359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FA27D5C-681F-4FA0-A8E1-03CEBAB13359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FA27D5C-681F-4FA0-A8E1-03CEBAB13359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE861E43-9FC0-4132-97B5-9090E19F0FD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE861E43-9FC0-4132-97B5-9090E19F0FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE861E43-9FC0-4132-97B5-9090E19F0FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE861E43-9FC0-4132-97B5-9090E19F0FD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40BC439D-F934-47FA-A6E1-80A2DCF329C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40BC439D-F934-47FA-A6E1-80A2DCF329C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40BC439D-F934-47FA-A6E1-80A2DCF329C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40BC439D-F934-47FA-A6E1-80A2DCF329C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B35234AE-7D3C-4B26-ABBE-6EAB4DC2ED99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B35234AE-7D3C-4B26-ABBE-6EAB4DC2ED99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B35234AE-7D3C-4B26-ABBE-6EAB4DC2ED99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B35234AE-7D3C-4B26-ABBE-6EAB4DC2ED99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C00C4A-F9AF-4B8C-8D28-F6A118DCE0DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C00C4A-F9AF-4B8C-8D28-F6A118DCE0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C00C4A-F9AF-4B8C-8D28-F6A118DCE0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C00C4A-F9AF-4B8C-8D28-F6A118DCE0DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF1E354F-C365-4313-861D-5109532F3774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF1E354F-C365-4313-861D-5109532F3774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF1E354F-C365-4313-861D-5109532F3774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF1E354F-C365-4313-861D-5109532F3774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B79E220B-5E8D-4FFF-95C9-312D447B20B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B79E220B-5E8D-4FFF-95C9-312D447B20B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B79E220B-5E8D-4FFF-95C9-312D447B20B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B79E220B-5E8D-4FFF-95C9-312D447B20B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339DF647-F0C6-4AB0-9063-1276652763C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339DF647-F0C6-4AB0-9063-1276652763C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339DF647-F0C6-4AB0-9063-1276652763C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339DF647-F0C6-4AB0-9063-1276652763C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78ABB97C-3BCA-4EF8-9DE9-9602071C0B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78ABB97C-3BCA-4EF8-9DE9-9602071C0B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78ABB97C-3BCA-4EF8-9DE9-9602071C0B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78ABB97C-3BCA-4EF8-9DE9-9602071C0B4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D64DB3-92F7-485E-A050-EB73C62F00CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D64DB3-92F7-485E-A050-EB73C62F00CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D64DB3-92F7-485E-A050-EB73C62F00CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D64DB3-92F7-485E-A050-EB73C62F00CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
