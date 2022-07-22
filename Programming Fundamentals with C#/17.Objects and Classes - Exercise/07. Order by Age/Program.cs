@@ -65,12 +65,8 @@ namespace _07._Order_by_Age
 
         private static bool IsInList(List<Person> people, string id)
         {
-            foreach (Person item in people)
-            {
-                if (item.ID == id)
-                    return true;
-            }
-            return false;
+            bool isInList = (people.Any(p => p.ID == id)) ? true : false;
+            return isInList;
         }
     }
 }
