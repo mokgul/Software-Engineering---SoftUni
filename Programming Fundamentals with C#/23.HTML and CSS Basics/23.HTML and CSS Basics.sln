@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "23.HTML and CSS Basics", ".", "{722EAEDC-FCFE-481C-B39C-2002F650B7D7}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55264"
+		Debug.AspNetCompiler.PhysicalPath = "..\23.HTML and CSS Basics\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55264\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55264"
+		Release.AspNetCompiler.PhysicalPath = "..\23.HTML and CSS Basics\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55264\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55264"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{722EAEDC-FCFE-481C-B39C-2002F650B7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{722EAEDC-FCFE-481C-B39C-2002F650B7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA8FB3E8-6BB5-485F-A2BB-95A1EEAB399C}
+	EndGlobalSection
+EndGlobal
