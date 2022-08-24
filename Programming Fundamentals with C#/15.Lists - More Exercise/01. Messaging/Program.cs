@@ -8,34 +8,41 @@ namespace _01._Messaging
     {
         static void Main(string[] args)
         {
-            //NOT FINISHED, 80% done
-            List<int> numbers = Console.ReadLine()
-                .Split(' ')
-                .Select(int.Parse)
-                .ToList();
+            List<int> numbers = Console.ReadLine().Split()
+                .Select(int.Parse).ToList();
+            
+            numbers = numbers.Select(x => GetSum(x)).ToList();
 
             string text = Console.ReadLine();
-            string output = String.Empty;
+            string message = string.Empty;
+            message = GetMessage(numbers, text, message);
+            Console.WriteLine(message);
+        }
 
-            for (int i = 0; i < numbers.Count; i++)
+        private static int GetSum(int x)
+        {
+            int sum = 0;
+            while (x != 0)
             {
-                int digitSum = 0;
-                int currentNum = numbers[i];
-                while (currentNum > 0)
-                {
-                    digitSum += currentNum % 10;
-                    currentNum /= 10;
-                }
+                sum += x % 10;
+                x /= 10;
+            }
+            return sum;
+        }
 
-                if (digitSum > text.Length - 1)
-                    digitSum -= text.Length;
+        private static string GetMessage(List<int> numbers, string text,string message)
+        {
+            for (int i = 0; i < numbers.Count;i++)
+            {
+                int currentNumber = numbers[i];
+                while (currentNumber > text.Length - 1) 
+                    currentNumber -= text.Length;
 
-                output += text[digitSum];
-                text.Remove(digitSum,1);
-
+                message += text[currentNumber];
+                text = text.Remove(currentNumber, 1);
             }
 
-            Console.WriteLine(output);
+            return message;
         }
     }
 }
