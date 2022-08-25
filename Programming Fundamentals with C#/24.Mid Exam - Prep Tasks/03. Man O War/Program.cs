@@ -9,7 +9,6 @@ namespace _03._Man_O_War
     {
         static void Main(string[] args)
         {
-            // 90/100 MAYBE RE WRITE ?
             var pirateShip= Console.ReadLine().Split('>')
                 .Select(int.Parse).ToList();
             var warShip = Console.ReadLine().Split('>')
