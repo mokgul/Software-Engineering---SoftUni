@@ -1,45 +1,41 @@
 ﻿using System;
-using System.Collections.Generic;
-
-namespace _05._HTML
+ 
+namespace _01._Oscars_ceremony
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            List<Text> article = new List<Text>();
-
-            string title = Console.ReadLine();
-            article.Add(new Text("<h1>",title,"</h1>"));
-
-            string content = Console.ReadLine();
-            article.Add(new Text("<article>",content,"</article>"));
-
-            string comment = Console.ReadLine();
-            
-            while (comment != "end of comments")
+            var moviesCount = int.Parse(Console.ReadLine());
+            var averageRating = 0.0;
+            double maxRating = double.MinValue;
+            string maxRatingMovie = "";
+            double minRating = double.MaxValue;
+            string minRatingMovie = "";
+ 
+            for (int i = moviesCount; i > 0; i--)
             {
-                article.Add(new Text("<div>", comment, "</div>"));
-                comment = Console.ReadLine();
+                var movieName = Console.ReadLine();
+                var movieRating = double.Parse(Console.ReadLine());
+ 
+                if (movieRating > maxRating)
+                {
+                    maxRating = movieRating;
+                    maxRatingMovie = movieName;
+                }
+                if (movieRating < minRating)
+                {
+                    minRating = movieRating;
+                    minRatingMovie = movieName;
+                }
+                averageRating += movieRating;
             }
-
-            foreach (Text text in article)
-            {
-                Console.WriteLine(text.LineOne);
-                Console.WriteLine("    " + text.LineTwo);
-                Console.WriteLine(text.LineThree);
-            }
+            averageRating /= moviesCount;
+ 
+            Console.WriteLine($"{String.Format("{0:0.0}", maxRatingMovie)} is with highest rating: {maxRating}");
+            Console.WriteLine($"{String.Format("{0:0.0}", minRatingMovie)} is with lowest rating: {minRating}");
+            Console.WriteLine("Average rating: " + String.Format("{0:0.0}", averageRating));
+ 
         }
-    }
-
-    class Text
-    {
-        public Text(string lineOne, string lineTwo, string lineThree)
-        {
-            this.LineOne = lineOne; this.LineTwo = lineTwo; this.LineThree = lineThree;
-        }
-        public string LineOne { get; set; }
-        public string LineTwo { get; set; }
-        public string LineThree { get; set; }
     }
 }
