@@ -1,85 +1,54 @@
-﻿using System;
+using System;
 
-namespace Лекция_3___12_13_Март
+namespace Hotel_Room
 {
-    class Program
+    class HotelRoom
     {
         static void Main(string[] args)
         {
-            string month = Console.ReadLine();
-            byte count = byte.Parse(Console.ReadLine());
-            double priseForStudio = 0;
-            double priseForApartment = 0;
-            double totalPriseForStudio = 0;
-            double totalPriseForApartment = 0;
+            //string[] months = {"May", "October", "June", "September", "July", "August"};
+            string[] studio = { "50.00", "75.20", "76.00" };
+            string[] apartment = { "65.00", "68.70", "77.00" };
+            double studioPrice = 0;
+            double apartmentPrice = 0;
 
-            switch (month)
+            string month = Console.ReadLine();
+            int days = int.Parse(Console.ReadLine());
+
+            switch(month)
             {
                 case "May":
                 case "October":
-                    if (count > 7 && count <= 14)
+                    studioPrice = days * double.Parse(studio[0]);
+                    apartmentPrice = days * double.Parse(apartment[0]);
+                    if (days > 7 && days <= 14)
+                        studioPrice *= 0.95;
+                    else if (days > 14)
                     {
-                        priseForStudio = 50;
-                        priseForApartment = 65;
-                        totalPriseForStudio = priseForStudio * 0.95;
-                        Console.WriteLine($"Apartment: {totalPriseForApartment * count:F2} lv.");
-                        Console.WriteLine($"Studio: {totalPriseForStudio * count:F2} lv.");
-                    }
-                    else if (count > 14)
-                    {
-                        priseForStudio = 50;
-                        priseForApartment = 65;
-                        totalPriseForApartment = priseForApartment * 0.90;
-                        totalPriseForStudio = priseForStudio * 0.70;
-                        Console.WriteLine($"Apartment: {totalPriseForApartment * count:F2} lv.");
-                        Console.WriteLine($"Studio: {totalPriseForStudio * count:F2} lv.");
-                    }
-                    else
-                    {
-                        priseForStudio = 50;
-                        priseForApartment = 65;
-                        Console.WriteLine($"Apartment: {priseForApartment * count:F2} lv.");
-                        Console.WriteLine($"Studio: {priseForStudio * count:F2} lv.");
+                        studioPrice *= 0.70;
+                        apartmentPrice *= 0.90;
                     }
                     break;
                 case "June":
                 case "September":
-                    if (count > 14)
+                    studioPrice = days * double.Parse(studio[1]);
+                    apartmentPrice = days * double.Parse(apartment[1]);
+                    if (days > 14)
                     {
-                        priseForStudio = 75.20;
-                        priseForApartment = 68.70;
-                        totalPriseForApartment = priseForApartment * 0.90;
-                        totalPriseForStudio = priseForStudio * 0.80;
-                        Console.WriteLine($"Apartment: {totalPriseForApartment * count:F2} lv.");
-                        Console.WriteLine($"Studio: {totalPriseForStudio * count:F2} lv.");
-                    }
-                    else
-                    {
-                        priseForStudio = 75.20;
-                        priseForApartment = 68.70;
-                        Console.WriteLine($"Apartment: {priseForApartment * count:F2} lv.");
-                        Console.WriteLine($"Studio: {priseForStudio * count:F2} lv.");
+                        studioPrice *= 0.80;
+                        apartmentPrice *= 0.90;
                     }
                     break;
                 case "July":
                 case "August":
-                    if (count > 14)
-                    {
-                        priseForStudio = 76;
-                        priseForApartment = 77;
-                        totalPriseForApartment = priseForApartment * 0.90;
-                        Console.WriteLine($"Apartment: {totalPriseForApartment * count:F2} lv.");
-                        Console.WriteLine($"Studio: {priseForStudio * count:F2} lv.");
-                    }
-                    else
-                    {
-                        priseForStudio = 75.20;
-                        priseForApartment = 68.70;
-                        Console.WriteLine($"Apartment: {priseForApartment * count:F2} lv.");
-                        Console.WriteLine($"Studio: {priseForStudio * count:F2} lv.");
-                    }
+                    studioPrice = days * double.Parse(studio[2]);
+                    apartmentPrice = days * double.Parse(apartment[2]);
+                    if (days > 14)
+                        apartmentPrice *= 0.90;
                     break;
             }
+            Console.WriteLine($"Apartment: {apartmentPrice:f2} lv.");
+            Console.WriteLine($"Studio: {studioPrice:f2} lv.");
         }
     }
 }
