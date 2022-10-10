@@ -14,7 +14,7 @@ namespace _03._Maximum_and_Minimum_Element
         private static Predicate<Stack<int>> NotEmpty = c => c.Count > 0;
         static void Main(string[] args)
         {
-            Input(Program.stack);
+            Input();
             PrintStack();
         }
 
@@ -24,7 +24,7 @@ namespace _03._Maximum_and_Minimum_Element
                 Console.WriteLine(string.Join(", ", Program.stack.ToList()));
         }
         
-        static void Input(Stack<int> stack)
+        static void Input()
         {
             int lines = int.Parse(Console.ReadLine());
             for (int i = 0; i < lines; i++)
