@@ -14,8 +14,8 @@ namespace Telephony.Core
         private readonly IReader _reader;
         private readonly IWriter _writer;
 
-        private Smartphone _smartphone;
-        private StationaryPhone _stationaryPhone;
+        private readonly Smartphone _smartphone;
+        private readonly StationaryPhone _stationaryPhone;
 
         private string[] _phoneNumbers;
         private string[] _urls;
