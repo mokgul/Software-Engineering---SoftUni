@@ -1,5 +1,5 @@
 ﻿
-namespace BirthdayCelebrations.IO
+namespace FoodShortage.IO
 {
     using System;
 
@@ -7,8 +7,6 @@ namespace BirthdayCelebrations.IO
 
     public class ConsoleReader : IReader
     {
-        public string ReadLine()
-            => Console.ReadLine();
-
+        public string ReadLine() => Console.ReadLine();
     }
 }

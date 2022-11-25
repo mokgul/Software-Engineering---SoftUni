@@ -1,9 +1,9 @@
 ﻿
-namespace BirthdayCelebrations.IO
+namespace FoodShortage.IO
 {
     using System;
-    using Interfaces;
 
+    using Interfaces;
     public class ConsoleWriter : IWriter
     {
         public void Write(string value)

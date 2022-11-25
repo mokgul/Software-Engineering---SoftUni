@@ -1,10 +1,10 @@
 ﻿
-namespace BirthdayCelebrations
+namespace FoodShortage
 {
-    using IO;
-    using IO.Interfaces;
     using Core;
     using Core.Interfaces;
+    using IO;
+    using IO.Interfaces;
 
     public class StartUp
     {
@@ -13,7 +13,7 @@ namespace BirthdayCelebrations
             IReader reader = new ConsoleReader();
             IWriter writer = new ConsoleWriter();
 
-            IEngine engine = new Engine(reader,writer);
+            IEngine engine = new Engine(reader, writer);
             engine.Run();
         }
     }
