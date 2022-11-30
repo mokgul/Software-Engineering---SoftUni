@@ -4,8 +4,8 @@ namespace Vehicles.Models
     public class Truck : Vehicle
     {
         private const double ConsumptionIncrease = 1.6;
-        public Truck(double fuel, double fuelQuantity, double fuelConsumption) 
-            : base(fuel, fuelQuantity, fuelConsumption, ConsumptionIncrease)
+        public Truck(double fuelQuantity, double fuelConsumption) 
+            : base(fuelQuantity, fuelConsumption, ConsumptionIncrease)
         {
         }
 

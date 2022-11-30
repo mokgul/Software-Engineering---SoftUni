@@ -6,20 +6,19 @@ namespace Vehicles.Models
 
     public abstract class Vehicle : IVehicle
     {
-        protected Vehicle(double fuel, double fuelQuantity,
+        protected Vehicle(double fuelQuantity,
             double fuelConsumption, double consumptionIncrease)
         {
-            Fuel = fuel;
             FuelQuantity = fuelQuantity;
             FuelConsumption = fuelConsumption + consumptionIncrease;
         }
-        public double Fuel { get; private set; }
+        
         public double FuelQuantity { get; private set; }
         public double FuelConsumption { get; private set; }
 
         public string Drive(double distance)
         {
-            if (distance * FuelConsumption < 0)
+            if (FuelQuantity - distance * FuelConsumption < 0)
                 throw new InsufficientFuelException(string.Format(
                     ExceptionMessages.InsufficientFuelExceptionMessage,
                    this.GetType().Name));
@@ -29,10 +28,10 @@ namespace Vehicles.Models
         }
         public virtual void Refuel(double liters)
         {
-            this.Fuel += liters;
+            this.FuelQuantity += liters;
         }
 
         public override string ToString()
-            => $"{this.GetType().Name}: {this.Fuel:f2}";
+            => $"{this.GetType().Name}: {this.FuelQuantity:f2}";
     }
 }

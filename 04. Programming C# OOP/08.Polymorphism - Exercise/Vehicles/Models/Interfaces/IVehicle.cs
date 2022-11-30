@@ -2,7 +2,6 @@
 {
     public interface IVehicle
     {
-        double Fuel { get; }
         double FuelQuantity { get; }
 
         double FuelConsumption { get; }
