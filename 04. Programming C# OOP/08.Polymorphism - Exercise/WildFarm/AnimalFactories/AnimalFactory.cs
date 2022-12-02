@@ -1,4 +1,6 @@
 ﻿
+using WildFarm.Exceptions;
+
 namespace WildFarm.AnimalFactories
 {
     using Interfaces;
@@ -22,7 +24,8 @@ namespace WildFarm.AnimalFactories
                     "Mouse" => new Mouse(args[1], double.Parse(args[2]), args[3]),
                     "Dog" => new Dog(args[1], double.Parse(args[2]), args[3]),
                     "Cat" => new Cat(args[1], double.Parse(args[2]), args[3], args[4]),
-                    "Tiger" => new Tiger(args[1], double.Parse(args[2]), args[3], args[4])
+                    "Tiger" => new Tiger(args[1], double.Parse(args[2]), args[3], args[4]),
+                    _ => throw new InvalidTypeOfAnimalException()
                 };
             return animal;
         }

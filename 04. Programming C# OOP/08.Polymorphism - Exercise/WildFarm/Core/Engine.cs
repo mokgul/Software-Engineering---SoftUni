@@ -1,5 +1,7 @@
 ﻿
 
+using WildFarm.Exceptions;
+
 namespace WildFarm.Core
 {
     using System;
@@ -47,20 +49,43 @@ namespace WildFarm.Core
 
         private void ReceiveInformation()
         {
+            IAnimal animal = null;
+            IFood food;
+            string command = _reader.ReadLine();
             while (true)
             {
-                string[] animalInfo = _reader.ReadLine().Split();
-                if (animalInfo[0] == "End") break;
-                IAnimal animal = CreateAnimalFactory(animalInfo);
+                if (command == "End") break;
+                try
+                {
+                    string[] animalInfo = command.Split();
+                    animal = CreateAnimalFactory(animalInfo);
 
-                string[] foodInfo = _reader.ReadLine().Split();
-                IFood food = _foodFactory.CreateFood(foodInfo[0], int.Parse(foodInfo[1]));
+                    string[] foodInfo = _reader.ReadLine().Split();
+                    food = _foodFactory.CreateFood(foodInfo[0], int.Parse(foodInfo[1]));
 
-                //_writer.WriteLine(animal.ProduceSound());
-                _writer.WriteLine(animal.Feed(food));
+                    _writer.WriteLine(animal.ProduceSound());
+                    animal.Feed(food);
 
-
-                _animals.Add(animal);
+                    _animals.Add(animal);
+                }
+                catch (ArgumentException e)
+                {
+                    _writer.WriteLine(e.Message);
+                }
+                catch (InvalidTypeOfAnimalException itoae)
+                {
+                    _writer.WriteLine(itoae.Message);
+                }
+                catch (InvalidTypeOfFoodException itofe)
+                {
+                    _writer.WriteLine(itofe.Message);
+                }
+                catch (Exception e)
+                {
+                    throw;
+                }
+                
+                command = _reader.ReadLine();
             }
         }
 

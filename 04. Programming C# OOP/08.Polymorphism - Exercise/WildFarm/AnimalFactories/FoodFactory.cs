@@ -1,4 +1,6 @@
 ﻿
+using WildFarm.Exceptions;
+
 namespace WildFarm.AnimalFactories
 {
     using Interfaces;
@@ -14,7 +16,8 @@ namespace WildFarm.AnimalFactories
                     "Vegetable" => new Vegetable(quantity),
                     "Fruit" => new Fruit(quantity),
                     "Meat" => new Meat(quantity),
-                    "Seeds" => new Seeds(quantity)
+                    "Seeds" => new Seeds(quantity),
+                    _ => throw new InvalidTypeOfFoodException()
                 };
             return food;
         }

@@ -24,10 +24,8 @@ namespace WildFarm.Models.Animal
                     "Fruit" => ProduceSound(),
                 };
             if (result == string.Empty)
-                return result =
-                    $"{ProduceSound()}" +
-                    Environment.NewLine +
-                    $"{this.GetType().Name} does not eat {food.GetType().Name}!";
+                throw new ArgumentException(string.Format
+                    (FoodTypeNotEatenException.DEFAULT_MESSAGE, this.GetType().Name, food.GetType().Name));
 
             this.Weight += (WeightGain * food.Quantity);
             this.FoodEaten += food.Quantity;
