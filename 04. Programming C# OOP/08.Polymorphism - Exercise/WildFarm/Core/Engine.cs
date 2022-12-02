@@ -66,7 +66,6 @@ namespace WildFarm.Core
                     _writer.WriteLine(animal.ProduceSound());
                     animal.Feed(food);
 
-                    _animals.Add(animal);
                 }
                 catch (ArgumentException e)
                 {
@@ -84,7 +83,7 @@ namespace WildFarm.Core
                 {
                     throw;
                 }
-                
+                _animals.Add(animal);
                 command = _reader.ReadLine();
             }
         }

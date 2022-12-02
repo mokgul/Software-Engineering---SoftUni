@@ -17,11 +17,13 @@ namespace WildFarm.Models.Animal
         public override string Feed(IFood food)
         {
             string result = string.Empty;
+            string foodName = food.GetType().Name; 
             result =
-                food.GetType().Name switch
+                 foodName switch
                 {
                     "Vegetable" => ProduceSound(),
                     "Fruit" => ProduceSound(),
+                    _ => result,
                 };
             if (result == string.Empty)
                 throw new ArgumentException(string.Format
