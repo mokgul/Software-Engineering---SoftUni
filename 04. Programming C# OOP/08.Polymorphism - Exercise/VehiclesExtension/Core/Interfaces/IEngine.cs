@@ -1,5 +1,5 @@
 ﻿
-namespace Vehicles.Core.Interfaces
+namespace VehiclesExtension.Core.Interfaces
 {
     public interface IEngine
     {

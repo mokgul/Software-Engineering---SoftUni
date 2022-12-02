@@ -1,5 +1,5 @@
 ﻿
-namespace Vehicles.IO.Interfaces
+namespace VehiclesExtension.IO.Interfaces
 {
     public interface IWriter
     {

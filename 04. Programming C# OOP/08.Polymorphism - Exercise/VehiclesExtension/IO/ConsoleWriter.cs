@@ -1,5 +1,5 @@
 ﻿
-namespace Vehicles.IO
+namespace VehiclesExtension.IO
 {
     using System;
 

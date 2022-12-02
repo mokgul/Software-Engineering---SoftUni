@@ -1,18 +1,18 @@
 ﻿
-using Vehicles.Factories;
 
-namespace Vehicles.Core
+namespace VehiclesExtension.Core
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Exceptions;
+    using Factories;
     using Factories.Interfaces;
-    using Interfaces;
     using IO.Interfaces;
+    using Models;
     using Models.Interfaces;
-
+    using Interfaces;
     public class Engine : IEngine
     {
         private readonly IReader _reader;
@@ -37,6 +37,7 @@ namespace Vehicles.Core
         {
             _vehicles.Add(CreateVehicleFactory());
             _vehicles.Add(CreateVehicleFactory());
+            _vehicles.Add(CreateVehicleFactory());
 
             int n = int.Parse(_reader.ReadLine());
             for (int i = 0; i < n; i++)
@@ -53,6 +54,14 @@ namespace Vehicles.Core
                 {
                     _writer.WriteLine(ivte.Message);
                 }
+                catch (InvalidFuelValue ifv)
+                {
+                    _writer.WriteLine(ifv.Message);
+                }
+                catch (UnableToFitFuelException utffe)
+                {
+                    _writer.WriteLine(utffe.Message);
+                }
                 catch (Exception)
                 {
                     throw;
@@ -67,7 +76,8 @@ namespace Vehicles.Core
             string type = input[0];
             double quantity = double.Parse(input[1]);
             double consumption = double.Parse(input[2]);
-            IVehicle vehicle = _factory.CreateVehicle(type, quantity, consumption);
+            double capacity = double.Parse(input[3]);
+            IVehicle vehicle = _factory.CreateVehicle(type, quantity, consumption, capacity);
 
             return vehicle;
         }
@@ -83,6 +93,11 @@ namespace Vehicles.Core
             if (vehicle == null) throw new InvalidVehicleTypeException();
             if (commnad == "Drive") _writer.WriteLine(vehicle.Drive(arg));
             else if (commnad == "Refuel") vehicle.Refuel(arg);
+            else if (commnad == "DriveEmpty")
+            {
+                Bus bus = (Bus)vehicle;
+                _writer.WriteLine(bus.DriveEmpty(arg));
+            }
         }
 
         private void PrintAllVehicles()

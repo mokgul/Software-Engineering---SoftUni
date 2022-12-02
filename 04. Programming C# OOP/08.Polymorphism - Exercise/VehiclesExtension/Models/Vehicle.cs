@@ -1,20 +1,33 @@
 ﻿
-namespace Vehicles.Models
+namespace VehiclesExtension.Models
 {
     using Exceptions;
     using Interfaces;
-
     public abstract class Vehicle : IVehicle
     {
+        private double fuelQuantity;
         protected Vehicle(double fuelQuantity,
-            double fuelConsumption, double consumptionIncrease)
+            double fuelConsumption, double consumptionIncrease, double tankCapacity)
         {
+            //TankCapacity MUST BE Initialized before FuelQuantity or the validation
+            //for fuelQuantity wont work properly (capacity will be 0 )
+            TankCapacity = tankCapacity;
             FuelQuantity = fuelQuantity;
             FuelConsumption = fuelConsumption + consumptionIncrease;
         }
-        
-        public double FuelQuantity { get; private set; }
+
+        public double FuelQuantity
+        {
+            get => fuelQuantity;
+            protected set
+            {
+                if (value > TankCapacity)
+                    fuelQuantity = 0;
+                else fuelQuantity = value;
+            }
+        }
         public double FuelConsumption { get; private set; }
+        public double TankCapacity { get; private set; }
 
         public string Drive(double distance)
         {
@@ -28,6 +41,13 @@ namespace Vehicles.Models
         }
         public virtual void Refuel(double liters)
         {
+            if (liters <= 0)
+                throw new InvalidFuelValue(ExceptionMessages.InvalidFuelValueExceptionMessage);
+            if (FuelQuantity + liters > TankCapacity)
+            {
+                throw new UnableToFitFuelException(string.Format(
+                    ExceptionMessages.UnableToFitFuelExceptionMessage, liters));
+            }
             this.FuelQuantity += liters;
         }
 

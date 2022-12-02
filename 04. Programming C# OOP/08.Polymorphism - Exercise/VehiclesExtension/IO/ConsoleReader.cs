@@ -1,10 +1,9 @@
 ﻿
-namespace Vehicles.IO
+namespace VehiclesExtension.IO
 {
     using System;
 
     using Interfaces;
-
     public class ConsoleReader : IReader
     {
         public string ReadLine() => Console.ReadLine();

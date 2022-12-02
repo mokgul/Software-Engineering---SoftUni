@@ -5,7 +5,11 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vehicles", "Vehicles\Vehicles.csproj", "{21FC491E-AFB4-42A6-8B1E-B1D5F15829D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiclesExtension", "VehiclesExtension\VehiclesExtension.csproj", "{7AB9D871-B737-4E9F-8D7A-919727F7314F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiclesExtension", "VehiclesExtension\VehiclesExtension.csproj", "{7AB9D871-B737-4E9F-8D7A-919727F7314F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raiding", "Raiding\Raiding.csproj", "{2B3ECFFE-0651-439D-A6E9-0B944E4ED20A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildFarm", "WildFarm\WildFarm.csproj", "{478ADFAE-4749-4F01-940E-70EA4B0EB400}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{7AB9D871-B737-4E9F-8D7A-919727F7314F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AB9D871-B737-4E9F-8D7A-919727F7314F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AB9D871-B737-4E9F-8D7A-919727F7314F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B3ECFFE-0651-439D-A6E9-0B944E4ED20A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B3ECFFE-0651-439D-A6E9-0B944E4ED20A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B3ECFFE-0651-439D-A6E9-0B944E4ED20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B3ECFFE-0651-439D-A6E9-0B944E4ED20A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{478ADFAE-4749-4F01-940E-70EA4B0EB400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{478ADFAE-4749-4F01-940E-70EA4B0EB400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{478ADFAE-4749-4F01-940E-70EA4B0EB400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{478ADFAE-4749-4F01-940E-70EA4B0EB400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

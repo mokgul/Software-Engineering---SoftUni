@@ -1,5 +1,5 @@
 ﻿
-namespace Vehicles.Exceptions
+namespace VehiclesExtension.Exceptions
 {
     using System;
     public class InvalidVehicleTypeException : Exception
