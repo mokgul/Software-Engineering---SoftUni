@@ -1,4 +1,5 @@
-﻿using Config;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using Config;
 using Microsoft.Data.SqlClient;
 
 namespace _01._Initial_Setup
@@ -61,7 +62,7 @@ namespace _01._Initial_Setup
                         towns.Add((string)reader["Name"]);
 
                 }
-
+                
                 Console.WriteLine($"{towns.Count} towns names were affected.");
                 Console.WriteLine($"[" + (string.Join(", ", towns)) + "]");
             }
