@@ -3,7 +3,7 @@
 
 <a href="https://softuni.bg/trainings/courses" rel="Courses"> ![SoftUni logo][logo] </a>
 
-[logo]: http://innovationstarterbox.bg/wp-content/uploads/2016/05/Softuni_logo_trasparent.png "Logo Title Text 2"
+[logo]: https://cdn.discordapp.com/attachments/979101848361377914/1077188522320072704/SoftUni-Logo-Flat.png "Logo Title Text 2"
 
 <br/>
 <br/>
@@ -29,7 +29,7 @@
 | <a href="https://softuni.bg/trainings/3729/programming-fundamentals-with-csharp-may-2022"> Technology Fundamentals with C# </a> | <a href="https://softuni.bg/certificates/details/139301/5a26dd13"> Link</a> |
 | <a href="https://softuni.bg/trainings/3842/csharp-advanced-september-2022"> C# Advanced </a>                                          | <a href="https://softuni.bg/certificates/details/143934/ad8bda7d"> Link</a>|
 | <a href="https://softuni.bg/trainings/3843/csharp-oop-october-2022"> C# OOP </a>                                               | <a href="https://softuni.bg/certificates/details/150721/27d3c37b"> Link</a>
-| <a href=""> Databases Basics - MS SQL Server </a>                     | <!-- <a href=""> Link</a> --> Incoming|
+| <a href="https://softuni.bg/trainings/3965/ms-sql-january-2023"> Databases Basics - MS SQL Server </a>                     | <a href="https://softuni.bg/certificates/details/157738/bcbf9ec4"> Link</a> |
 | <a href=""> Entity Framework Core </a>                                | <!-- <a href=""> Link</a> --> Incoming|
 | <a href=""> C# Web Basics </a>                                        | <!-- <a href=""> Link</a> --> Incoming|
 | <a href=""> ASP.NET Core </a>                                         | <!-- <a href=""> Link</a> --> Incoming|
