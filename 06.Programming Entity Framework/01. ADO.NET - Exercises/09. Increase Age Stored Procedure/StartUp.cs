@@ -20,7 +20,7 @@ namespace _09._Increase_Age_Stored_Procedure
                          SET Age += 1
                          WHERE Id = @Id",
                 conn);
-           // procedure.Parameters.AddWithValue("@id", minionId);
+           
             procedure.ExecuteNonQuery();
 
             SqlCommand cmd = new SqlCommand(@"EXEC usp_GetOlder @Id", conn);
