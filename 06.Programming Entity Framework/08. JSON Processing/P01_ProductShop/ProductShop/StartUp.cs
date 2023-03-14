@@ -45,8 +45,47 @@ namespace ProductShop
             //Console.WriteLine(GetSoldProducts(context));
 
             //Q7. Export Categories by Products Count
-            File.WriteAllText(@"../../../Results/categories-by-products.json",GetCategoriesByProductsCount(context));
-            Console.WriteLine(GetCategoriesByProductsCount(context));
+            //File.WriteAllText(@"../../../Results/categories-by-products.json",GetCategoriesByProductsCount(context));
+            //Console.WriteLine(GetCategoriesByProductsCount(context));
+
+            //Q8. Export Users and Products
+            File.WriteAllText(@"../../../Results/users-and-products.json", GetUsersWithProducts(context));
+            Console.WriteLine(GetUsersWithProducts(context));
+
+        }
+
+        [SuppressMessage("ReSharper.DPA", "DPA0007: Large number of DB records", MessageId = "count: 9221")]
+        public static string GetUsersWithProducts(ProductShopContext context)
+        {
+            var users = context.Users
+                .Where(u => u.ProductsSold.Any(p => p.BuyerId != null))
+                .OrderByDescending(p => p.ProductsSold.Count(f => f.BuyerId != null))
+                .Select(u => new
+                {
+                    firstName = u.FirstName,
+                    lastName = u.LastName,
+                    age = u.Age,
+                    soldProducts = new
+                    {
+                        count = u.ProductsSold.Count(p => p.BuyerId != null),
+                        products = u.ProductsSold
+                            .Where(p => p.BuyerId != null)
+                                .Select(i => new
+                                {
+                                    name = i.Name,
+                                    price = i.Price
+                                })
+                    }
+                })
+
+                .AsNoTracking()
+                .ToList();
+
+            return JsonConvert.SerializeObject(new
+            {
+                usersCount = users.Count,
+                users = users
+            },Formatting.Indented, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
         }
 
         public static string GetCategoriesByProductsCount(ProductShopContext context)
