@@ -187,15 +187,5 @@ public class StartUp
         return $"Successfully imported {suppliers.Count()}";
     }
 
-    private static T Deserializer<T>(string inputXml, string rootName)
-    {
-        XmlRootAttribute root = new XmlRootAttribute(rootName);
-        XmlSerializer serializer = new XmlSerializer(typeof(T), root);
-
-        using StringReader reader = new StringReader(inputXml);
-
-        T dtos = (T)serializer.Deserialize(reader);
-        return dtos;
-    }
 }
 
