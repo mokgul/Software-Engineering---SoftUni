@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Xml;
 using System.Xml.Linq;
 using ProductShop.Models;
 
@@ -46,6 +47,14 @@ public class StartUp
         // Q6.Export Sold Products
         string xmlSoldProducts = GetSoldProducts(context);
         File.WriteAllText(@"../../../results/users-sold-products.xml", GetSoldProducts(context));
+
+        // Q7. Export Categories By Products Count
+        string xmlCategories = GetCategoriesByProductsCount(context);
+        File.WriteAllText(@"../../../results/categories-by-products.xml", GetCategoriesByProductsCount(context));
+
+        // Q8. Export Users and Products
+        string xmlUsersAndProducts = GetUsersWithProducts(context);
+        File.WriteAllText(@"../../../results/users-and-products.xml", GetUsersWithProducts(context));
     }
 
     public static string ImportCategoryProducts(ProductShopContext context, string inputXml)
@@ -170,6 +179,59 @@ public class StartUp
 
         return Serializer<ExportSoldProductsDto[]>(products, "Users");
 
+    }
+
+    public static string GetCategoriesByProductsCount(ProductShopContext context)
+    {
+        var categories = context.Categories
+            .Select(c => new ExportCategoriesByCountDto()
+            {
+                Name = c.Name,
+                Count = c.CategoryProducts.Count,
+                AveragePrice = c.CategoryProducts.Average(i => i.Product.Price),
+                TotalRevenue = c.CategoryProducts.Sum(i => i.Product.Price)
+            })
+            .OrderByDescending(c => c.Count)
+            .ThenBy(c => c.TotalRevenue)
+            .ToArray();
+
+        return Serializer<ExportCategoriesByCountDto[]>(categories, "Categories");
+    }
+
+    [SuppressMessage("ReSharper.DPA", "DPA0007: Large number of DB records", MessageId = "count: 197")]
+    public static string GetUsersWithProducts(ProductShopContext context)
+    {
+        var users = context.Users
+            .Where(u => u.ProductsSold.Any(p => p.BuyerId != null))
+            .Select(u => new UserDto()
+            {
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                Age = u.Age,
+                SoldProducts = new SoldProducts()
+                {
+                    Count = u.ProductsSold.Count,
+                    Products = u.ProductsSold
+                        .Where(p => p.BuyerId != null)
+                        .Select(p => new ProductX()
+                        {
+                            Name = p.Name,
+                            Price = p.Price
+                        })
+                        .OrderByDescending(p => p.Price)
+                        .ToArray()
+                }
+            })
+            .OrderByDescending(u => u.SoldProducts.Count)
+            .Take(10)
+            .ToArray();
+
+        UsersDto info = new UsersDto()
+        {
+            Count = context.Users.Count(u => u.ProductsSold.Any(p => p.BuyerId != null)),
+            UsersInfo = users
+        };
+        return Serializer<UsersDto>(info, "Users");
     }
 
     private static string Serializer<T>(T dataTransferObjects, string xmlRootAttributeName)
