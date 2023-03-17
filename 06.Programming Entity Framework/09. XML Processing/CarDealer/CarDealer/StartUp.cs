@@ -89,46 +89,54 @@ public class StartUp
 
     public static string ImportCars(CarDealerContext context, string inputXml)
     {
-        
-        PartsCarsDto[] carsDtos = Deserializer<PartsCarsDto[]>(inputXml, "Cars");
+        XDocument xmlDocument = XDocument.Parse(inputXml);
 
-       
-        List<Car> carList = new List<Car>();
-        List<PartCar> parts = new List<PartCar>();
+        var cars = xmlDocument.Root.Elements();
+
+        List<Car> carsX = new List<Car>();
+        List<PartCar> partsX = new List<PartCar>();
+
         int carId = 1;
-        var partIds = context.Parts.Select(p => p.Id).ToArray();
-        
-        foreach (var dto in carsDtos)
+
+        int[] partInts = context.Parts.Select(p => p.Id).ToArray();
+        var partIds = xmlDocument.Descendants("partId").Select(p => p.Attribute("id").Value);
+
+        foreach (var car in cars)
         {
-            Car car = new Car()
+            Car c = new Car()
             {
-                Make = dto.Make,
-                Model = dto.Model,
-                TraveledDistance = dto.TraveledDistance
+                Make = car.Element("make").Value,
+                Model = car.Element("model").Value,
+                TraveledDistance = long.Parse(car.Element("traveledDistance").Value)
+                //TraveledDistance = long.Parse(car.Element("TraveledDistance").Value)
+                //For Judge use commented line
             };
 
-            carList.Add(car);
+            carsX.Add(c);
 
-            foreach (int partId in dto.Parts
-                         .Where(p => partIds.Contains(p.PartId))
-                         .Select(p => p.PartId)
-                         .Distinct())
+            foreach (var partId in car.Descendants("partId")
+                         .Where(p => partIds.Contains(p.Attribute("id").Value))
+                         .Select(p => p.Attribute("id").Value).Distinct())
             {
                 PartCar partCar = new PartCar()
                 {
                     CarId = carId,
-                    PartId = partId
+                    Car = c,
+                    PartId = int.Parse(partId)
                 };
-                parts.Add(partCar);
+
+                partsX.Add(partCar);
             }
+
             carId++;
         }
 
-        context.Cars.AddRange(carList);            
-        context.PartsCars.AddRange(parts);
+        context.AddRange(carsX);
+        context.AddRange(partsX);
+
         context.SaveChanges();
 
-        return $"Successfully imported {carList.Count}";
+        return $"Successfully imported {carsX.Count}";
     }
 
 
