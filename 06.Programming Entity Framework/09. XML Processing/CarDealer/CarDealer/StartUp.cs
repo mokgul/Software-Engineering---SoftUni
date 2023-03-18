@@ -1,5 +1,8 @@
-﻿using System.Xml.Linq;
+﻿
+using System.Diagnostics.CodeAnalysis;
+using System.Xml.Linq;
 using System.Xml.Serialization;
+using CarDealer.DTOs.Export;
 using CarDealer.DTOs.Import;
 using CarDealer.Models;
 
@@ -7,6 +10,7 @@ namespace CarDealer;
 
 using Data;
 using System.Diagnostics.Metrics;
+using System.Text;
 
 public class StartUp
 {
@@ -38,7 +42,156 @@ public class StartUp
         // Q13. Import Sales
         string xmlSales = File.ReadAllText(@"../../../Datasets/sales.xml");
         ImportSales(context, xmlSales);
-        
+
+        // Q14. Export Cars With Distance
+        string xmlCarsWithDistance = GetCarsWithDistance(context);
+        File.WriteAllText(@"../../../Results/cars.xml", GetCarsWithDistance(context));
+
+        // Q15. Export Cars from Make BMW
+        string xmlCarsFromMake = GetCarsFromMakeBmw(context);
+        File.WriteAllText(@"../../../Results/bmw-cars.xml", GetCarsFromMakeBmw(context));
+
+        // Q16. Export Local Suppliers
+        string xmlLocalSuppliers = GetLocalSuppliers(context);
+        File.WriteAllText(@"../../../Results/local-suppliers.xml", GetLocalSuppliers(context));
+
+        // Q17. Export Cars with Their List of Parts
+        string xmlCarsWithParts = GetCarsWithTheirListOfParts(context);
+        File.WriteAllText(@"../../../Results/cars-and-parts.xml", GetCarsWithTheirListOfParts(context));
+
+        // Q18. Export Total Sales by Customer 
+        string xmlSalesByCustomer = GetTotalSalesByCustomer(context);
+        File.WriteAllText(@"../../../Results/customers-total-sales.xml", GetTotalSalesByCustomer(context));
+
+        // Q19. Export Sales with Applied Discount
+        string xmlSaleswithAppliedDiscout = GetSalesWithAppliedDiscount(context);
+        File.WriteAllText(@"../../../Results/sales-discounts.xml", GetSalesWithAppliedDiscount(context));
+
+    }
+
+    [SuppressMessage("ReSharper.DPA", "DPA0007: Large number of DB records", MessageId = "count: 1681")]
+    public static string GetSalesWithAppliedDiscount(CarDealerContext context)
+    {
+        var sales = context.Sales
+            .Select(s => new ExportSalesWithDiscountDto()
+            {
+                CarSalesNoDiscountDto = new CarSalesNoDiscountDto()
+                {
+                    Make = s.Car.Make,
+                    Model = s.Car.Model,
+                    Distance = s.Car.TraveledDistance
+                },
+                Discount = (int)s.Discount,
+                CustomerName = s.Customer.Name,
+                Price = Math.Round(s.Car.PartsCars.Sum(p => p.Part.Price), 2),
+                PriceWithDiscount = (double) Math.Round((s.Car.PartsCars.Sum(p => p.Part.Price) * (1 - (s.Discount / 100))), 4)
+            })
+            .ToArray();
+
+        return Serializer<ExportSalesWithDiscountDto[]>(sales, "sales");
+    }
+
+    [SuppressMessage("ReSharper.DPA", "DPA0007: Large number of DB records", MessageId = "count: 713")]
+    public static string GetTotalSalesByCustomer(CarDealerContext context)
+    {
+        var customers = context.Customers
+            .Where(c => c.Sales.Any())
+            .Select(c => new
+            {
+                fullName = c.Name,
+                boughtCars = c.Sales.Count(),
+                moneyCars = c.IsYoungDriver
+                ? c.Sales.SelectMany(s => s.Car.PartsCars.Select(p => Math.Round(p.Part.Price * 0.95m, 2)))
+                : c.Sales.SelectMany(s => s.Car.PartsCars.Select(p => Math.Round(p.Part.Price, 2)))
+            })
+            .ToArray();
+
+        var output = customers
+            .Select(o => new ExportTotalSalesByCustomerDto
+            {
+                FullName = o.fullName,
+                BoughtCars = o.boughtCars,
+                SpentMoney = o.moneyCars.Sum()
+            })
+            .OrderByDescending(o => o.SpentMoney)
+            .ToArray();
+
+        return Serializer<ExportTotalSalesByCustomerDto[]>(output, "customers");
+    }
+    public static string GetCarsWithTheirListOfParts(CarDealerContext context)
+    {
+        var carsWithParts = context.Cars
+            .OrderByDescending(c => c.TraveledDistance)
+            .ThenBy(c => c.Model)
+            .Take(5)
+            .Select(c => new ExportCarsWithTheirPartsDto()
+            {
+                Make = c.Make,
+                Model = c.Model,
+                Distance = c.TraveledDistance,
+                Parts = c.PartsCars
+                    .Select(p => new CarPartDto()
+                    {
+                        Name = p.Part.Name,
+                        Price = p.Part.Price,
+                    })
+                    .OrderByDescending(p => p.Price)
+                    .ToArray()
+            })
+            .ToArray();
+
+        return Serializer<ExportCarsWithTheirPartsDto[]>(carsWithParts, "cars");
+    }
+
+    public static string GetLocalSuppliers(CarDealerContext context)
+    {
+        var suppliers = context.Suppliers
+            .Where(s => !s.IsImporter)
+            .Select(s => new ExportLocalSuppliersDto()
+            {
+                Id = s.Id,
+                Name = s.Name,
+                Count = s.Parts.Count,
+            })
+            .ToArray();
+
+        return Serializer<ExportLocalSuppliersDto[]>(suppliers, "suppliers");
+    }
+
+    public static string GetCarsFromMakeBmw(CarDealerContext context)
+    {
+        var bmwCars = context.Cars
+            .Where(c => c.Make == "BMW")
+            .OrderBy(c => c.Model)
+            .ThenByDescending(c => c.TraveledDistance)
+            .Select(x => new ExportBmwCarsDto()
+            {
+                Id = x.Id,
+                Model = x.Model,
+                Distance = x.TraveledDistance
+            })
+            .ToArray();
+
+        return Serializer<ExportBmwCarsDto[]>(bmwCars, "cars");
+    }
+
+    [SuppressMessage("ReSharper.DPA", "DPA0007: Large number of DB records", MessageId = "count: 441")]
+    public static string GetCarsWithDistance(CarDealerContext context)
+    {
+        var cars = context.Cars
+            .Where(d => d.TraveledDistance > 2000000)
+            .OrderBy(m => m.Make)
+            .ThenBy(m => m.Model)
+            .Select(c => new ExportCarsWithDistanceDto()
+            {
+                Make = c.Make,
+                Model = c.Model,
+                Distance = c.TraveledDistance
+            })
+            .Take(10)
+            .ToArray();
+
+        return Serializer(cars, "cars");
     }
 
     public static string ImportSales(CarDealerContext context, string inputXml)
@@ -47,11 +200,11 @@ public class StartUp
         XDocument document = XDocument.Parse(inputXml);
 
         var sales = document.Root!.Elements();
-       
+
         foreach (var item in sales)
         {
             int carId = int.Parse(item.Element("carId")!.Value);
-            if(!carIds.Contains(carId)) continue;
+            if (!carIds.Contains(carId)) continue;
             Sale sale = new Sale()
             {
                 CarId = int.Parse(item.Element("carId")!.Value),
@@ -70,10 +223,10 @@ public class StartUp
         XDocument document = XDocument.Parse(inputXml);
 
         var customers = document.Root!.Elements();
-       
+
         foreach (var item in customers)
         {
-            
+
             Customer customer = new Customer()
             {
                 Name = item.Element("name")!.Value,
@@ -150,7 +303,7 @@ public class StartUp
         {
             int supplier = int.Parse(item.Element("supplierId")!.Value);
 
-            if(supplier > context.Suppliers.Count()) continue;
+            if (supplier > context.Suppliers.Count()) continue;
             Part part = new Part()
             {
                 Name = item.Element("name")!.Value,
@@ -187,5 +340,19 @@ public class StartUp
         return $"Successfully imported {suppliers.Count()}";
     }
 
+    private static string Serializer<T>(T dataTransferObjects, string xmlRootAttributeName)
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(T), new XmlRootAttribute(xmlRootAttributeName));
+
+        StringBuilder sb = new StringBuilder();
+        using var write = new StringWriter(sb);
+
+        XmlSerializerNamespaces xmlNamespaces = new XmlSerializerNamespaces();
+        xmlNamespaces.Add(string.Empty, string.Empty);
+
+        serializer.Serialize(write, dataTransferObjects, xmlNamespaces);
+
+        return sb.ToString();
+    }
 }
 
