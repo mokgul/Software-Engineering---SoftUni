@@ -1,12 +1,12 @@
-﻿using System.Text;
-using System.Xml.Serialization;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using Trucks.DataProcessor.ExportDto;
+﻿namespace Trucks.DataProcessor;
 
-namespace Trucks.DataProcessor;
+using System.Text;
+
+using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 using Data;
+using ExportDto;
 
 public class Serializer
 {
