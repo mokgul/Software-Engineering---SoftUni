@@ -1,0 +1,107 @@
+[
+  {
+    "Id": 2,
+    "Genre": "Violent",
+    "Games": [
+      {
+        "Id": 5,
+        "Title": "Warframe",
+        "Developer": "Digital Extremes",
+        "Tags": "Multi-player, Co-op, Steam Trading Cards, In-App Purchases, Single-player, Partial Controller Support",
+        "Players": 6
+      },
+      {
+        "Id": 70,
+        "Title": "Soul at Stake",
+        "Developer": "Chongming Studio",
+        "Tags": "Multi-player, Co-op, Online Multi-Player, Steam Cloud, Online Co-op",
+        "Players": 2
+      },
+      {
+        "Id": 11,
+        "Title": "Black Desert Online",
+        "Developer": "Pearl Abyss",
+        "Tags": "Steam Trading Cards, In-App Purchases, Partial Controller Support, Online Multi-Player, Online Co-op, MMO",
+        "Players": 1
+      },
+      {
+        "Id": 20,
+        "Title": "Dead by Daylight",
+        "Developer": "Behaviour Digital Inc.",
+        "Tags": "Multi-player, Co-op, Steam Trading Cards, Steam Achievements, Online Multi-Player, Full controller support, Steam Cloud, Online Co-op",
+        "Players": 1
+      },
+      {
+        "Id": 3,
+        "Title": "PLAYERUNKNOWN'S BATTLEGROUNDS",
+        "Developer": "PUBG Corporation",
+        "Tags": "Multi-player, Stats, Online Multi-Player",
+        "Players": 0
+      },
+      {
+        "Id": 12,
+        "Title": "Jurassic World Evolution",
+        "Developer": "Frontier Developments",
+        "Tags": "Steam Trading Cards, Single-player, Steam Achievements, Full controller support, Steam Cloud",
+        "Players": 0
+      },
+      {
+        "Id": 25,
+        "Title": "Seeking Dawn",
+        "Developer": "Multiverse",
+        "Tags": "Multi-player, Co-op, Single-player, Online Multi-Player, Online Co-op",
+        "Players": 0
+      },
+      {
+        "Id": 32,
+        "Title": "Hunt Showdown",
+        "Developer": "Crytek",
+        "Tags": "Online Multi-Player, Online Co-op",
+        "Players": 0
+      },
+      {
+        "Id": 33,
+        "Title": "Darksiders III",
+        "Developer": "Gunfire Games",
+        "Tags": "Steam Trading Cards, Single-player, Steam Achievements, Full controller support, Steam Cloud",
+        "Players": 0
+      }
+    ],
+    "TotalPlayers": 10
+  },
+  {
+    "Id": 5,
+    "Genre": "Nudity",
+    "Games": [
+      {
+        "Id": 15,
+        "Title": "Path of Exile",
+        "Developer": "Grinding Gear Games",
+        "Tags": "Multi-player, Co-op, Steam Trading Cards, In-App Purchases, Single-player, Steam Achievements, Online Multi-Player, MMO",
+        "Players": 2
+      },
+      {
+        "Id": 40,
+        "Title": "Rust",
+        "Developer": "Facepunch Studios",
+        "Tags": "Multi-player, Co-op, Steam Trading Cards, Steam Workshop, In-App Purchases, Valve Anti-Cheat enabled, Steam Achievements, Stats, Online Multi-Player, Cross-Platform Multiplayer, Online Co-op, MMO",
+        "Players": 1
+      },
+      {
+        "Id": 63,
+        "Title": "Conan Exiles",
+        "Developer": "Funcom",
+        "Tags": "Multi-player, Co-op, Steam Trading Cards, Steam Workshop, Single-player, Steam Achievements, Online Multi-Player, Full controller support, Online Co-op",
+        "Players": 1
+      },
+      {
+        "Id": 74,
+        "Title": "The Witcher 3: Wild Hunt",
+        "Developer": "CD PROJEKT RED",
+        "Tags": "Steam Trading Cards, Single-player, Steam Achievements, Full controller support, Steam Cloud",
+        "Players": 1
+      }
+    ],
+    "TotalPlayers": 5
+  }
+]

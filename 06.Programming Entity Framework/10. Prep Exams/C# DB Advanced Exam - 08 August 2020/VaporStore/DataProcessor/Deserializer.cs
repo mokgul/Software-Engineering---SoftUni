@@ -23,48 +23,52 @@ namespace VaporStore.DataProcessor
 
         public const string SuccessfullyImportedPurchase = "Imported {0} for {1}";
 
+        [SuppressMessage("ReSharper.DPA", "DPA0000: DPA issues")]
         public static string ImportGames(VaporStoreDbContext context, string jsonString)
         {
             ImportGamesDto[] games = JsonConvert.DeserializeObject<ImportGamesDto[]>(jsonString)!;
 
             StringBuilder sb = new StringBuilder();
-
             foreach (var game in games)
             {
+                bool release = DateTime.TryParseExact(game.ReleaseDate, "yyyy-MM-dd", CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out DateTime validReleaseDate);
                 if (!IsValid(game)
                     || String.IsNullOrEmpty(game.Name)
-                    || game.Price < 0
-                    || !DateTime.TryParseExact(game.ReleaseDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime valid)
-                    || !game.Tags.Any()
-                    || String.IsNullOrEmpty(game.Genre)
-                    || String.IsNullOrEmpty(game.DeveloperName))
+                    || !release
+                    || !game.Tags.Any())
                 {
                     sb.AppendLine(ErrorMessage);
                     continue;
                 }
 
-                Game currGame = new Game()
-                {
-                    Name = game.Name,
-                    Price = game.Price,
-                    ReleaseDate = DateTime.ParseExact(game.ReleaseDate, "yyyy-MM-dd", CultureInfo.InvariantCulture),
-                };
                 Genre genre = context.Genres.FirstOrDefault(g => g.Name == game.Genre);
                 if (genre == null)
                 {
                     genre = new Genre() { Name = game.Genre };
                     context.Genres.Add(genre);
+                    //We use SaveChanges here cause when we try to look in the context the method looks at the original state of the context and not over changed ( aka the added genres ). The change tracker keeps the changes but we need to apply them in order to be able to check if there is an existing entity of the one we are looking for.
+                    context.SaveChanges();
                 }
-                currGame.Genre = genre;
 
-                Developer developer = context.Developers.FirstOrDefault(d => d.Name == game.DeveloperName);
+                Developer developer = context.Developers.FirstOrDefault(g => g.Name == game.DeveloperName);
                 if (developer == null)
                 {
-                    developer = new Developer() {Name = game.DeveloperName };
+                    developer = new Developer() { Name = game.DeveloperName };
                     context.Developers.Add(developer);
+                    context.SaveChanges();
                 }
-                currGame.Developer = developer;
 
+
+                Game currGame = new Game()
+                {
+                    Name = game.Name,
+                    Price = game.Price,
+                    ReleaseDate = validReleaseDate,
+                    Genre = genre,
+                    Developer = developer
+                };
+                
                 foreach (var tag in game.Tags)
                 {
                     if(string.IsNullOrEmpty(tag))
@@ -74,6 +78,7 @@ namespace VaporStore.DataProcessor
                     {
                         currTag = new Tag() { Name = tag };
                         context.Tags.Add(currTag);
+                        context.SaveChanges();
                     }
                     
                     currGame.GameTags.Add(new GameTag(){Game = currGame, Tag = currTag});
@@ -83,6 +88,7 @@ namespace VaporStore.DataProcessor
                 sb.AppendLine(string.Format(SuccessfullyImportedGame, currGame.Name, currGame.Genre.Name, currGame.GameTags.Count));
             }
 
+            // Here is a valid way to use SaveChanges() at the end, cause we do not try to check the current state of context.Games, we are just adding to the context. The change tracker keeps these changes ( the added entities ) and we save the changes at the end.
             context.SaveChanges();
             return sb.ToString().TrimEnd();
         }
