@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Newtonsoft.Json;
-using TeisterMask.Data;
+﻿namespace TeisterMask.DataProcessor.ImportDto;
 
-namespace TeisterMask.DataProcessor.ImportDto;
+using System.ComponentModel.DataAnnotations;
+
+using Newtonsoft.Json;
+using Data;
 
 public class ImportEmployeesDto
 {

@@ -1,6 +1,6 @@
-﻿using System.Xml.Serialization;
+﻿namespace TeisterMask.DataProcessor.ExportDto;
 
-namespace TeisterMask.DataProcessor.ExportDto;
+using System.Xml.Serialization;
 
 [XmlType("Project")]
 public class ExportProjectWithTheirTasksDto

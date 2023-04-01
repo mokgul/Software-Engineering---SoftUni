@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
-using TeisterMask.Data;
+﻿namespace TeisterMask.DataProcessor.ImportDto;
 
-namespace TeisterMask.DataProcessor.ImportDto;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
+
+using Data;
 
 [XmlType("Project")]
 public class ImportProjectsDto

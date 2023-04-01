@@ -1,0 +1,194 @@
+﻿[
+  {
+    "ShellWeight": "157 gr",
+    "Caliber": "35 mm TP-T",
+    "Guns": [
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 1277712,
+        "BarrelLength": 18.21,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 1274626,
+        "BarrelLength": 7.1,
+        "Range": "Regular range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 1133227,
+        "BarrelLength": 17.74,
+        "Range": "Regular range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 1128413,
+        "BarrelLength": 6.68,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 1006476,
+        "BarrelLength": 10.21,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 1003530,
+        "BarrelLength": 14.93,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 893297,
+        "BarrelLength": 26.17,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 871854,
+        "BarrelLength": 26.23,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 747132,
+        "BarrelLength": 33.69,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 683740,
+        "BarrelLength": 20.77,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 615800,
+        "BarrelLength": 32.13,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 585885,
+        "BarrelLength": 18.77,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 530804,
+        "BarrelLength": 30.64,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 525545,
+        "BarrelLength": 13.22,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 497845,
+        "BarrelLength": 4.19,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 445857,
+        "BarrelLength": 17.18,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 423195,
+        "BarrelLength": 21.59,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 366428,
+        "BarrelLength": 16.86,
+        "Range": "Regular range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 325478,
+        "BarrelLength": 34.08,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 253208,
+        "BarrelLength": 29.9,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 172258,
+        "BarrelLength": 22.63,
+        "Range": "Regular range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 137985,
+        "BarrelLength": 25.34,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 99238,
+        "BarrelLength": 12.71,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 76658,
+        "BarrelLength": 27.38,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 76265,
+        "BarrelLength": 27.38,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 76258,
+        "BarrelLength": 27.38,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 65800,
+        "BarrelLength": 32.13,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 61800,
+        "BarrelLength": 32.13,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 61580,
+        "BarrelLength": 32.13,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 61580,
+        "BarrelLength": 32.13,
+        "Range": "Long-range"
+      },
+      {
+        "GunType": "AntiAircraftGun",
+        "GunWeight": 52964,
+        "BarrelLength": 20.25,
+        "Range": "Regular range"
+      }
+    ]
+  }
+]

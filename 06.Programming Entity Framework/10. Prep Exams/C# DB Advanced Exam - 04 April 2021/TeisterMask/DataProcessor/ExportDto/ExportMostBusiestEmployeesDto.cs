@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿namespace TeisterMask.DataProcessor.ExportDto;
 
-namespace TeisterMask.DataProcessor.ExportDto;
+using Newtonsoft.Json;
 
 public class ExportMostBusiestEmployeesDto
 {
