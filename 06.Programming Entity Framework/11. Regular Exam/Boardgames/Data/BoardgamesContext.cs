@@ -1,7 +1,7 @@
-﻿using Boardgames.Data.Models;
+﻿namespace Boardgames.Data;
 
-namespace Boardgames.Data
-{
+using Models;
+
     using Microsoft.EntityFrameworkCore;
     
     public class BoardgamesContext : DbContext
@@ -39,4 +39,4 @@ namespace Boardgames.Data
                 entity.HasKey(pk => new { pk.BoardgameId, pk.SellerId }));
         }
     }
-}
+

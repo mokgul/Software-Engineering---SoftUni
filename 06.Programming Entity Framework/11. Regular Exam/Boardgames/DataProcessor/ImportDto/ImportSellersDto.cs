@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Boardgames.Data;
-using Newtonsoft.Json;
+﻿namespace Boardgames.DataProcessor.ImportDto;
 
-namespace Boardgames.DataProcessor.ImportDto;
+using System.ComponentModel.DataAnnotations;
+
+using Data;
+using Newtonsoft.Json;
 
 public class ImportSellersDto
 {

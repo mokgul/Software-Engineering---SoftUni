@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 namespace Boardgames.DataProcessor
 {
     using System.ComponentModel.DataAnnotations;
-    using Boardgames.Data;
+    using Data;
    
     public class Deserializer
     {

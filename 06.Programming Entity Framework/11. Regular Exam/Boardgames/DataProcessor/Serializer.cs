@@ -1,14 +1,16 @@
-﻿using Boardgames.DataProcessor.ExportDto;
+﻿using System.Diagnostics.CodeAnalysis;
+using Boardgames.DataProcessor.ExportDto;
 using Newtonsoft.Json;
 
 namespace Boardgames.DataProcessor
 {
-    using Boardgames.Data;
+    using Data;
     using System.Text;
     using System.Xml.Serialization;
 
     public class Serializer
     {
+        [SuppressMessage("ReSharper.DPA", "DPA0007: Large number of DB records", MessageId = "count: 267")]
         public static string ExportCreatorsWithTheirBoardgames(BoardgamesContext context)
         {
             var creators = context.Creators
@@ -34,6 +36,7 @@ namespace Boardgames.DataProcessor
             return Serialize<ExportCreatorsWithTheirBoardgamesDto[]>(creators, "Creators");
         }
 
+        [SuppressMessage("ReSharper.DPA", "DPA0007: Large number of DB records", MessageId = "count: 278")]
         public static string ExportSellersWithMostBoardgames(BoardgamesContext context, int year, double rating)
         {
             var sellers = context.Sellers

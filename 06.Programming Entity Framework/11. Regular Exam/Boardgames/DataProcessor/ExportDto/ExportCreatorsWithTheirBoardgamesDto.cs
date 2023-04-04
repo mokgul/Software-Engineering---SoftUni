@@ -1,6 +1,6 @@
-﻿using System.Xml.Serialization;
+﻿namespace Boardgames.DataProcessor.ExportDto;
 
-namespace Boardgames.DataProcessor.ExportDto;
+using System.Xml.Serialization;
 
 [XmlType("Creator")]
 public class ExportCreatorsWithTheirBoardgamesDto

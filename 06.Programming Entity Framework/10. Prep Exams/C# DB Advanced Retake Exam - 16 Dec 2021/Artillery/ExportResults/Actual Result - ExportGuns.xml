@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Guns>
+  <Gun Manufacturer="Krupp" GunType="MountainGun" GunWeight="1131099" BarrelLength="15.74" Range="9239">
+    <Countries>
+      <Country Country="Czech Republic" ArmySize="7339547" />
+      <Country Country="Kazakhstan" ArmySize="7879406" />
+      <Country Country="Japan" ArmySize="8735730" />
+      <Country Country="Myanmar" ArmySize="9883310" />
+      <Country Country="China" ArmySize="9944746" />
+      <Country Country="Costa Rica" ArmySize="9992807" />
+    </Countries>
+  </Gun>
+  <Gun Manufacturer="Krupp" GunType="AntiAircraftGun" GunWeight="585885" BarrelLength="18.77" Range="33594">
+    <Countries>
+      <Country Country="Sweden" ArmySize="5437337" />
+      <Country Country="Portugal" ArmySize="9523599" />
+    </Countries>
+  </Gun>
+  <Gun Manufacturer="Krupp" GunType="AntiTankGun" GunWeight="187500" BarrelLength="22.9" Range="28842">
+    <Countries>
+      <Country Country="Laos" ArmySize="4699836" />
+      <Country Country="Chile" ArmySize="6320941" />
+      <Country Country="Tanzania" ArmySize="6647960" />
+      <Country Country="Brazil" ArmySize="7759453" />
+      <Country Country="Japan" ArmySize="8735730" />
+      <Country Country="El Salvador" ArmySize="8741588" />
+      <Country Country="Portugal" ArmySize="9523599" />
+      <Country Country="Guatemala" ArmySize="9782109" />
+    </Countries>
+  </Gun>
+  <Gun Manufacturer="Krupp" GunType="AntiAircraftGun" GunWeight="893297" BarrelLength="26.17" Range="60002">
+    <Countries>
+      <Country Country="Ukraine" ArmySize="7786236" />
+      <Country Country="El Salvador" ArmySize="8741588" />
+      <Country Country="Cambodia" ArmySize="9005635" />
+    </Countries>
+  </Gun>
+  <Gun Manufacturer="Krupp" GunType="AntiAircraftGun" GunWeight="1269675" BarrelLength="29.76" Range="45509">
+    <Countries>
+      <Country Country="Bahrain" ArmySize="6356846" />
+    </Countries>
+  </Gun>
+  <Gun Manufacturer="Krupp" GunType="FieldGun" GunWeight="397287" BarrelLength="34.23" Range="97858">
+    <Countries>
+      <Country Country="Albania" ArmySize="6296389" />
+    </Countries>
+  </Gun>
+  <Gun Manufacturer="Krupp" GunType="MountainGun" GunWeight="1180282" BarrelLength="34.59" Range="61368">
+    <Countries>
+      <Country Country="Chile" ArmySize="6320941" />
+      <Country Country="Denmark" ArmySize="6808103" />
+      <Country Country="Czech Republic" ArmySize="7339547" />
+      <Country Country="Indonesia" ArmySize="8178702" />
+      <Country Country="Kiribati" ArmySize="8714446" />
+      <Country Country="Cote d'Ivoire" ArmySize="9710985" />
+    </Countries>
+  </Gun>
+</Guns>

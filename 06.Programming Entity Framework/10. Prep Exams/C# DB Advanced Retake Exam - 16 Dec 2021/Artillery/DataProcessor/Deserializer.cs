@@ -1,6 +1,9 @@
-﻿using System.Text;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Text;
 using Artillery.Data.Models;
+using Artillery.Data.Models.Enums;
 using Artillery.DataProcessor.ImportDto;
+using Newtonsoft.Json;
 
 namespace Artillery.DataProcessor
 {
@@ -83,12 +86,76 @@ namespace Artillery.DataProcessor
 
         public static string ImportShells(ArtilleryContext context, string xmlString)
         {
-            return "";
+            ImportShellsDto[] shells = Deserialize<ImportShellsDto[]>(xmlString, "Shells");
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var sh in shells)
+            {
+                if (!IsValid(sh))
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Shell shell = new Shell()
+                {
+                    ShellWeight = sh.ShellWeight,
+                    Caliber = sh.Caliber,
+                };
+
+                context.Shells.Add(shell);
+                sb.AppendLine(string.Format(SuccessfulImportShell, shell.Caliber, shell.ShellWeight));
+            }
+
+            context.SaveChanges();
+            return sb.ToString().TrimEnd();
         }
 
+        [SuppressMessage("ReSharper.DPA", "DPA0006: Large number of DB commands", MessageId = "count: 785")]
         public static string ImportGuns(ArtilleryContext context, string jsonString)
         {
-            return "";
+            //Taken from Alex cause for some reason mine does not work even though its pretty much the same
+            
+            ImportGunsDto[] gunDtos = JsonConvert.DeserializeObject<ImportGunsDto[]>(jsonString);
+            StringBuilder sb = new StringBuilder();
+            List<Gun> guns = new List<Gun>();
+
+            foreach (var gunDto in gunDtos)
+            {                
+                bool isGunTypeValid = Enum.TryParse<GunType>(gunDto.GunType, out GunType validGunType);
+                
+                if (!IsValid(gunDto) || !isGunTypeValid)
+                {
+                    sb.AppendLine(ErrorMessage);
+                    continue;
+                }
+
+                Gun gun = new Gun()
+                {
+                    BarrelLength = gunDto.BarrelLength,
+                    GunType = validGunType,
+                    GunWeight = gunDto.GunWeight,
+                    NumberBuild = gunDto.NumberBuild,
+                    Range = gunDto.Range,
+                    ShellId = gunDto.ShellId,
+                    ManufacturerId = gunDto.ManufacturerId
+                };
+
+                foreach (var countryDto in gunDto.Countries)
+                {                    
+                    gun.CountriesGuns.Add(new CountryGun()
+                    {
+                        CountryId = countryDto.Id,
+                        Gun = gun
+                    });
+                }
+                guns.Add(gun);
+                sb.AppendLine(string.Format(SuccessfulImportGun, validGunType, gun.GunWeight, gun.BarrelLength));
+            }
+            context.Guns.AddRange(guns);
+            context.SaveChanges();
+            return sb.ToString().TrimEnd();
         }
         private static bool IsValid(object obj)
         {

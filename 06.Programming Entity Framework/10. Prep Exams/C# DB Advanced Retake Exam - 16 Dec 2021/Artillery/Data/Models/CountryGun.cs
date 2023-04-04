@@ -5,13 +5,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 public class CountryGun
 {
-    public Country Country { get; set; } = null!;
+    public Country Country { get; set; }
 
     [Required]
     [ForeignKey(nameof(Country))]
     public int CountryId { get; set; }
 
-    public Gun Gun { get; set; } = null!;
+    public Gun Gun { get; set; } 
 
     [Required]
     [ForeignKey(nameof(Gun))]

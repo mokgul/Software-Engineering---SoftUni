@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
-using Boardgames.Data;
+﻿namespace Boardgames.DataProcessor.ImportDto;
 
-namespace Boardgames.DataProcessor.ImportDto;
+using System.ComponentModel.DataAnnotations;
+using System.Xml.Serialization;
+
+using Data;
 
 [XmlType("Creator")]
 public class ImportCreatorsDto

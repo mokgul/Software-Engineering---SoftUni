@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿namespace Boardgames.DataProcessor.ExportDto;
 
-namespace Boardgames.DataProcessor.ExportDto;
+using Newtonsoft.Json;
 
 public class ExportSellersWithMostBoardgamesDto
 {
