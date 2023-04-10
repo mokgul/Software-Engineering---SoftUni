@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomList", "CustomList\CustomList.csproj", "{6E55D2AA-4FA3-49D9-B015-77880FF1BE54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStack", "CustomStack\CustomStack.csproj", "{3CADBF1B-F9BD-4E67-A425-26A399057797}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6E55D2AA-4FA3-49D9-B015-77880FF1BE54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E55D2AA-4FA3-49D9-B015-77880FF1BE54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E55D2AA-4FA3-49D9-B015-77880FF1BE54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CADBF1B-F9BD-4E67-A425-26A399057797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CADBF1B-F9BD-4E67-A425-26A399057797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CADBF1B-F9BD-4E67-A425-26A399057797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CADBF1B-F9BD-4E67-A425-26A399057797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
