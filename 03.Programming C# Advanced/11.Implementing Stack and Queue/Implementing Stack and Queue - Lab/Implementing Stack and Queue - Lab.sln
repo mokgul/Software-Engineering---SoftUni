@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomList", "CustomList\Cu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStack", "CustomStack\CustomStack.csproj", "{3CADBF1B-F9BD-4E67-A425-26A399057797}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomQueue", "CustomQueue\CustomQueue.csproj", "{2E4464EA-EADF-4DFB-838A-1D4428D93087}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3CADBF1B-F9BD-4E67-A425-26A399057797}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CADBF1B-F9BD-4E67-A425-26A399057797}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CADBF1B-F9BD-4E67-A425-26A399057797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E4464EA-EADF-4DFB-838A-1D4428D93087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E4464EA-EADF-4DFB-838A-1D4428D93087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E4464EA-EADF-4DFB-838A-1D4428D93087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E4464EA-EADF-4DFB-838A-1D4428D93087}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
