@@ -10,3 +10,4 @@ public class StartUp
         Console.WriteLine(BinarySearch.IndexOf(array, key));
     }
 }
+
