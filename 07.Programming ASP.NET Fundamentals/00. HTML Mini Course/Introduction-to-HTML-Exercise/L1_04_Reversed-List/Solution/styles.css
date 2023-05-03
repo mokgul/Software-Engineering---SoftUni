@@ -1,0 +1,23 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin: 0;
+}
+
+article{
+    background: rgb(230, 229, 229);
+    width: 420px;
+    margin: 15px auto;
+    padding: 40px;
+}
+
+h3{
+    text-align: center;
+    color: #234465;
+}
+
+li{
+    padding-top: 13px;
+    border-bottom: 1px solid black;
+    color: #333333
+}

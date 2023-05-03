@@ -1,0 +1,17 @@
+table, th, td{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 10px 10px 10px 10px;
+}
+
+td{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+thead{
+    text-align: center;
+    font-weight: bold;
+}
