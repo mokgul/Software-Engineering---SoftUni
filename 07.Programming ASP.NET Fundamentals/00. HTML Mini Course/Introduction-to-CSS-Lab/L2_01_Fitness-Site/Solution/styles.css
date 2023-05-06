@@ -27,8 +27,14 @@ header section:nth-child(1) i{
 }
 
 nav{
-    float:right;
-    padding: 8px;
+    display: inline-block;
+    width: 675px;
+}
+
+nav ul{
+    text-align: right;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
@@ -100,12 +106,12 @@ footer{
 }
 
 footer p{
-    width: 62%;
+    width: 730px;
     display: inline-block;
 }
 
 footer ul{
-    width: 33%;
+    width: 400px;
     display: inline-block;
     text-align: right;
 }
