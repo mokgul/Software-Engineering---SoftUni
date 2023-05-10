@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body{
+    font-family: Lato, sans-serif;
+    font-size: 16px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+form{
+    text-align: center;
+}
+
+section{
+    display: inline-block;
+}
+
+section.left{
+    background: linear-gradient(rgba(119, 162, 241, 0.6),
+     rgba(56, 8, 42, 0.6)), url(img/peak.jpg);
+    background-size: cover;
+    width: 400px;
+    height: 500px;
+    text-align: center;
+    color: white;
+    margin: 100px auto;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+section.left h1{
+    margin: 30px auto;
+}
+
+section.left div{
+    margin-top: 90%;
+}
+
+section.right{
+    border: 4px solid #38082a;
+    width: 420px;
+    height: 492px;
+    text-align: center;
+    vertical-align: top;
+    margin: 100px auto;
+    margin-left: -5px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+section.right div label{
+    display: block;
+    margin-top: 15px;
+    text-align: left;
+    padding-left: 100px;
+    color: rgb(218, 217, 220);
+    font-size: 13px;
+}
+
+section.right div input:not(input[type="submit"]){
+    border: none;
+    border-bottom: 1px solid black;
+    margin-top: 15px;
+    color: rgb(118, 115, 115);
+    font-size: 18px;
+}
+
+section.right div:nth-child(1){
+    margin-top: 120px;
+}
+
+input[type="submit"]{
+    display: inline-block;
+    margin-top: 35px;
+    margin-left: -15px;
+    background-color: #38082a;
+    color: white;
+    padding: 8px 30px 8px 30px;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+section.right div div p{
+    display: inline;
+    color: #38082a;
+}
+
+section.right div div a:link{
+    text-decoration: none;
+    color:#38082a
+}
