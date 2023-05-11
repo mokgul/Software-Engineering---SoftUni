@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+body{
+    font-family: PT Sans, sans-serif;
+    background-color: #50b9e1;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* HEADER */
+/* Section 1*/
+header nav{
+    background-color: white;
+}
+
+.header-p{
+    display: inline-block;
+    font-size: 19px;
+    padding-left: 15px;
+    width: 44%;
+}
+
+.header-p span{
+    color: #50b9e1;
+}
+
+.header-list{
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.header-list li{
+    display: inline-block;
+}
+
+.header-list a{
+    padding-left: 15px;
+    color: #474747;
+    text-decoration: none;
+    color: black;
+}
+
+.socials{
+    padding: 0;
+    padding-left: 20px;
+}
+
+.socials li{
+    padding-left: 15px;
+}
+
+.socials i{
+    border: 1px solid #474747;
+    border-radius: 50%;
+    color: #474747;
+    padding: 4px;
+}
+
+/*Section 2*/
+
+header section:nth-child(2){
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6)),
+    url(img/kids_main.jpg);
+    background-size: cover;
+}
+
+header section:nth-child(2) h1{
+    font-size: 66px;
+    width: 30%;
+    color: white;
+    margin: 0;
+    padding: 25% 0 80px 100px;
+    letter-spacing: 3px;
+}
+
+.header-button{
+    font-size: 26px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 20px 15px;
+    margin: 0 0 15% 100px;
+}
+
+.header-button:hover{
+    background: #50b9e1;
+    border: 2px solid #50b9e1;
+    cursor: pointer;
+}
+/* MAIN */
+
+/* Section 1 */
+
+main section:nth-child(1){
+    background-color: white;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.welcome{
+    margin: 0;
+    padding: 60px 0;
+    color: #5a7b89;
+    font-size: 40px;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+
+main section:nth-child(1) p{
+    margin: 0 auto;
+    padding-top: 10px;
+    color: #5a7b89;
+    width: 50%;
+}
+
+.last-paragraph{
+    padding-bottom: 60px;
+}
+
+/* Section 2 */
+
+main section:nth-child(2){
+    margin: 0 auto;
+    text-align: center;
+}
+
+.offers{
+    font-style: italic;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    font-size: 35px;
+    letter-spacing: 2px;
+    padding: 4% 0 7% 0;
+}
+
+.offers-list li{
+    display: inline-block;
+    width: 30%;
+    padding-bottom: 5%;
+}
+
+.offer-title{
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.offer-info{
+    display: inline-block;
+    color: white;
+    width: 71%;
+}
+
+main section:nth-child(2) img{
+    width: 70px;
+}
+
+/* Section 3 */
+
+main section:nth-child(3){
+    background: white;
+    margin: 0 auto;
+}
+.camps{
+    margin: 0 auto;
+    padding: 0;
+}
+.camps-title h1{
+    font-style: italic;
+    text-align: center;
+    margin: 0 auto;
+    color: #5a7b89;
+    font-size: 35px;
+    letter-spacing: 2px;
+    padding: 4% 0 4% 0;
+}
+
+.camps-title p{
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 4%;
+    color: #5a7b89;
+    width: 48%;
+}
+
+.camps li{
+    display: inline-block;
+    width: 30%;
+}
+
+.camps img{
+    width: 400px;
+    height: 250px;
+}
+.camps li{
+    padding-left: 40px;
+    padding-bottom: 10%;
+}
+
+.camps-data{
+    display: inline-block;
+    text-align: left;
+    width: 338px;
+}
+
+.camps-title-under-image{
+    border-bottom: 2px solid #474747;
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.camps-data h2{
+    font-size: 20px;
+    margin: 0;
+    margin-top: 10px;
+    color: #5a7b89;
+}
+
+.camps-data p{
+    margin-top: 10px;
+    color: #5a7b89;
+}
+
+.camps span{
+    display: inline-block;
+    font-size: 35px;
+    color: white;
+    background: #50b9e1;
+}
+
+.camps-info{
+    color: #5a7b89;
+}
+
+.camps-button{
+    font-size: 26px;
+    background: transparent;
+    border: 2px solid #50b9e1;
+    color: #50b9e1;
+    padding: 5px 5px;
+    
+}
+
+
+.camps-button:hover{
+    background: #50b9e1;
+    color: white;
+    border: 2px solid #50b9e1;
+    cursor: pointer;
+}
+
+/* FOOTER */
+
+footer p{
+    display: inline-block;
+    color:#5a7b89;
+    padding-left: 10%;
+    width: 79%;
+}
+
+footer ul{
+    display: inline-block;
+}
+
+footer li{
+    display: inline-block;
+}
+
