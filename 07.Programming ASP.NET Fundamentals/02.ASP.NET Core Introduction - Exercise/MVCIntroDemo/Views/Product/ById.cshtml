@@ -1,0 +1,13 @@
+﻿@model MVCIntroDemo.Models.Product.ProductViewModel
+
+@{
+    ViewBag.Title = "Product N. " + Model.Id;
+}
+
+<div class="card">
+    <div class="card-header">@ViewBag.Title</div>
+    <div class="card-body">
+        <h5 class="card-title">Product Name: @Model.Name</h5>
+        <p class="card-text">Price: @Model.Price lv.</p>
+    </div>
+</div>

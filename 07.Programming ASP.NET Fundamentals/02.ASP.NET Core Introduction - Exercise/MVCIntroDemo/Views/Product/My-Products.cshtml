@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MVCIntroDemo.Models.Product.ProductViewModel>
+
+@{
+    ViewBag.Title = "All Products";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <form asp-controller="Product" asp-action="My-Products" method="get">
+            <div class="input-group rounded">
+                <input type="search" name="keyword" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" id="search-addon">
+                    <i class="fas fa-search"></i>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+            @ViewBag.Title
+        </div>
+        <ul class="list-group list-group-flush">
+            @foreach (var product in Model)
+            {
+                <li class="list-group-item">
+                    <a asp-controller="Product" asp-action="ById" asp-route-id="@product.Id"> @product.Name - @product.Price lv.</a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+
