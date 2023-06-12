@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumApp", "ForumApp\ForumApp.csproj", "{74AEB1BC-6BE0-488F-82D0-FC6776CE2B1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForumApp", "ForumApp\ForumApp.csproj", "{74AEB1BC-6BE0-488F-82D0-FC6776CE2B1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.Data.Models", "Forum.Data.Models\Forum.Data.Models.csproj", "{B0073786-5109-4EAE-9C8D-F39CA02F1D39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forum.Data.Models", "Forum.Data.Models\Forum.Data.Models.csproj", "{B0073786-5109-4EAE-9C8D-F39CA02F1D39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.Common", "Forum.Common\Forum.Common.csproj", "{5FC646EF-A9B2-47A9-9422-87DDD837AB27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forum.Common", "Forum.Common\Forum.Common.csproj", "{5FC646EF-A9B2-47A9-9422-87DDD837AB27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.Data", "Forum.Data\Forum.Data.csproj", "{DA37C211-CAE8-4369-B3DF-B9366E0FF6E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forum.Data", "Forum.Data\Forum.Data.csproj", "{DA37C211-CAE8-4369-B3DF-B9366E0FF6E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forum.Services", "Forum.Services\Forum.Services.csproj", "{D13EF43B-E872-4379-AB13-B79FC2C56737}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forum.Services", "Forum.Services\Forum.Services.csproj", "{D13EF43B-E872-4379-AB13-B79FC2C56737}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForumViewModels", "ForumViewModels\ForumViewModels.csproj", "{D0A22B3B-34BA-49E8-9A10-9F45728C0243}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ForumViewModels", "ForumViewModels\ForumViewModels.csproj", "{D0A22B3B-34BA-49E8-9A10-9F45728C0243}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
