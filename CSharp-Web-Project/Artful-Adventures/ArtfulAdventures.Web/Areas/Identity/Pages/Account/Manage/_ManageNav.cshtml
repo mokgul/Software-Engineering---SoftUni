@@ -1,0 +1,21 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<ul class="nav nav-pills flex-column">
+    <li class="nav-item"><a class="nav-link btn btn-outline-dark my-2 blog-button-white @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
+    <li class="nav-item"><a class="nav-link btn btn-outline-dark my-2 blog-button-white @ManageNavPages.PictureNavClass(ViewContext)" id="picture" asp-page="./Picture">Update Profile Picture</a></li>
+    <li class="nav-item"><a class="nav-link btn btn-outline-dark my-2 blog-button-white @ManageNavPages.ManageSkillsModelNavClass(ViewContext)" id="manageskillsmodel" asp-page="./ManageSkillsModel">Manage Skills</a></li>
+    <li class="nav-item"><a class="nav-link btn btn-outline-dark my-2 blog-button-white @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+    <li class="nav-item"><a class="nav-link btn btn-outline-dark my-2 blog-button-white @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
+</ul>
+<style>
+    .nav-pills .nav-link.active {
+        color: #bcd0f7;
+        background-color: transparent;
+    }
+.nav-pills .nav-link:hover {
+    color: wheat;
+}
+
+</style>

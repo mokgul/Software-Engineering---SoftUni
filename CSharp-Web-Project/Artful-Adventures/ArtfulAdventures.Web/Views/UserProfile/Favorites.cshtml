@@ -1,0 +1,51 @@
+﻿@model PortfolioViewModel
+
+@{
+    ViewBag.Title = "Favorites";
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger bg-dark text-white" role="alert">
+        @TempData["Message"]
+    </div>
+}
+@if(TempData["Error"] != null)
+{
+    <div class="alert alert-danger bg-dark text-white" role="alert">
+        @TempData["Error"]
+    </div>
+}
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card mb-4" style="background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%);border-color:rgb(218, 203, 246); width:50%;">
+        <div class="card-body text-center">
+            <h5 class="mb-1" style="color:rgb(218, 203, 246);">Favorites</h5>
+        </div>
+    </div>
+</div>
+<div style="display: flex; justify-content:start;">
+    <a class="btn btn-outline-dark my-2 blog-button-white" href="@Context.Request.Headers["Referer"]" role="button" style="color:wheat; width: 80px; margin-bottom: 1rem!important;">Return</a>
+</div>
+<section>
+    <div class="container py-3">
+        <div class="row">
+            <div class="col-lg-13">
+                <div class="card mb-4" style="background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%);border-color:rgb(218, 203, 246)">
+                    <div class="card-body">
+                        @if (Model.Pictures != null && Model.Pictures.Count > 0)
+                        {
+                            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
+                                @foreach (var picture in Model.Pictures)
+                                {
+                                    <div>
+                                        @await Html.PartialAsync("_PictureDisplayPartial", picture)
+                                    </div>
+
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

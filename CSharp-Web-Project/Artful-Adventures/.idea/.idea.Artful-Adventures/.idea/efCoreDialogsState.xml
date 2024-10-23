@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EfCoreDialogsState">
+    <option name="keyValueStorage">
+      <map>
+        <entry key="Common:buildConfiguration" value="Debug" />
+        <entry key="Common:c5445628-253c-4044-9322-d9798326ae2c:dbContext" value="ArtfulAdventures.Data.ArtfulAdventuresDbContext" />
+        <entry key="Common:noBuild" value="false" />
+        <entry key="Common:outputFolder" value="Migrations" />
+        <entry key="Common:targetFramework" value="net6.0" />
+        <entry key="Common:useDefaultConnection" value="false" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,67 @@
+﻿@model ArtfulAdventures.Web.Areas.Admin.Models.ChallengeCreateFormModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Mvc.ModelBinding
+@using static ArtfulAdventures.Common.DataModelsValidationConstants.ChallengeConstants
+
+@{
+    ViewBag.Title = "Create Challenge";
+}
+<form method="post" asp-area="Admin" asp-controller="ManageContent" asp-action="CreateChallenge" enctype="multipart/form-data"
+      style="display: inline-block; flex-direction: column; align-items: center;">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <h2>Create Challenge</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="@Model.Title" class="form-label">Title</label>
+                <input asp-for="@Model.Title" class="form-control">
+                <span asp-validation-for="@Model.Title" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="@Model.Creator" class="form-label">Creator</label>
+                <input asp-for="@Model.Creator" class="form-control" value="@Model.Creator" readonly>
+                <span asp-validation-for="@Model.Creator" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label asp-for="@Model.CreatedOn" class="form-label">Publish date</label>
+                <textarea asp-for="@Model.CreatedOn" class="form-control" value="@Model.CreatedOn" rows="1" readonly>@Model.CreatedOn</textarea>
+                <span asp-validation-for="@Model.CreatedOn" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <div class="d-flex justify-content-between mt-3">
+                    <label asp-for="@Model.Requirements" class="form-label-add-edit" style="font-size: 20px;">Requirements</label>
+                    <span id="charCount">0/1000</span>
+                </div>
+
+                <textarea asp-for="@Model.Requirements" id="requirements" class="form-control" aria-required="true" rows="8"></textarea>
+                <span asp-validation-for="@Model.Requirements" class="text-danger"></span>
+                <small class="form-text text-white">The requirements must be between @RequirementsMinLength and @RequirementsMaxLength characters long.</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="mb-3 pt-3 pb-3">
+                <input class="form-control mb-2" type="file" name="file" id="file" style="width: 180%;" />
+                <input type="submit" class="form-control" style="margin-top: 15px;" value="Publish" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<!-- Script for counting the characters in the textarea -->
+<script>
+    document.getElementById('requirements').addEventListener('input', function () {
+        let charCount = this.value.length;
+        document.querySelector('#charCount').textContent = charCount + '/1000';
+    });
+</script>
+
+
+

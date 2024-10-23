@@ -1,0 +1,5 @@
+﻿@using (Html.BeginForm("Upload", "Picture", FormMethod.Post, new { enctype = "multipart/form-data", style = "display: inline-block; flex-direction: column; align-items: center;" }))
+{
+    <input class="btn btn-primary" type="file" name="file" id="file" style="background:none; border: none; width: 30%;" />
+    <input class="btn btn-primary btn-sm" type="submit" value="Upload" />
+}

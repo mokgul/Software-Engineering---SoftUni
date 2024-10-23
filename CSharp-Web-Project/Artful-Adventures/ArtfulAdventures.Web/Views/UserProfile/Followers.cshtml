@@ -1,0 +1,106 @@
+﻿@model FollowViewModel
+
+@if(TempData["Error"] != null)
+{
+    <div class="alert alert-danger bg-dark text-white" role="alert">
+        @TempData["Error"]
+    </div>
+}
+@{
+    ViewBag.Title = "Followers";
+}
+<style>
+    .text-purple {
+        color: #bcd0f7 !important;
+    }
+</style>
+<div class="d-flex justify-content-center align-items-center">
+    <div class="card mb-4" style="background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%);border-color:rgb(218, 203, 246); width:50%;">
+        <div class="card-body text-center">
+            <h5 class="mb-1" style="color:rgb(218, 203, 246);">Followers</h5>
+        </div>
+    </div>
+</div>
+<div style="display: flex; justify-content:start;">
+    <a class="btn btn-outline-dark my-2 blog-button-white" href="@Context.Request.Headers["Referer"]" role="button" style="color:wheat; width: 80px; margin-bottom: 1rem!important;">Return</a>
+</div>
+<section>
+    <div class="container py-3">
+
+        <div class="row">
+            @foreach (var profile in Model.Followers)
+            {
+                <div class="col-lg-4">
+                    <div class="card mb-4" style="width: 20rem;background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%); border-color:rgb(218, 203, 246)">
+                        <div class="card-body text-center" >
+                            @if (profile.ProfilePictureUrl != null)
+                            {
+                                <img src="~/images/@profile.ProfilePictureUrl" alt=" "
+                                     class="block" style="width: 286px; height: 206px; object-fit:scale-down;">
+                            }
+                            else
+                            {
+                                <img src="~/local/no-profile-picture.jpg" alt=" "
+                                     class="block" style="width: 100%; height: 100%; object-fit: cover;">
+                            }
+                            @if (profile.Username != null)
+                            {
+                                <h5 class="my-3 text-purple">@profile.Username</h5>
+                            }
+                            @if (profile.Name != null)
+                            {
+                                <p class="mb-1 text-purple">@profile.Name</p>
+                            }
+                            @if (profile.CityName != null)
+                            {
+                                <p class="mb-1 text-purple">@profile.CityName</p>
+                            }
+                            @if (profile.Bio != null)
+                            {
+                                <p class="mb-4 text-purple">@profile.Bio</p>
+                            }
+                            <div class="d-flex justify-content-center mb-2">
+                                <form method="get" asp-area="" asp-controller="UserProfile" asp-action="Profile" asp-route-username="@profile.Username">
+                                    <input type="hidden" name="username" value="@profile.Username" />
+                                    <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">
+                                        Profile
+                                    </button>
+                                </form>
+                                <form method="get" asp-area="" asp-controller="Message" asp-action="SendMessage">
+                                    <input type="hidden" name="username" value="@profile.Username" />
+                                    <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">
+                                        Message
+                                    </button>
+                                </form>
+                            </div>
+                            <style>
+                                .btn-outline-primary:hover,
+                                .btn-primary:hover {
+                                    background-color: #6b8cce;
+                                }
+                            </style>
+                            <div class="d-flex justify-content-center text-center mt-3 mb-2">
+                                <div class="d-flex justify-content-center rounded-3 p-2 mb-2"
+                                     style="background:radial-gradient(circle at -4% -12.9%, rgb(74, 98, 110) 0.3%, rgb(30, 33, 48) 90.2%); border: 1px solid white; color:white;">
+                                    <div>
+                                        <p class="small text-purple mb-1">Followers</p>
+                                        <p class="mb-0text-purple">@profile.FollowersCount</p>
+                                    </div>
+                                    <div class="px-3">
+                                        <p class="small text-purple mb-1">Following</p>
+                                        <p class="mb-0 text-purple">@profile.FollowingCount</p>
+                                    </div>
+                                    <div>
+                                        <p class="small text-purple mb-1">Uploads</p>
+                                        <p class="mb-0 text-purple">@profile.PicturesCount</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

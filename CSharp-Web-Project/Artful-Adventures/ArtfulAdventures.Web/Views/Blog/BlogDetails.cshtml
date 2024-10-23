@@ -1,0 +1,189 @@
+﻿@model BlogDetailsViewModel
+@using static ArtfulAdventures.Common.GeneralApplicationConstants.Roles;
+
+@{
+    ViewData["Title"] = "Blog Details";
+}
+
+@if(TempData["Error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+
+
+<div style="display: flex; justify-content:space-between">
+    <a class="btn btn-outline-dark my-2 blog-button-white" href="@Context.Request.Headers["Referer"]" role="button" style="color:wheat; width: 80px; margin-bottom: 1rem!important; ">Return</a>
+    @if (User!.IsInRole(Administrator))
+    {
+        <form method="post" asp-area="Admin" asp-controller="ManageContent" asp-action="DeleteBlog" asp-route-blogId="@Model.Id" asp-route-user="@Model.Author">
+            <button type="submit" class="btn btn-outline-dark my-2 delete-blog-button-red" style="color:wheat;">Delete Blog</button>
+        </form>
+    }
+</div>
+<div class="card px-3 pt-3" style="max-width: 100%;">
+    <!-- News block -->
+    <div>
+        <!-- Featured image -->
+        <style>
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 40%;
+            }
+
+        </style>
+        <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4" data-mdb-ripple-color="light">
+            <img src="~/images/@Model.ImageUrl" class="img-fluid center"/>
+            <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+        </div>
+
+        <!-- Article data -->
+        <ul class="list-inline mt-3">
+            <li class="list-inline-item">
+                <a href="@Url.Action("Profile", "UserProfile", new { username = Model.Author })" style="color:deepskyblue">
+                    <i class="fas fa-user"></i> By @Model.Author
+                </a>
+            </li>
+
+            <li class="list-inline-item" style="color:#abd5ff">
+                <i class="far fa-clock" style="color:#abd5ff"></i> @Model.CreatedOn
+            </li>
+        </ul>
+
+        <!-- Article title and description -->
+        <a href="" class="text-dark">
+            <h1 style="color:lightsteelblue;text-align:center; margin-bottom:20px; margin-top: 20px;">@Model.Title</h1>
+
+            <p style="color:whitesmoke; font-family: monospace, sans-serif; font-size: 18px;">
+                @Model.Content
+            </p>
+
+        </a>
+        <hr/>
+
+        <form method="post" asp-area="" asp-controller="Blog" asp-action="Like" asp-route-blogId="@Model.Id">
+            <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564; margin-bottom: 2rem!important;">
+                Like<span class="badge ms-2">@Model.Likes</span>
+            </button>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <!-- Section 4: Comments -->
+    <section class="col-md-11">
+        <div class="container my-5">
+            <div class="row d-flex justify-content-left">
+                <div class="col-md-12 col-lg-10">
+                    <div class="card text-dark">
+                        <div class="card-body p-4" style="background:#272e48; color:#88c4f7;">
+                            <h4 class="mb-0">Recent comments(@Model.CommentsCount)</h4>
+                            <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+
+                            <div class="card-footer py-3 border-0" style="background-color: transparent;">
+                                <div class="d-flex flex-start w-100">
+
+                                    <img class="rounded-circle shadow-1-strong me-3"
+                                         src="~/local/no-profile-picture.jpg" alt="avatar" width="40"
+                                         height="40"/>
+
+                                    @if (Model.isCurrentUserMuted == false)
+                                    {
+                                        <div class="form-outline w-100">
+                                            <textarea class="form-control" id="textArea" rows="4"
+                                                                                      style="background-color: transparent; color:#88c4f7;"></textarea>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-outline w-100">
+                                            <p>Current user is muted.</p>
+                                            <textarea class="form-control" id="textArea" rows="4" disabled
+                                                      style="background-color: transparent; color:#88c4f7;"></textarea>
+                                        </div>
+                                    }
+                                </div>
+                                <div style="display: flex; justify-content:space-between">
+                                    <form asp-area="" asp-controller="Comment" asp-action="AddCommentBlog" asp-route-blogId="@Model.Id" method="post">
+                                        <input type="hidden" name="content" id="contentInput"/>
+                                        @if (Model.isCurrentUserMuted == false)
+                                        {
+                                            <button type="submit" id="button" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; width: 120px; margin-bottom: 1rem!important; margin-left: 3.4rem!important; margin-top: 1rem!important;">Post comment</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" id="button" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; width: 120px; margin-bottom: 1rem!important; margin-left: 3.4rem!important; margin-top: 1rem!important;" disabled>Post comment</button>
+                                        }
+                                    </form>
+                                </div>
+                            </div>
+
+                            @if (Model.Comments != null)
+                            {
+                                @foreach (var comment in Model.Comments.OrderByDescending(p => p.CreatedOn))
+                                {
+                                    <div class="card-body p-4">
+                                        <div class="d-flex flex-start">
+                                            @if (comment.AuthorPictureUrl != null)
+                                            {
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                     src="~/images/@comment.AuthorPictureUrl" alt="avatar" width="40"
+                                                     height="40"/>
+                                            }
+                                            else
+                                            {
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                     src="~/local/no-profile-picture.jpg" alt="avatar" width="40"
+                                                     height="40"/>
+                                            }
+                                            <div>
+                                                <a href="@Url.Action("Profile", "UserProfile", new { username = @comment.Author })" style="color:deepskyblue">
+                                                    <i class="fas fa-user"></i> @comment.Author
+                                                </a>
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <p class="mb-0">
+                                                        @comment.CreatedOn
+                                                    </p>
+                                                </div>
+                                                <p class="mb-0">
+                                                    @comment.Content
+                                                </p>
+                                            </div>
+                                        </div>
+                                        @if (User!.IsInRole(Administrator))
+                                        {
+                                            <div style="display: flex; justify-content: flex-end;">
+                                                <form method="post" asp-area="Admin" asp-controller="ManageContent" asp-action="DeleteCommentBlog" asp-route-blogId="@Model.Id" asp-route-commentId="@comment.Id">
+                                                    <button type="submit" class="btn btn-outline-dark my-2 delete-blog-button-red" style="color:wheat;">Delete Comment</button>
+                                                </form>
+                                            </div>
+                                        }
+                                    </div>
+
+                                    <hr class="my-0" style="height: 1px;"/>
+
+                                    <hr class="my-0"/>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+ <!-- Script for copying the text from the text area to the hidden input -->
+<script>
+    let button = document.getElementById("button");
+    button.addEventListener("click", function () {
+        let textArea = document.getElementById("textArea");
+        let contentInput = document.getElementById("contentInput");
+        contentInput.value = textArea.value;
+    });
+</script>

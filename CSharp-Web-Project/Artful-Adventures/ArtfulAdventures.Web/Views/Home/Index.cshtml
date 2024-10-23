@@ -1,0 +1,113 @@
+﻿@model ICollection<PictureVisualizeViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="home-title">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1 class="display-4 my-5 animated-title">A Canvas for Your Imagination:</h1>
+            <h2 class="my-3 animated-title">Showcase Your Digital Art Here</h2>
+            <a class="btn btn-outline-dark my-2 blog-button-white" href="@Url.Action("All", "Explore", new {sort = "", page = 1})" role="button" style="color:wheat">Explore</a>
+            <a class="btn btn-outline-dark my-2 blog-button-white" href="@Url.Action("Upload", "Picture")" role="button" style="color:wheat">Share</a>
+            <a class="btn btn-outline-dark my-2 blog-button-white" href="@Url.Action("AboutUs", "Home")" role="button" style="color:wheat">Contact Us</a>
+        </div>
+    </div>
+</div>
+<style>
+/*.btn {*/
+/*    font-size: 1.2rem; !* increase the font size *!*/
+/*    padding: 0.8rem 1.5rem; !* increase the padding *!*/
+/*    margin: 0 1.3rem!important; !* add margin between the buttons *!*/
+/*    background-color: transparent;*/
+/*}*/
+
+    body {
+        background-image: url("local/home-background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center -75px; /* move the image up */
+    }
+ 
+    .home-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 22%; /* move the container up by 50 pixels */
+    }
+    
+    .animated-title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        color: #add8e6;
+        position: relative;
+    }
+    
+    .animated-title::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background-color: wheat;
+        visibility: hidden;
+        transform: scaleX(0);
+        transition: all 0.3s ease-in-out 0s;
+    }
+    
+    .animated-title:hover::before {
+        visibility: visible;
+        transform: scaleX(1);
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+    
+    h2 {
+        font-size: 2rem;
+    }
+.carousel {
+    margin: 0 auto;
+}
+.carousel img {
+    width: 600px!important;
+    height: 337px!important;
+    object-fit: cover;
+    overflow: hidden;
+}
+.carousel {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.home-title, .carousel {
+    max-height: 70vh;
+}
+
+</style>
+ <!-- Carousel -->
+<script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
+  ></script>
+<div id="carouselExampleControls" class="carousel slide" data-mdb-ride="carousel" style="width: 600px;justify-content: center">
+    <div class="carousel-inner">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <div class="carousel-item @(i == 0 ? "active" : "")">
+                <img src="~/images/@Model.ElementAt(i).PictureUrl" style="width: 600px; height: auto" alt="text"/>
+            </div>
+        }
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleControls" data-mdb-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>

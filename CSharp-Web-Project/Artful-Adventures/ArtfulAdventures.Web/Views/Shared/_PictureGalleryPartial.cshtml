@@ -1,0 +1,21 @@
+﻿@model PictureVisualizeViewModel
+
+@Html.AntiForgeryToken()
+
+<div style="flex-basis: 23%; padding: 5px; max-height: 100%;  margin-top: 1rem;">
+        <a href="@Url.Action("PictureDetails", "Picture", new { id = Model.Id})">
+        <div style="width: 235px; height: 235px; overflow: hidden;">
+                <img src="~/images/@Model.PictureUrl" alt=" "
+                     class="block shadow-1-strong rounded mb-4" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </a>
+    </div>
+
+<style>
+    img:hover {
+        filter: brightness(150%);
+    }
+</style>
+
+
+

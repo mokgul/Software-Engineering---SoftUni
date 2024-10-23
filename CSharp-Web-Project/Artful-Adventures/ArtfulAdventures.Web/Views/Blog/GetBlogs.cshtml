@@ -1,0 +1,197 @@
+﻿@model ArtfulAdventures.Web.ViewModels.Blog.BlogVisualizeModel
+
+@{
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int previousPage = currentPage > 1 ? currentPage - 1 : 1;
+    int nextPage = currentPage + 1;
+    string action = ViewBag.Action;
+}
+
+@{
+    ViewBag.Title = "Blogs";
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Success"]
+    </div>
+}
+@if(TempData["NotFound"] != null)
+{
+    <div class="alert alert-danger text-black" role="alert">
+        @TempData["NotFound"]
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+
+<h1 class="text-center">Blogs</h1>
+
+<hr style="margin-top: 50px; margin-bottom:50px;" />
+
+<style>
+    .my-2 {
+        margin: 0 0.5rem !important;
+    }
+
+    .text-purple {
+        color: #bcd0f7;
+    }
+</style>
+<div class="d-flex justify-content-center text-center">
+
+    <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("GetBlogs", "Blog", new { sort = "", page = 1})" role="button" style="color:wheat; background-color:cornflowerblue;">All Blogs</a>
+    <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("GetBlogs", "Blog", new { sort = "likes", page = 1})" role="button" style="color:wheat;  background-color:#284564">Popular</a>
+    <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("GetBlogs", "Blog", new { sort = "newest", page = 1})" role="button" style="color:wheat;  background-color:#284564">Recent</a>
+    <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("GetBlogs", "Blog", new { sort = "oldest", page = 1})" role="button" style="color:wheat;  background-color:#284564">Previous</a>
+    <a id="sort-link-user" class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("GetBlogs", "Blog", new { sort = " ", page = 1})" role="button" style="color:wheat;  background-color:#284564">By Author</a>
+    <input id="user-input" type="text" placeholder="Enter user" style="font-size: 16px; margin-bottom: 0rem!important;" />
+    <datalist id="suggestions"></datalist>
+
+    <style>
+        #user-input {
+            margin: -2px 0.5rem !important;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background-color: #272e48;
+            color: wheat;
+            font-size: 1.0rem;
+            padding: 0.5rem;
+            margin-left: 1rem;
+        }
+
+            #user-input:focus {
+                outline: none;
+            }
+    </style>
+    
+     <!-- This script is used to update the href of the sort link when the user inputs a username -->
+    <script>
+        document.getElementById('user-input').addEventListener('input', function () {
+            var sort = this.value;
+            var link = document.getElementById('sort-link-user');
+            var href = link.getAttribute('href');
+            href = href.replace(/sort=.*?(&|$)/, 'sort=' + encodeURIComponent(sort) + '$1');
+            link.setAttribute('href', href);
+        });
+    </script>
+</div>
+
+
+
+<div class="container mb-4 mt-4">
+    <div class="row">
+        @foreach (var blog in Model.Blogs)
+        {
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <div class="card shadow">
+                    <div class="card-body text-center">
+                        <a href="@Url.Action("BlogDetails", "Blog", new { id = blog.Id} )">
+                            <style>
+                                .card-img-top {
+                                    height: 200px;
+                                    width: 100%;
+                                    object-fit: cover;
+                                }
+
+                            </style>
+                            @if (!String.IsNullOrEmpty(blog.ImageUrl))
+                            {
+                                <img class="card-img-top" src="~/images/@blog.ImageUrl" alt="no-photo">
+                            }
+                            else
+                            {
+                                <img class="card-img-top" src="~/local/blog-default.jpg" alt="no-photo">
+                            }
+                        </a>
+                        <ul class="list-inline mt-3">
+                            <li class="list-inline-item">
+                                <a href="@Url.Action("Profile", "UserProfile", new { username = blog.Author })" style="color:deepskyblue">
+                                    <i class="fas fa-user"></i> By @blog.Author
+                                </a>
+                            </li>
+
+                            <li class="list-inline-item text-purple"><i class="far fa-clock text-purple"></i> @blog.CreatedOn</li>
+                        </ul>
+                        <hr>
+                        <style>
+                            h5, p.lead {
+                                line-height: 1.5;
+                                height: 6em;
+                            }
+                        </style>
+                        <h5 class="text-purple" style="text-decoration:underline;">@blog.Title</h5>
+                        <p class="lead text-purple">@(blog.Content.Length >= 123 ? blog.Content.Substring(0, 123) : @blog.Content)</p>
+                        <div style="display: flex; justify-content:center">
+                            <a class="btn btn-outline-dark my-2 blog-button-white" href="@Url.Action("BlogDetails", "Blog", new { id = blog.Id} )" role="button" style="color:wheat">Read more...</a>
+                            @if (action == "ManageBlogs")
+                            {
+                                <a class="btn btn-outline-dark my-2 edit-blog-button-yellow" href="@Url.Action("EditBlog", "Blog", new { id = blog.Id} )" role="button" style="color:wheat">Edit Blog</a>
+                                <form method="post" asp-controller="Blog" asp-action="DeleteBlog" asp-route-id="@blog.Id">
+                                    <button type="submit" class="btn btn-outline-dark my-2 delete-blog-button-red" style="color:wheat">Delete Blog</button>
+                                </form>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .page-item {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color: #272e48;
+        color: wheat;
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin-left: 0.3rem;
+    }
+
+        .page-item.disabled a.page-link {
+            color: wheat;
+            background-color: #272e48;
+            opacity: 0.5;
+        }
+
+
+        .page-item a {
+            color: wheat;
+            background-color: #272e48;
+        }
+
+            .page-item a:focus {
+                outline: none;
+            }
+
+</style>
+<nav aria-label="Page navigation example" style="margin-right: 0.5rem;">
+    <ul class="pagination justify-content-end">
+        @if (currentPage > 1)
+        {
+            <li class="page-item"><a class="page-link" href="@Url.Action("GetBlogs", "Blog", new { sort = ViewBag.Sort, page = previousPage})">Previous</a></li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+        }
+        <li class="page-item"><a class="page-link" href="@Url.Action("GetBlogs", "Blog", new { sort = ViewBag.Sort, page = currentPage })">@currentPage</a></li>
+        <li class="page-item"><a class="page-link" href="@Url.Action("GetBlogs", "Blog", new { sort = ViewBag.Sort, page = currentPage + 1 })">@(currentPage + 1)</a></li>
+        <li class="page-item"><a class="page-link" href="@Url.Action("GetBlogs", "Blog", new { sort = ViewBag.Sort, page = currentPage + 2})">@(currentPage + 2)</a></li>
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("GetBlogs", "Blog", new { sort = ViewBag.Sort, page = nextPage})">Next</a>
+        </li>
+    </ul>
+</nav>
+

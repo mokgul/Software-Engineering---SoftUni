@@ -1,0 +1,175 @@
+﻿@model ExploreViewModel
+@using Microsoft.AspNetCore.Http
+
+<link rel="stylesheet" href="https://cdn.rawgit.com/bantikyan/icheck-bootstrap/master/icheck-bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@{
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int previousPage = currentPage > 1 ? currentPage - 1 : 1;
+    int nextPage = currentPage + 1;
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger bg-dark text-white" role="alert">
+        @TempData["Error"]
+    </div>
+}
+@if(TempData["NotFound"] != null)
+{
+    <div class="alert alert-danger bg-dark text-white" role="alert">
+        @TempData["NotFound"]
+    </div>
+}
+
+@{
+    ViewBag.Title = "Explore";
+    <h1 class="text-center">Explore</h1>
+
+    <hr style="margin-top: 50px; margin-bottom:50px;" />
+
+    <div class="mb-3">
+        <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { sort = "", page = 1})" role="button" style="color:wheat; background-color:cornflowerblue;">All Pictures</a>
+        <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { sort = "likes", page = 1})" role="button" style="color:wheat;  background-color:#284564">Popular</a>
+        <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { sort = "newest", page = 1})" role="button" style="color:wheat;  background-color:#284564">Recent</a>
+        <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { sort = "oldest", page = 1})" role="button" style="color:wheat;  background-color:#284564">Previous</a>
+        <a id="sort-link-tag" class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { sort = " ", page = 1})" role="button" style="color:wheat;  background-color:#284564">Sort by tag</a>
+        <input id="tag-input" type="text" placeholder="Enter tag" list="suggestions" />
+        <datalist id="suggestions"></datalist>
+
+        <a id="sort-link-user" class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { sort = " ", page = 1})" role="button" style="color:wheat;  background-color:#284564">By Author</a>
+        <input id="user-input" type="text" placeholder="Enter user" />
+        <datalist id="suggestions"></datalist>
+    </div>
+    <div class="mb-2 py-3">
+        @foreach (var tag in Model.HashTags)
+        {
+            <a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { sort = @tag.Name, page = 1})" role="button" style="color:wheat; margin-bottom: 2rem!important;">@tag.Name<span class="badge ms-2">@tag.PicturesCount</span></a>
+        }
+
+        <style>
+            #tag-input, #user-input {
+                margin: -2px 0.5rem !important;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                background-color: #272e48;
+                color: wheat;
+                font-size: 1.0rem;
+                padding: 0.5rem;
+                margin-left: 1rem;
+            }
+
+                #tag-input:focus, #user-input:focus {
+                    outline: none;
+                }
+        </style>
+        
+        <!-- Sort by tag -->
+        <script>
+            document.getElementById('tag-input').addEventListener('input', function () {
+                var sort = this.value;
+                var link = document.getElementById('sort-link-tag');
+                var href = link.getAttribute('href');
+                href = href.replace(/sort=.*?(&|$)/, 'sort=' + encodeURIComponent(sort) + '$1');
+                link.setAttribute('href', href);
+            });
+        </script>
+         <!-- Sort by user -->
+        <script>
+            document.getElementById('user-input').addEventListener('input', function () {
+                var sort = this.value;
+                var link = document.getElementById('sort-link-user');
+                var href = link.getAttribute('href');
+                href = href.replace(/sort=.*?(&|$)/, 'sort=' + encodeURIComponent(sort) + '$1');
+                link.setAttribute('href', href);
+            });
+        </script>
+         <!-- Tag suggestions -->
+        <script>
+            var hashTags = @Html.Raw(Json.Serialize(Model.TagsForDropDown));
+
+            document.getElementById('tag-input').addEventListener('input', function () {
+                var input = this.value;
+                var suggestions = hashTags.filter(function (hashTag) {
+                    return hashTag.name && hashTag.name.toLowerCase().startsWith(input.toLowerCase());
+                });
+                var suggestionsList = document.getElementById('suggestions');
+                suggestionsList.innerHTML = '';
+                suggestions.forEach(function (suggestion) {
+                    var option = document.createElement('option');
+                    option.value = suggestion.name;
+                    suggestionsList.appendChild(option);
+                });
+            });
+        </script>
+    </div>
+    <hr style="margin-top: 50px; margin-bottom:50px;" />
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-body">
+                    @if (Model.Pictures != null && Model.Pictures.Count > 0)
+                    {
+                        <div style="display: flex; flex-wrap: wrap; justify-content: flex-start;">
+                            @foreach (var picture in Model.Pictures)
+                            {
+                                <div>
+                                    @await Html.PartialAsync("_PictureGalleryPartial", picture)
+                                </div>
+                                
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .page-item {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            background-color: #272e48;
+            color: wheat;
+            font-size: 1rem;
+            padding: 0.3rem;
+            margin-left: 0.3rem;
+        }
+
+            .page-item.disabled a.page-link {
+                color: wheat;
+                background-color: #272e48;
+                opacity: 0.5;
+            }
+
+
+            .page-item a {
+                color: wheat;
+                background-color: #272e48;
+            }
+
+                .page-item a:focus {
+                    outline: none;
+                }
+
+    </style>
+    <nav aria-label="Page navigation example" style="margin-right: 0.5rem;">
+        <ul class="pagination justify-content-end">
+            @if (currentPage > 1)
+            {
+                <li class="page-item"><a class="page-link" href="@Url.Action("All", "Explore", new { sort = ViewBag.Sort, page = previousPage})">Previous</a></li>
+            }
+            else
+            {
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+            }
+            <li class="page-item"><a class="page-link" href="@Url.Action("All", "Explore", new { sort = ViewBag.Sort, page = currentPage })">@currentPage</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("All", "Explore", new { sort = ViewBag.Sort, page = currentPage + 1 })">@(currentPage + 1)</a></li>
+            <li class="page-item"><a class="page-link" href="@Url.Action("All", "Explore", new { sort = ViewBag.Sort, page = currentPage + 2})">@(currentPage + 2)</a></li>
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("All", "Explore", new { sort = ViewBag.Sort, page = nextPage})">Next</a>
+            </li>
+        </ul>
+    </nav>
+}

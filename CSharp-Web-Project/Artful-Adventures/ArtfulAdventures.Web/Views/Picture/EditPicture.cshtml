@@ -1,0 +1,121 @@
+﻿@model PictureEditViewModel
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Mvc.ModelBinding;
+
+@{
+    ViewBag.Title = "Edit Picture";
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success text-black" role="alert">
+        @TempData["Success"]
+    </div>
+}
+@{
+    var errors = ViewData.ModelState.Where(n => n.Value.Errors.Count > 0).ToList();
+}
+
+@if (errors.Count > 0)
+{
+    @foreach (var error in errors)
+    {
+        foreach (var errorMessage in error.Value.Errors)
+        {
+            <div class="alert alert-danger bg-dark text-white" role="alert">
+                @errorMessage.ErrorMessage
+            </div>
+        }
+    }
+}
+
+@Html.AntiForgeryToken()
+<form method="post" asp-controller="Picture" asp-action="EditPicture" style="display: inline-block; flex-direction: column; align-items: center;">
+    <div class="row">
+        <div class="col-md-5">
+            <h2>Edit Picture</h2>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <div class="col-md-10">
+                    <div class="d-flex justify-content-between mt-3">
+                        <label asp-for="@Model.Description" class="form-label-add-edit" style="font-size: 20px;">Description</label>
+                        <span id="charCount">0/1000</span>
+                    </div>
+
+                    <textarea asp-for="@Model.Description" class="form-control" aria-required="true" rows="8"></textarea>
+                    <span asp-validation-for="@Model.Description" class="text-danger"></span>
+                    <small class="form-text text-muted">The description must be between @DescriptionMinLength and @DescriptionMaxLength characters long.</small>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="mb-3 pt-3 pb-3">
+
+                    <input type="submit" class="form-control" style="margin-top: 15px;" value="Publish" />
+
+                </div>
+            </div>
+        </div>
+
+    <div class="col-md-7">
+        <style>
+            .form-check {
+                width: 25%;
+                padding: 5px;
+            }
+
+            .btn-custom {
+                background-color: #517592;
+                color: #fff;
+                margin: 5px;
+                width: 100%;
+            }
+
+                .btn-custom.checked {
+                    background-color: dodgerblue;
+                }
+        </style>
+        <div class="d-flex flex-wrap">
+            @for (int i = 0; i < Model.HashTags.Count(); i++)
+            {
+                @Html.HiddenFor(m => m.HashTags[i].Id)
+                @Html.HiddenFor(m => m.HashTags[i].Name)
+                <div class="form-check">
+                    @Html.CheckBoxFor(m => m.HashTags[i].IsSelected, new { @class = "form-check-input d-none", id = $"HashTags_{i}__IsSelected" })
+                    <label class="form-check-label w-100" for="@($"HashTags_{i}__IsSelected")">
+                        <span class="btn btn-custom">@Model.HashTags[i].Name.Replace("_", " ")</span>
+                    </label>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+</form>
+<span asp-validation-for="@Model.HashTags" class="text-danger"></span>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <!-- This script is for the checkbox to be checked when the label is clicked -->
+<script>
+    $(document).ready(function () {
+        $('.btn-custom').click(function (event) {
+            event.preventDefault();
+            console.log('Label clicked:', this); // Add console.log statement here
+            var $checkbox = $(this).parent().prev();
+            var isChecked = !$checkbox.prop('checked');
+            $checkbox.prop('checked', isChecked);
+            $(this).toggleClass('checked', isChecked);
+        });
+    });
+
+</script>
+
+ <!-- This script is for the character count -->
+<script>
+    document.querySelector('textarea').addEventListener('input', function () {
+        var charCount = this.value.length;
+        document.querySelector('#charCount').textContent = charCount + '/1000';
+    });
+
+</script>
+
+
+

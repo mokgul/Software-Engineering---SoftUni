@@ -1,0 +1,49 @@
+﻿@model MessageSendFormModel
+
+<h2>Compose Message</h2>
+
+
+@{
+    ViewBag.Title = "Compose Message";
+}
+@if(TempData["Error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+@if(TempData["Success"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Success"]
+    </div>
+}
+<div style="display: flex; justify-content:start; margin-left: -0.5rem">
+    <a class="btn btn-outline-dark my-2 blog-button-white" href="@Context.Request.Headers["Referer"]" role="button" style="color:wheat; width: 80px; margin-bottom: 1rem!important;">Return</a>
+</div>
+
+@using (Html.BeginForm("SendMessage", "Message", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Receiver)
+        @Html.TextBoxFor(m => m.Receiver, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Receiver)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject)
+        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Subject)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Content)
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+    <div style="display: flex; justify-content:start; margin: 2rem 0rem 2rem -0.5rem;">
+        <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat">Send</button>
+    </div>
+}

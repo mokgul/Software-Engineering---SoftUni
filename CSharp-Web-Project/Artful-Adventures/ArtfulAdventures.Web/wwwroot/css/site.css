@@ -1,0 +1,164 @@
+html {
+	font-size: 14px;
+}
+
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+	box-sizing: border-box;
+}
+/*
+body {
+	background: radial-gradient(circle at -4% -12.9%, #3C4F6C 0.3%, #1A233A 90.2%);
+}*/
+
+.navbar {
+	background: linear-gradient(to top, rgb(9, 32, 63) 0%, rgb(83, 120, 149) 100%);
+	background-size: cover;
+	box-shadow: 0 0 10px #ccc, 0 0 20px #ccc, 0 0 30px #ccc, 0 0 20px #00f;
+	position: relative;
+	z-index: 1;
+	margin-bottom: 70px;
+}
+
+a.nav-link.active {
+	color: #bcd0f7;
+}
+
+.navbar-nav li a,
+a.nav-link.dropdown-toggle {
+	color: #bcd0eb !important;
+}
+
+ul.nav-item.mt-3 {
+	list-style-type: none;
+}
+
+.navbar-nav li a:hover,
+a.nav-link.dropdown-toggle:hover {
+	color: rgb(95, 209, 249);
+}
+
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit; /* enable the "border-box effect" everywhere */
+}
+
+.body-for-sticky {
+	position: relative; /* for the footer to move with the page size */
+	padding-bottom: 6rem; /* Space available between last element and bottom border of the page */
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.sticky-footer {
+	position: absolute; /* for it to disappear under last body element */
+	bottom: 0; /* so the footer can stick to the bottom*/
+	width: 100%; /* to take the full width of the page */
+	height: 4rem; /* height of the footer */
+	background-color: #272e48;
+	color: #bcd0f7;
+	margin-top: auto;
+}
+
+body {
+	color: #bcd0f7;
+	background: #1A233A;
+}
+
+.account-settings .user-profile {
+	margin: 0 0 1rem 0;
+	padding-bottom: 1rem;
+	text-align: center;
+}
+
+	.account-settings .user-profile .user-avatar {
+		margin: 0 0 1rem 0;
+	}
+
+		.account-settings .user-profile .user-avatar img {
+			width: 90px;
+			height: 90px;
+			-webkit-border-radius: 100px;
+			-moz-border-radius: 100px;
+			border-radius: 100px;
+		}
+
+	.account-settings .user-profile h5.user-name {
+		margin: 0 0 0.5rem 0;
+	}
+
+	.account-settings .user-profile h6.user-email {
+		margin: 0;
+		font-size: 0.8rem;
+		font-weight: 400;
+	}
+
+.account-settings .about {
+	margin: 1rem 0 0 0;
+	font-size: 0.8rem;
+	text-align: center;
+}
+
+.card {
+	background: #272E48;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 0;
+	margin-bottom: 1rem;
+}
+
+.form-control {
+	border: 1px solid #596280;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: .825rem;
+	background: #1A233A;
+	color: #bcd0f7;
+}
+
+/*Notification counter css*/
+.icon-with-badge {
+	position: relative;
+}
+
+	.icon-with-badge .badge {
+		position: absolute;
+		top: -5px;
+		right: -10px;
+	}
+
+.my-2 {
+	margin: 0 0.5rem !important;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	background-color: #272e48;
+	color: wheat;
+	font-size: 1.0rem;
+	padding: 0.5rem;
+	margin-left: 1rem;
+	margin-bottom: 1rem;
+}
+
+.blog-button-white {
+	box-shadow: inset 0px -4px 8px 0px rgba(255, 255, 255, 0.6); /* Smaller inward white shadow on the bottom side */
+}
+
+.edit-blog-button-yellow {
+	box-shadow: inset 0px -4px 8px 0px rgba(255, 215, 0, 0.6); /* Inward yellowish shadow on the bottom side */
+}
+
+.delete-blog-button-red {
+	box-shadow: inset -2px -7px 12px 0px rgba(255, 0, 0, 0.6) /* Smaller inward red shadow on the bottom side */
+}

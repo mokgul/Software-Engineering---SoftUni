@@ -1,0 +1,215 @@
+﻿@model ProfileViewModel
+
+@{
+    ViewBag.Title = "Profile";
+}
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger bg-dark text-white" role="alert">
+        @TempData["Message"]
+    </div>
+}
+else if (TempData["Success"] != null)
+{
+    <div class="alert alert-success bg-dark text-white" role="alert">
+        @TempData["Success"]
+    </div>
+}
+@if(TempData["Error"] != null)
+{
+    <div class="alert alert-success bg-dark text-white" role="alert">
+        @TempData["Error"]
+    </div>
+}
+<style>
+    .text-purple {
+        color: #bcd0f7 !important;
+    }
+</style>
+@if(Model.IsMuted == true)
+{
+    <div class="alert alert-danger bg-dark text-white" role="alert">
+        User is muted until @Model.MuteUntil !
+    </div>
+}
+<section>
+    <div class="container py-3">
+        <div class="card mb-4 mb-lg-0" style="max-width: 20rem; background: none; border: none;">
+            <div class="card-body p-0">
+                <div class="d-flex  mb-3">
+                    <form asp-area="" asp-controller="UserProfile" asp-action="Portfolio" method="get">
+                        <input type="hidden" name="username" value="@Model.Username" />
+                        <button type="submit" class="btn btn-outline-secondary text-purple" style="margin-right: 13px; color: white; border-color:rgb(218, 203, 246)">Portfolio</button>
+                    </form>
+                    <form asp-area="" asp-controller="UserProfile" asp-action="Favorites" method="get">
+                        <input type="hidden" name="username" value="@Model.Username" />
+                        <button type="submit" class="btn btn-outline-secondary text-purple" style="margin-right: 13px; color: white; border-color:rgb(218, 203, 246)">Favorites</button>
+                    </form>
+                    <form asp-area="" asp-controller="UserProfile" asp-action="Followers" method="get">
+                        <input type="hidden" name="username" value="@Model.Username" />
+                        <button type="submit" class="btn btn-outline-secondary text-purple" style="margin-right: 13px; color: white; border-color:rgb(218, 203, 246)">Followers</button>
+                    </form>
+                    <form asp-area="" asp-controller="UserProfile" asp-action="Following" method="get">
+                        <input type="hidden" name="username" value="@Model.Username" />
+                        <button type="submit" class="btn btn-outline-secondary text-purple" style="margin-right: 13px; color: white; border-color:rgb(218, 203, 246)">Following</button>
+                    </form>
+                </div>
+                <style>
+                    .btn-outline-secondary:hover {
+                        background-color: #6b8cce;
+                        color: white;
+                    }
+                </style>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4" style="width: 20rem;background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%); border-color:rgb(218, 203, 246)">
+                    <div class="card-body text-center">
+                        @if (Model.ProfilePictureUrl != null)
+                        {
+                            <img src="~/images/@Model.ProfilePictureUrl" alt=" "
+                                 class="block" style="width: 100%; height: 100%; object-fit: cover;">
+                        }
+                        else
+                        {
+                            <img src="~/local/no-profile-picture.jpg" alt=" "
+                                 class="block" style="width: 150px;">
+                        }
+                        @if (Model.Username != null)
+                        {
+                            <h5 class="my-3 text-purple">@Model.Username</h5>
+                        }
+                        @if (Model.Name != null)
+                        {
+                            <p class="mb-1  text-purple">@Model.Name</p>
+                        }
+                        @if (Model.CityName != null)
+                        {
+                            <p class="mb-1  text-purple">@Model.CityName</p>
+                        }
+                        @if (Model.Bio != null)
+                        {
+                            <p class="mb-4 text-purple">@Model.Bio</p>
+                        }
+                        <div class="d-flex justify-content-center mb-2">
+                            @if (Model.isFollowed == true)
+                            {
+                                <form method="post" asp-area="" asp-controller="UserProfile" asp-action="Unfollow" asp-route-username="@Model.Username">
+                                    <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">Unfollow</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form method="post" asp-area="" asp-controller="UserProfile" asp-action="Follow" asp-route-username="@Model.Username">
+                                    <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">Follow</button>
+                                </form>
+
+                            }
+                            <form method="get" asp-area="" asp-controller="Message" asp-action="SendMessage">
+                                <input type="hidden" name="username" value="@Model.Username" />
+                                <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">Message</button>
+                            </form>
+                        </div>
+                        <style>
+                            .btn-outline-primary:hover,
+                            .btn-primary:hover {
+                                background-color: #6b8cce;
+                            }
+                        </style>
+                        <div class="d-flex justify-content-center text-center mt-3 mb-2">
+                            <div class="d-flex justify-content-center rounded-3 p-2 mb-2"
+                                 style="background:radial-gradient(circle at -4% -12.9%, rgb(74, 98, 110) 0.3%, rgb(30, 33, 48) 90.2%); border: 1px solid white; color:white;">
+                                <div>
+                                    <p class="small text-purple mb-1">Followers</p>
+                                    <p class="mb-0 text-purple">@Model.FollowersCount</p>
+                                </div>
+                                <div class="px-3">
+                                    <p class="small text-purple mb-1">Following</p>
+                                    <p class="mb-0 text-purple">@Model.FollowingCount</p>
+                                </div>
+                                <div>
+                                    <p class="small text-purple mb-1">Uploads</p>
+                                    <p class="mb-0 text-purple">@Model.PicturesCount</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if (Model.About != null)
+                {
+                    <div class="col-lg-4">
+                        <div class="card mb-4" style="width: 20rem; height:15rem;background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%);border-color:rgb(218, 203, 246)">
+                            <div class="card-body text-center">
+                                <h5 class="my-3 text-purple">About</h5>
+                                <p class="mb-4 text-purple">@Model.About</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4" style="background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%);border-color:rgb(218, 203, 246)">
+                    <div class="card-body">
+                        @if (Model.Pictures != null && Model.Pictures.Count > 0)
+                        {
+                            <div style="display: flex; flex-wrap: wrap; justify-content: flex-start; margin-left: 30px;">
+                                @foreach (var picture in Model.Pictures.Take(9))
+                                {
+                                    @await Html.PartialAsync("_PictureDisplayPartial", picture)
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            <h5 class="mb-1" style="color:white;">No pictures uploaded yet!</h5>
+                        }
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div style="display:flex">
+                        <div class="col-lg-4" style="margin-right: 40px;">
+                            <div class="card mb-4" style="background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%);border-color:rgb(218, 203, 246)">
+                                <div class="card-body text-center">
+                                    <h5 class="mb-1" style="color:rgb(218, 203, 246);">Skills</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4" style="margin-left: 40px; justify-content:flex-end;">
+                            <div class="card mb-4" style="background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%);border-color:rgb(218, 203, 246); display: inline-block;">
+                                <div class="card-body text-center">
+                                    @if (Model.Email != null)
+                                    {
+                                        <h5 class="mb-1" style="color:rgb(218, 203, 246);white-space:nowrap;">Contact: @Model.Email</h5>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card mb-5" style="background: radial-gradient(circle at 10% 20%, rgba(218, 203, 246,0.3) 10%, rgba(192, 192, 245,0.1) 33.1%, rgba(218, 203, 246,0.5) 90%);border-color:rgb(218, 203, 246)">
+                        <div class="card-body" style="padding:0">
+                            <div class="card-body" style="display: flex; flex-wrap: wrap;">
+                                @if (Model.Skills != null && Model.Skills.Count > 0)
+                                {
+                                    @foreach (var item in Model.Skills)
+                                    {
+                                        <div class="card mb-2" style="margin-right:10px;border-color:rgb(218, 203, 246)">
+                                            <div class="d-inline p-2 bg-dark text-white"> @item.Name</div>
+                                        </div>
+                                    }
+                                }
+                                else
+                                {
+                                    <h5 class="mb-1" style="color:white;">No skills added yet!</h5>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

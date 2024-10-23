@@ -1,0 +1,143 @@
+﻿@model ICollection<PictureEditViewModel>
+@{
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int previousPage = currentPage > 1 ? currentPage - 1 : 1;
+    int nextPage = currentPage + 1;
+    string action = ViewBag.Action;
+}
+
+@{
+    ViewBag.Title = action == "ManageGetAllPictures" ? "Manage Portfolio" : "Manage Favorites";
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Success"]
+    </div>
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+
+<h1 class="text-center">@ViewBag.Title</h1>
+
+<hr style="margin-top: 50px; margin-bottom:50px;" />
+
+<style>
+    .my-2 {
+        margin: 0 0.5rem !important;
+    }
+
+    .text-purple {
+        color: #bcd0f7;
+    }
+</style>
+
+@Html.AntiForgeryToken()
+
+<div class="container mb-4 mt-4">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+                <div class="card shadow">
+                    <div class="card-body text-center">
+                        <a href="@Url.Action("PictureDetails", "Picture", new { id = item.Id} )">
+                            <style>
+                                .card-img-top {
+                                    height: 200px;
+                                    width: 100%;
+                                    object-fit: cover;
+                                }
+
+                            </style>
+                            @if (!String.IsNullOrEmpty(item.PictureUrl))
+                            {
+                                <img class="card-img-top" src="~/images/@item.PictureUrl" alt="no-photo">
+                            }
+                            else
+                            {
+                                <img class="card-img-top" src="~/local/p" alt="no-photo">
+                            }
+                        </a>
+                        <p class="lead text-purple">@(item.Description.Length >= 123 ? item.Description.Substring(0, 123) : @item.Description)</p>
+                        <div style="display: flex; justify-content:center">
+                            @if (action == "ManageGetAllPictures")
+                            {
+                                <a class="btn btn-outline-dark my-2 edit-blog-button-yellow" href="@Url.Action("EditPicture", "Picture", new { id = item.Id} )" role="button" style="color:wheat">Edit Picture</a>
+                            }
+                            @if (action == "ManageGetAllPictures")
+                            {
+                                <form method="post" asp-controller="Picture" asp-action="DeletePicture" asp-route-id="@item.Id">
+                                    <button type="submit" class="btn btn-outline-dark my-2 delete-blog-button-red" style="color:wheat">Delete Picture</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <form method="post" asp-controller="Picture" asp-action="RemoveFromCollection" asp-route-id="@item.Id">
+                                    <button type="submit" class="btn btn-outline-dark my-2 delete-blog-button-red" style="color:wheat">Remove from Favorites</button>
+                                </form>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .page-item {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color: #272e48;
+        color: wheat;
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin-left: 0.3rem;
+    }
+
+        .page-item.disabled a.page-link {
+            color: wheat;
+            background-color: #272e48;
+            opacity: 0.5;
+        }
+
+
+        .page-item a {
+            color: wheat;
+            background-color: #272e48;
+        }
+
+            .page-item a:focus {
+                outline: none;
+            }
+
+</style>
+<nav aria-label="Page navigation example" style="margin-right: 0.5rem;">
+    <ul class="pagination justify-content-end">
+        @if (currentPage > 1)
+        {
+            <li class="page-item"><a class="page-link" href="@Url.Action("ManageGetAllPictures", "Picture", new { page = previousPage})">Previous</a></li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+        }
+        <li class="page-item"><a class="page-link" href="@Url.Action("ManageGetAllPictures", "Picture", new { page = currentPage })">@currentPage</a></li>
+        <li class="page-item"><a class="page-link" href="@Url.Action("ManageGetAllPictures", "Picture", new { page = currentPage + 1 })">@(currentPage + 1)</a></li>
+        <li class="page-item"><a class="page-link" href="@Url.Action("ManageGetAllPictures", "Picture", new { page = currentPage + 2})">@(currentPage + 2)</a></li>
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("ManageGetAllPictures", "Picture", new { page = nextPage})">Next</a>
+        </li>
+    </ul>
+</nav>
+

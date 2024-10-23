@@ -1,0 +1,31 @@
+﻿@model MessageReplyFormModel
+
+<h2>Reply to Message</h2>
+
+@{
+    ViewBag.Title = "Reply";
+}
+
+@using (Html.BeginForm("SendMessage", "Message", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.Receiver)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject)
+        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Subject)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Content)
+        @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Content)
+    </div>
+
+    <div style="display: flex; justify-content:start; margin: 2rem 0rem 2rem -0.5rem;">
+        <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;">Send</button>
+        <a class="btn btn-outline-dark my-2 blog-button-white" href="@Context.Request.Headers["Referer"]" role="button" style="color:wheat; width: 80px; margin-bottom: 1rem!important;">Return</a>
+    </div>
+}

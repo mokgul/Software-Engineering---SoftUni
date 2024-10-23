@@ -1,0 +1,69 @@
+﻿@model BlogAddFormModel
+
+
+@{
+    string action = ViewBag.Action;
+}
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success text-black" role="alert">
+        @TempData["Success"]
+    </div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger text-black" role="alert">
+        @TempData["Error"]
+    </div>
+}
+
+
+@{
+    ViewBag.Title = action == "CreateBlog" ? "Add Blog Post" : "Edit Blog Post";
+}
+<h2>@ViewBag.Title</h2>
+<form method="post" asp-controller="Blog" asp-action="@action" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Blog Post</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                <label asp-for="@Model.Title" class="form-label">Title</label>
+                <input asp-for="@Model.Title" class="form-control" />
+                <span asp-validation-for="@Model.Title" class="text-danger"></span>
+                <small class="form-text" style="font-size: 12px;color: #808080;">The title must be between @TitleMinLength and @TitleMaxLength characters long.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <div class="d-flex justify-content-between mt-3">
+                    <label asp-for="@Model.Content" class="form-label-add-edit" style="font-size: 20px;">Content</label>
+                    <span id="charCount">0/10000</span>
+                </div>
+
+                <textarea asp-for="@Model.Content" class="form-control" aria-required="true" rows="15"></textarea>
+                <span asp-validation-for="@Model.Content" class="text-danger"></span>
+                <small class="form-text" style="font-size: 12px;color: #808080;">The content must be between @ContentMinLength and @ContentMaxLength characters long.</small>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="mb-3 pt-3 pb-3">
+                <input class="form-control mb-2" type="file" name="file" id="file" style="width: 180%" />
+                <input type="submit" class="form-control" value="Publish" />
+            </div>
+        </div>
+    </div>
+</form>
+
+ <!-- JavaScript for character count -->
+<script>
+    document.querySelector('textarea').addEventListener('input', function () {
+        const charCount = this.value.length;
+        document.querySelector('#charCount').textContent = charCount + '/10000';
+    });
+
+</script>
+

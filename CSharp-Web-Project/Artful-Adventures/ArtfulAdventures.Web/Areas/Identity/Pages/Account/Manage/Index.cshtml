@@ -1,0 +1,126 @@
+﻿@page
+@model IndexModel
+@using Microsoft.AspNetCore.Identity
+@using System.IO;
+@inject UserManager<ApplicationUser> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["ActivePage"] = ManageNavPages.Index;
+}
+
+<form id="profile-form" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="container">
+        <div class="row gutters">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="account-settings">
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    @if(user.Url != null)
+                                    {
+                                        <img src="~/images/@Model.Input.ProfilePictureUrl" alt="user">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/local/no-profile-picture.jpg" alt="user">
+                                    }
+                                </div>
+                                <h5 class="user-info">@Model.Username</h5>
+                                <h6 class="user-info">@user.Email</h6>
+                                <h6 class="user-info">@user.Name</h6>
+                            </div>
+                            <div class="user-info">
+                                <h5 class="mb-2" style="color:#bcd0f7;">About</h5>
+                                <p>@user.About</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="row gutters" style="margin-bottom: 15px;">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <h6 class="mb-3" style="color:#bcd0f7;">Personal Details</h6>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group" style="margin-bottom: 15px;">
+                                    <label asp-for="Input.Name" class="form-label"></label>
+                                    <input asp-for="Input.Name" class="form-control" />
+                                    <span asp-validation-for="Input.Name" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group" style="margin-bottom: 15px;">
+                                    <label asp-for="Input.Email" class="form-label"></label>
+                                    <input asp-for="Input.Email" class="form-control" />
+                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group" style="margin-bottom: 15px;">
+                                        <label asp-for="Input.PhoneNumber" class="form-label"></label>
+                                        <input asp-for="Input.PhoneNumber" class="form-control" />
+                                        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group" style="margin-bottom: 15px;">
+                                    <label asp-for="Input.City" class="form-label"></label>
+                                    <input asp-for="Input.City" class="form-control" />
+                                    <span asp-validation-for="Input.City" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group" style="margin-bottom: 15px;">
+                                    <label asp-for="Input.Bio" class="form-label"></label>
+                                    <textarea asp-for="Input.Bio" class="form-control" rows="4"></textarea>
+                                    <span asp-validation-for="Input.Bio" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group" style="margin-bottom: 15px;">
+                                    <label asp-for="Input.About" class="form-label"></label>
+                                    <textarea asp-for="Input.About" class="form-control" rows="4"></textarea>
+                                    <span asp-validation-for="Input.About" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gutters">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="text-right">
+                                    <button type="submit" id="update-profile-button" name="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:#bcd0f7;">Update</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<style>
+    .form-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #808080;
+    }
+    .user-info{
+        font-size: 12px;
+        font-weight: 600;
+        color: #808080;
+        text-align: center;
+    }
+</style>

@@ -1,0 +1,243 @@
+﻿@model SearchViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int previousPage = currentPage > 1 ? currentPage - 1 : 1;
+    int nextPage = currentPage + 1;
+}
+
+@Html.AntiForgeryToken()
+<h3>Search Results (@Model.ResultsCount)</h3>
+<h7>Search time: @Model.SearchTime ms</h7>
+<!-- Section Pictures -->
+@if (Model.Pictures != null && Model.Pictures.Count > 0)
+{
+    <h4>Pictures</h4>
+    <table class="table inbox-table text-white highlight">
+        <tr>
+            <th class="thead-lightblue">Owner</th>
+            <th class="thead-lightblue" style="text-align:center; padding-right: 60px;">Description</th>
+            <th class="thead-lightblue" style="text-align:center; padding-right: 60px;">Image Preview</th>
+            <th class="thead-lightblue" style="text-align:end; padding-right: 60px;">Uploaded</th>
+        </tr>
+        @foreach (var item in Model.Pictures)
+        {
+            <tr data-picture-url="@Url.Content("~/images/" + item.PictureUrl)" picture-id="@item.Id">
+                <td>@item.Owner</td>
+                <td style="text-align:center; padding-right: 60px;">@(item.Description.Length > 30 ? item.Description.Substring(0, 30) : @item.Description)</td>
+                <td style="text-align:center; padding-right: 60px;" >Preview</td>
+                <td style="text-align:end; padding-right: 30px;">@item.CreatedOn</td>
+            </tr>
+        }
+    </table>
+}
+
+<div id="picture-preview-container">
+    <img id="picture-preview">
+</div>
+
+<style>
+    #picture-preview-container {
+        position: absolute;
+        display: none;
+        border: 1px solid black;
+        background-color: white;
+        padding: 5px;
+    }
+
+    #picture-preview {
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    table.highlight tr:not(:first-child):hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+    }
+    .inbox-table td, th {
+        color: #bcd0f7;
+        background-color: transparent;
+    }
+    .thead-lightblue{
+        background-color: lightblue!important;
+    }
+</style>
+ <!-- Add event listener to each row in the table to redirect to the picture details page -->
+<script>
+    const rows = document.querySelectorAll('tr[picture-id]');
+    rows.forEach(row => {
+        row.addEventListener('click', () => {
+            const id = row.getAttribute('picture-id');
+            window.location.href = '/Picture/PictureDetails/' + id;
+        });
+    });
+
+</script>
+ <!-- Add event listener to each cell in the table to show a preview of the picture -->
+<script>
+    const cells = document.querySelectorAll('tr[data-picture-url] td:nth-child(3)');
+    const previewContainer = document.querySelector('#picture-preview-container');
+    const previewImage = document.querySelector('#picture-preview');
+
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', event => {
+            const pictureUrl = cell.parentElement.getAttribute('data-picture-url');
+            previewImage.src = pictureUrl;
+            previewContainer.style.left = event.pageX + 'px';
+            previewContainer.style.top = event.pageY + 'px';
+            previewContainer.style.display = 'block';
+        });
+        cell.addEventListener('mouseout', () => {
+            previewContainer.style.display = 'none';
+        });
+    });
+
+</script>
+
+<!-- Section Users -->
+@if (Model.Users != null && Model.Users.Count > 0)
+{
+    <h4>Users</h4>
+    <table class="table inbox-table text-white highlight">
+        <tr>
+            <th class ="thead-lightblue">Username</th>
+            <th class ="thead-lightblue" style="text-align:center; padding-right: 60px;">Full Name</th>
+            <th class="thead-lightblue" style="text-align:end; padding-right: 60px;">Uploads</th>
+        </tr>
+        @foreach (var item in Model.Users)
+        {
+            <tr data-username="@item.UserName">
+                <td>@item.UserName</td>
+                <td  style="text-align:center; padding-right: 30px;" >@(string.IsNullOrEmpty(item.Name) ? "-" : item.Name)</td>
+                <td style="text-align:end; padding-right: 80px;">@item.Uploads</td>
+            </tr>
+        }
+    </table>
+}
+ <!-- Add event listener to each row in the table to redirect to the user profile page -->
+<script>
+    const userRows = document.querySelectorAll('tr[data-username]');
+    userRows.forEach(row => {
+        row.addEventListener('click', () => {
+            const username = row.getAttribute('data-username');
+            window.location.href = '/UserProfile/Profile?username=' + username;
+        });
+    });
+
+</script>
+
+<!-- Section Blogs -->
+@if (Model.Blogs != null && Model.Blogs.Count > 0)
+{
+    <h4>Blogs</h4>
+    <table class="table inbox-table text-white highlight">
+        <tr>
+            <th class="thead-lightblue">Author</th>
+            <th class="thead-lightblue">Title</th>
+            <th class="thead-lightblue">Content</th>
+            <th class="thead-lightblue">Created On</th>
+        </tr>
+        @foreach (var item in Model.Blogs)
+        {
+            <tr data-blog-id="@item.Id">
+                <td>@item.Author</td>
+                <td>@item.Title</td>
+                <td>@(item.Content.Length > 30 ? item.Content.Substring(0, 30) : @item.Content)</td>
+                <td>@item.CreatedOn</td>
+            </tr>
+        }
+    </table>
+}
+ <!-- Add event listener to each row in the table to redirect to the blog details page -->
+<script>
+    const blogRows = document.querySelectorAll('tr[data-blog-id]');
+    blogRows.forEach(row => {
+        row.addEventListener('click', () => {
+            const id = row.getAttribute('data-blog-id');
+            window.location.href = '/Blog/BlogDetails/' + id;
+        });
+    });
+</script>
+
+<!-- Section Challenges-->
+@if (Model.Challenges != null && Model.Challenges.Count > 0)
+{
+
+    <h4>Challenges</h4>
+    <table class="table inbox-table text-white highlight">
+        <tr>
+            <th class="thead-lightblue">Author</th>
+            <th class="thead-lightblue" style="text-align:center; padding-right: 60px;">Requirements</th>
+            <th class="thead-lightblue" style="text-align:end; padding-right: 60px;">Created On</th>
+        </tr>
+        @foreach (var item in Model.Challenges)
+        {
+            <tr data-challenge-id="@item.Id">
+                <td>@item.Creator</td>
+                <td style="text-align:center; padding-right: 30px;">@(item.Requirements.Length > 70 ? item.Requirements.Substring(0, 70) : @item.Requirements)</td>
+                <td style="text-align:end; padding-right: 30px;">@item.CreatedOn</td>
+            </tr>
+        }
+    </table>
+}
+ <!-- Add event listener to each row in the table to redirect to the challenge details page -->
+<script>
+    const challengeRows = document.querySelectorAll('tr[data-challenge-id]');
+    challengeRows.forEach(row => {
+        row.addEventListener('click', () => {
+            const id = row.getAttribute('data-challenge-id');
+            window.location.href = '/Challenge/ChallengeDetails/' + id;
+        });
+    });
+</script>
+<nav aria-label="Page navigation example" style="margin-right: 0.5rem;">
+    <ul class="pagination justify-content-end">
+        @if (currentPage > 1)
+        {
+            <li class="page-item"><a class="page-link" href="@Url.Action("Search", "Home", new { query = ViewBag.Query, page = previousPage})">Previous</a></li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+        }
+        <li class="page-item"><a class="page-link" href="@Url.Action("Search", "Home", new { query = ViewBag.Query, page = currentPage })">@currentPage</a></li>
+        <li class="page-item"><a class="page-link" href="@Url.Action("Search", "Home", new { query = ViewBag.Query, page = currentPage + 1 })">@(currentPage + 1)</a></li>
+        <li class="page-item"><a class="page-link" href="@Url.Action("Search", "Home", new { query = ViewBag.Query, page = currentPage + 2})">@(currentPage + 2)</a></li>
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("Search", "Home", new { query = ViewBag.Query, page = nextPage})">Next</a>
+        </li>
+    </ul>
+</nav>
+<style>
+    .page-item {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color: #272e48;
+        color: wheat;
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin-left: 0.3rem;
+    }
+
+        .page-item.disabled a.page-link {
+            color: wheat;
+            background-color: #272e48;
+            opacity: 0.5;
+        }
+
+
+        .page-item a {
+            color: wheat;
+            background-color: #272e48;
+        }
+
+            .page-item a:focus {
+                outline: none;
+            }
+
+</style>

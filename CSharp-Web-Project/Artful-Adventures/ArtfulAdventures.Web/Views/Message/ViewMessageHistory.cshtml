@@ -1,0 +1,71 @@
+﻿@model MessageInboxViewModel
+
+<h2>Message (Last Received Message)</h2>
+
+
+
+@{
+    ViewBag.Title = "Message History";
+}
+
+<div>
+    <label>Sender:</label>
+    @Model.Sender
+</div>
+
+<div>
+    <label>Subject:</label>
+    @Model.Subject
+</div>
+
+<div>
+    <label>Content:</label>
+    @Model.Content
+</div>
+
+<div>
+    <label>Timestamp:</label>
+    @Model.Timestamp
+</div>
+
+<div style="display: flex; justify-content:start; margin: 2rem 0rem 2rem -0.5rem;">
+    <a class="btn btn-outline-dark my-2 blog-button-white" href="@Url.Action("Reply", "Message", new { id = Model.Id })" role="button" style="color:wheat; height: 40px; padding-left:12px; padding-right:12px;">Reply</a>
+    <a class="btn btn-outline-dark my-2 blog-button-white" href="@Context.Request.Headers["Referer"]" role="button" style="color:wheat; width: 80px; height: 40px; margin-bottom: 1rem!important;">Return</a>
+</div>
+
+
+<h3>Message History</h3>
+
+<style>
+    .inbox-table td, th {
+        color: #bcd0f7;
+        background-color: transparent;
+    }
+
+</style>
+
+<table class="table inbox-table">
+    <thead>
+        <tr>
+            <th style="background-color: lightblue;">Sender</th>
+            <th style="background-color: lightblue;">Subject</th>
+            <th style="background-color: lightblue;">Content</th>
+            <th style="background-color: lightblue;">Read</th>
+            <th style="background-color: lightblue;">TimeStamp</th>
+            <th style="background-color: lightblue;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var message in Model.MessagesHistory)
+        {
+            <tr>
+                <td>@message.Sender</td>
+                <td>@message.Subject</td>
+                <td>@message.Content</td>
+                <td>@(message.IsRead ? "Yes" : "No")</td>
+                <td>@message.Timestamp</td>
+                <td><a href="@Url.Action("ViewMessage", "Message", new { id = message.Id })">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@model MessageInbox
+
+<h2>Inbox</h2>
+@if(TempData["ErrorNotFound"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorNotFound"]
+    </div>
+}
+@{
+    ViewBag.Title = "Inbox";
+}
+
+<style>
+    .inbox-table td, th {
+        color: #bcd0f7;
+        background-color: transparent;
+    }
+
+</style>
+<div style="display: flex; justify-content:start; margin: 2rem 0rem 2rem -0.5rem;">
+    <a class="btn btn-outline-dark my-2 blog-button-white" href="@Url.Action("SendMessage", "Message")" role="button" style="color:wheat">New Message</a>
+    </div>
+<table class="table inbox-table">
+    <thead>
+        <tr>
+            <th style="background-color: lightblue;">Sender</th>
+            <th style="background-color: lightblue;">Subject</th>
+            <th style="background-color: lightblue;">Timestamp</th>
+            <th style="background-color: lightblue;">Read</th>
+            <th style="background-color: lightblue;">Unread Count</th>
+            <th style="background-color: lightblue;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var message in Model.Messages)
+        {
+            <tr>
+                <td>@message.Sender</td>
+                <td>@message.Subject</td>
+                <td>@message.Timestamp</td>
+                <td>@(message.UnreadMessages == 0 ? "Yes" : "No")</td>
+                <td>@message.UnreadMessages</td>
+                <td><a href="@Url.Action("ViewMessageHistory", "Message", new{id = message.Id})">View History</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

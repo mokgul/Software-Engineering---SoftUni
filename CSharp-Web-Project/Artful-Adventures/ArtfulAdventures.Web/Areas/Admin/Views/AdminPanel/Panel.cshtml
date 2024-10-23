@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Admin Home";
+    
+}
+@if (TempData["AdminDelete"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AdminDelete"]
+    </div>
+}
+@if (TempData["AdminDeleteError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["AdminDeleteError"]
+    </div>
+}
+@if (TempData["AdminDeleteComment"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AdminDeleteComment"]
+    </div>
+}
+@if (TempData["AdminDeleteCommentError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["AdminDeleteCommentError"]
+    </div>
+}
+@if (TempData["AdminCreateError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["AdminCreateError"]
+    </div>
+}
+@if (TempData["AdminPromote"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AdminPromote"]
+    </div>
+}
+@if (TempData["AdminPromoteError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["AdminPromoteError"]
+    </div>
+}
+@if (TempData["AdminDemote"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AdminDemote"]
+    </div>
+}
+@if (TempData["AdminDemoteError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["AdminDemoteError"]
+    </div>
+}
+@if(TempData["AdminMute"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AdminMute"]
+    </div>
+}
+@if (TempData["AdminMuteError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["AdminMuteError"]
+    </div>
+}
+@if(TempData["AdminBan"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["AdminBan"]
+    </div>
+}
+@if(TempData["AdminBanError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["AdminBanError"]
+    </div>
+}
+
+<h1>Admin Panel</h1>
+
+<p>Welcome to the admin area.</p>
+
+<h4>Content Moderation</h4>
+<hr />
+<a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("CreateChallenge", "ManageContent", new { area = "Admin"})" role="button" style="color:wheat; background-color:cornflowerblue;">Create Challenge</a>
+
+<a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("GetAll", "Challenge", new { page = 1, area = ""})" role="button" style="color:wheat; background-color:cornflowerblue;">Delete Challenge</a>
+
+<a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("All", "Explore", new { page = 1, area = ""})" role="button" style="color:wheat; background-color:cornflowerblue;">Delete Picture</a>
+
+<a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("GetBlogs", "Blog", new { page = 1, area = ""})" role="button" style="color:wheat; background-color:cornflowerblue;">Delete Blog</a>
+<hr />
+
+<h4>User Management</h4>
+<hr />
+
+<a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("AllUsers", "ManageUser", new { page = 1,area = "Admin"})" role="button" style="color:wheat; background-color:cornflowerblue;">Display All Users</a>
+
+<a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("AllAdmins", "ManageUser", new { area = "Admin"})" role="button" style="color:wheat; background-color:cornflowerblue;">Display All Admins</a>
+
+<a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("AllMutedUsers", "ManageUser", new { area = "Admin"})" role="button" style="color:wheat; background-color:cornflowerblue;">Display Muted Users</a>
+
+<a class="btn btn-outline-dark my-2 mx-auto" href="@Url.Action("AllBannedUsers", "ManageUser", new { area = "Admin"})" role="button" style="color:wheat; background-color:cornflowerblue;">Display Banned Users</a>
+<hr />

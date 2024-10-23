@@ -1,0 +1,84 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtfulAdventures.Web", "ArtfulAdventures.Web\ArtfulAdventures.Web.csproj", "{97136D18-8A0E-4602-B829-B1099D66CE03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{9777F8D2-4CB1-49A2-9040-2183969F30F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{F1D90ADF-5ECC-43F7-9E9C-CB215A9D8046}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtfulAdventures.Data", "ArtfulAdventures.Data\ArtfulAdventures.Data.csproj", "{C5445628-253C-4044-9322-D9798326AE2C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtfulAdventures.Data.Models", "ArtfulAdventures.Data.Models\ArtfulAdventures.Data.Models.csproj", "{1EB62DCD-EA0D-4506-BEF7-993D327ECE3A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtfulAdventures.Web.ViewModels", "ArtfulAdventures.Web.ViewModels\ArtfulAdventures.Web.ViewModels.csproj", "{2634BAC7-E998-4125-AD60-554C626B63C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtfulAdventures.Common", "ArtfulAdventures.Common\ArtfulAdventures.Common.csproj", "{D783FA4B-E752-45F0-957C-9A7A1B1841DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{50AC8374-7927-4CA7-B4C8-9938E54F37FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtfulAdventures.Services.Data", "ArtfulAdventures.Services.Data\ArtfulAdventures.Services.Data.csproj", "{9F405EC7-14D3-4C4A-A205-E102E711078E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtfulAdventures.Services.Common", "ArtfulAdventures.Services.Common\ArtfulAdventures.Services.Common.csproj", "{EA279E6C-945E-4377-89B7-AD16990B80D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2CE46C26-7812-44D0-838D-E34E182ECE04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtfulAdventures.UnitTests.Controllers", "ArtfulAdventures.UnitTests.Controllers\ArtfulAdventures.UnitTests.Controllers.csproj", "{3EB9FA90-0D4C-49B2-955B-A8E36E2E8F89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97136D18-8A0E-4602-B829-B1099D66CE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97136D18-8A0E-4602-B829-B1099D66CE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97136D18-8A0E-4602-B829-B1099D66CE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97136D18-8A0E-4602-B829-B1099D66CE03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5445628-253C-4044-9322-D9798326AE2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5445628-253C-4044-9322-D9798326AE2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5445628-253C-4044-9322-D9798326AE2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5445628-253C-4044-9322-D9798326AE2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EB62DCD-EA0D-4506-BEF7-993D327ECE3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EB62DCD-EA0D-4506-BEF7-993D327ECE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EB62DCD-EA0D-4506-BEF7-993D327ECE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EB62DCD-EA0D-4506-BEF7-993D327ECE3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2634BAC7-E998-4125-AD60-554C626B63C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2634BAC7-E998-4125-AD60-554C626B63C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2634BAC7-E998-4125-AD60-554C626B63C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2634BAC7-E998-4125-AD60-554C626B63C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D783FA4B-E752-45F0-957C-9A7A1B1841DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D783FA4B-E752-45F0-957C-9A7A1B1841DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D783FA4B-E752-45F0-957C-9A7A1B1841DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D783FA4B-E752-45F0-957C-9A7A1B1841DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F405EC7-14D3-4C4A-A205-E102E711078E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F405EC7-14D3-4C4A-A205-E102E711078E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F405EC7-14D3-4C4A-A205-E102E711078E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F405EC7-14D3-4C4A-A205-E102E711078E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA279E6C-945E-4377-89B7-AD16990B80D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA279E6C-945E-4377-89B7-AD16990B80D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA279E6C-945E-4377-89B7-AD16990B80D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA279E6C-945E-4377-89B7-AD16990B80D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EB9FA90-0D4C-49B2-955B-A8E36E2E8F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EB9FA90-0D4C-49B2-955B-A8E36E2E8F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EB9FA90-0D4C-49B2-955B-A8E36E2E8F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EB9FA90-0D4C-49B2-955B-A8E36E2E8F89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{97136D18-8A0E-4602-B829-B1099D66CE03} = {9777F8D2-4CB1-49A2-9040-2183969F30F6}
+		{C5445628-253C-4044-9322-D9798326AE2C} = {F1D90ADF-5ECC-43F7-9E9C-CB215A9D8046}
+		{1EB62DCD-EA0D-4506-BEF7-993D327ECE3A} = {F1D90ADF-5ECC-43F7-9E9C-CB215A9D8046}
+		{2634BAC7-E998-4125-AD60-554C626B63C9} = {9777F8D2-4CB1-49A2-9040-2183969F30F6}
+		{9F405EC7-14D3-4C4A-A205-E102E711078E} = {50AC8374-7927-4CA7-B4C8-9938E54F37FB}
+		{EA279E6C-945E-4377-89B7-AD16990B80D8} = {50AC8374-7927-4CA7-B4C8-9938E54F37FB}
+		{3EB9FA90-0D4C-49B2-955B-A8E36E2E8F89} = {2CE46C26-7812-44D0-838D-E34E182ECE04}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {846090A0-8538-45D4-9545-AFCEC610B61C}
+	EndGlobalSection
+EndGlobal

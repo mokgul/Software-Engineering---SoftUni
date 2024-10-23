@@ -1,0 +1,244 @@
+﻿@using static ArtfulAdventures.Common.GeneralApplicationConstants
+@using static ArtfulAdventures.Common.GeneralApplicationConstants.Roles
+@using Microsoft.AspNetCore.Identity
+@using ArtfulAdventures.Data.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Artful Adventures</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+</head>
+<body class="body-for-sticky">
+<header>
+    @if (!Context.Request.Headers["X-Requested-With"].Equals("XMLHttpRequest"))
+    {
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/Home">
+                    <img src="~/local/gamer-logo-small.png" width="50" height="50" class="d-inline-block align-top" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item" style="font-size: 1.3rem">
+                            <a class="nav-link active" asp-area="" asp-controller="Explore" asp-action="All" asp-route-page="1">
+                                Explore
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="font-size: 1.3rem">
+                            <a class="nav-link active" asp-area="" asp-controller="Following" asp-action="All" asp-route-page="1">
+                                Following
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="font-size: 1.3rem">
+                            <a class="nav-link active" asp-area="" asp-controller="Picture" asp-action="Upload">
+                                Upload
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item" style="font-size: 1.3rem">
+                            <a class="nav-link active" asp-area="" asp-controller="Blog" asp-action="GetBlogs" asp-route-page="1">
+                                Blogs
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="font-size: 1.3rem">
+                            <a class="nav-link active" asp-area="" asp-controller="Challenge" asp-action="GetAll" asp-route-page="1">
+                                Challenges
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="font-size: 1.3rem;">
+                            <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                Privacy
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="font-size: 1.3rem">
+                            <a class="nav-link active" asp-area="" asp-controller="Home" asp-action="AboutUs">
+                                About Us
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item mt-2" style="margin-left: 10rem; font-size:1.3rem;">
+                            <form method="get" class="d-flex" asp-area="" asp-controller="Home" asp-action="Search">
+                                <input class="form-control" type="search" placeholder="Search" name="query">
+                                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </li>
+                    </ul>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <div class="icon-with-badge">
+                            @await Component.InvokeAsync("UnreadMessages")
+                            <a href="@Url.Action("Inbox", "Message")">
+                                <i class="fas fa-comments fa-lg"></i>
+                            </a>
+                        </div>
+                        <div id="profileTriggerContainer">
+                            <span>
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    }
+                    else
+                    {
+                        <partial name="_LoginPartial"/>
+                    }
+                </div>
+            </div>
+        </nav>
+    }
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="settingsOffCanvas" aria-labelledby="settingsOffCanvasLabel">
+    <div class="offcanvas-header d-flex flex-column" style="border:1px solid rgba(255, 255, 255, 0.2);">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <p class="offcanvas-title mb-0" id="settingsOffCanvasLabel" style="font-size: 26px;">User Profile</p>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            @await Component.InvokeAsync("OffCanvasProfile")
+        }
+    </div>
+    <div class="offcanvas-body">
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="UserProfile" asp-action="Profile" asp-route-username="@User!.Identity!.Name">Profile</a>
+        </p>
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Message" asp-action="Inbox">Inbox</a>
+        </p>
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="CreateBlog">New Blog Post</a>
+        </p>
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Blog" asp-action="ManageBlogs" asp-route-page="1">Manage Blogs</a>
+        </p>
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Picture" asp-action="ManageGetAllPictures" asp-route-page="1">Manage Portfolio</a>
+        </p>
+        <p>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Picture" asp-action="ManageGetAllCollection" asp-route-page="1">Manage Favorites</a>
+        </p>
+        <p>
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Settings</a>
+        </p>
+        @if (User.IsInRole(Administrator))
+        {
+            <p>
+                <a class="nav-link text-dark" asp-area="Admin" asp-controller="AdminPanel" asp-action="Panel">Admin Panel</a>
+            </p>
+        }
+        <p>
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button type="submit" class="nav-link btn btn-link text-dark" style="color: #b8ceeb!important;">Logout</button>
+            </form>
+        </p>
+    </div>
+</div>
+
+
+<footer class="footer sticky-footer border-top footer text-muted">
+    <div style="color: #bcd0f7; margin-left: 3rem;">
+        &copy; Artful Adventures @releaseYear
+        @if (DateTime.UtcNow.Year != releaseYear)
+        {
+            @Html.Raw($" - {DateTime.UtcNow.Year}")
+        }
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+        // Get the profile trigger container element
+        const profileTriggerContainer = document.getElementById('profileTriggerContainer');
+
+        // Get the off-canvas element
+        const offCanvasElement = new bootstrap.Offcanvas(document.getElementById('settingsOffCanvas'));
+
+        // Add an event listener to the profile trigger container
+        profileTriggerContainer.addEventListener('click', () => {
+            offCanvasElement.show();
+        });
+    </script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<style>
+    #profileTriggerContainer i {
+        font-size: 34px; /* adjust the size as needed */
+        margin-right: 20px; /* adjust the space as needed */
+    }
+
+    #profileTriggerContainer:hover {
+        cursor: pointer;
+    }
+
+    .icon-with-badge {
+        font-size: 30px; /* adjust the size as needed */
+        margin-right: 20px; /* adjust the space as needed */
+    }
+
+    .offcanvas {
+        max-width: 300px; /* adjust the value as needed */
+    }
+
+
+    #settingsOffCanvas {
+        background-color: #1a2225;
+        backdrop-filter: blur(10px); /* adjust the blur amount as needed */
+    }
+
+
+        #settingsOffCanvas .offcanvas-body a:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* adjust the color and opacity as needed */
+        }
+
+        #settingsOffCanvas .offcanvas-body a {
+            font-size: 18px; /* adjust the size as needed */
+            color: #b8ceeb !important; /* adjust the color as needed */
+        }
+
+        #settingsOffCanvas .offcanvas-header {
+            color: #b8ceeb !important; /* adjust the color as needed */
+        }
+
+        #settingsOffCanvas .offcanvas-body {
+            border: 1px solid rgba(255, 255, 255, 0.2) !important; /* adjust the color as needed */
+        }
+
+    .offcanvas-body p:not(:last-child) > a {
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+
+
+    .offcanvas-header .btn-close {
+        background-color: #b8ceeb !important; /* adjust the color as needed */
+        margin: 0px; /* adjust the padding as needed */
+        margin-left: 6rem; /* adjust the margin as needed */
+    }
+
+</style>

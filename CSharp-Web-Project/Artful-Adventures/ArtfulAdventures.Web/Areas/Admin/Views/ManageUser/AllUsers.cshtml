@@ -1,0 +1,229 @@
+﻿@model ICollection<ArtfulAdventures.Web.Areas.Admin.Models.UserViewModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using static ArtfulAdventures.Common.GeneralApplicationConstants.Roles
+
+@if (TempData["AdminUserError"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["AdminUserError"]
+    </div>
+}
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int previousPage = currentPage > 1 ? currentPage - 1 : 1;
+    int nextPage = currentPage + 1;
+}
+
+@Html.AntiForgeryToken()
+
+<a class="btn btn-outline-dark my-2 blog-button-white" href="@Context.Request.Headers["Referer"]" role="button" style="color:wheat; width: 80px; margin-bottom: 1rem!important;">Return</a>
+<!-- Section Users -->
+<form method="get" action="@Url.Action("GetUser", "ManageUser", new { area = "Admin" })">
+    <input id="user-input" type="text" name="username" placeholder="Enter user"/>
+    <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat; background-color:#284564">Find User</button>
+</form>
+<style>
+    #user-input {
+        margin: -2px 0.5rem !important;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color: #272e48;
+        color: wheat;
+        font-size: 1.0rem;
+        padding: 0.5rem;
+        margin-left: 1rem;
+    }
+
+        #user-input:focus {
+            outline: none;
+        }
+</style>
+
+
+@if (Model != null && Model.Count > 0)
+{
+    <h4 style="margin-top: 1rem;">Users</h4>
+    <table class="table inbox-table text-white highlight">
+        <tr>
+            <th class="thead-lightblue">Username</th>
+            <th class="thead-lightblue" style="text-align:end; padding-right: 80px;">Role</th>
+            <th class="thead-lightblue">Promote</th>
+            <th class="thead-lightblue">Demote</th>
+            <th class="thead-lightblue">Mute User</th>
+            <th class="thead-lightblue">Unmute</th>
+            <th class="thead-lightblue">Ban User</th>
+            <th class="thead-lightblue">Unban</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr data-username="@item.UserName">
+                <td>@item.UserName</td>
+                <td style="text-align:end; padding-right: 80px;">@item.Role</td>
+                <td>
+                    @if (item.UserName == "admin")
+                    {
+                        <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564" disabled>Promote</button>
+                    }
+                    else
+                    {
+                        <form method="post" asp-area="Admin" asp-controller="ManageUser" asp-action="PromoteToAdmin" asp-route-username="@item.UserName">
+                            <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564">Promote</button>
+                        </form>
+                    }
+                </td>
+                <td>
+                    @if (item.UserName == "admin")
+                    {
+                        <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564" disabled>Demote</button>
+                    }
+                    else
+                    {
+                        if (item.Role == Administrator)
+                        {
+                            <form method="post" asp-area="Admin" asp-controller="ManageUser" asp-action="DemoteAdmin" asp-route-username="@item.UserName">
+                                <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564">Demote</button>
+                            </form>
+                        }
+                    }
+                </td>
+                <td>
+                    @if (item.UserName == "admin")
+                    {
+                        <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564" disabled>Mute</button>
+                    }
+                    else
+                    {
+                        <form method="post" asp-area="Admin" asp-controller="ManageUser" asp-action="MuteUser" asp-route-username="@item.UserName">
+                            <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat; background-color:#284564">Mute</button>
+                            <input id="user-input" type="text" name="days" placeholder="Days" style="width: 60px;"/>
+                        </form>
+                    }
+                </td>
+                <td>
+                    @if (item.UserName == "admin")
+                    {
+                        <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564" disabled>Unmute</button>
+                    }
+                    else
+                    {
+                        <form method="post" asp-area="Admin" asp-controller="ManageUser" asp-action="UnmuteUser" asp-route-username="@item.UserName">
+                            <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat; background-color:#284564">Unmute</button>
+                        </form>
+                    }
+                </td>
+                <td>
+                    @if (item.UserName == "admin")
+                    {
+                        <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564" disabled>Ban</button>
+                    }
+                    else
+                    {
+                        <form method="post" asp-area="Admin" asp-controller="ManageUser" asp-action="BanUser" asp-route-username="@item.UserName">
+                            <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat; background-color:#284564">Ban</button>
+                        </form>
+                    }
+                </td>
+                <td>
+                    @if (item.UserName == "admin")
+                    {
+                        <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat;  background-color:#284564" disabled>Unban</button>
+                    }
+                    else
+                    {
+                        <form method="post" asp-area="Admin" asp-controller="ManageUser" asp-action="UnbanUser" asp-route-username="@item.UserName">
+                            <button type="submit" class="btn btn-outline-dark my-2 mx-auto" style="color:wheat; background-color:#284564">Unban</button>
+                        </form>
+                    }
+            </tr>
+        }
+    </table>
+}
+<style>
+    table.highlight tr:not(:first-child):hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+    }
+
+    .inbox-table td, th {
+        color: #bcd0f7;
+        background-color: transparent;
+    }
+
+    .thead-lightblue {
+        background-color: lightblue !important;
+    }
+</style>
+<!-- This script is used to redirect the user to the profile page of the user they clicked on -->
+<script>
+  const userRows = document.querySelectorAll('tr[data-username]');
+  userRows.forEach(row => {
+      const firstColumn = row.querySelector('td:first-child');
+      const secondColumn = row.querySelector('td:nth-child(2)');
+      [firstColumn, secondColumn].forEach(column => {
+          column.addEventListener('click', () => {
+              const username = row.getAttribute('data-username');
+              window.location.href = '/UserProfile/Profile?username=' + username;
+          });
+      });
+  });
+
+</script>
+<nav aria-label="Page navigation example" style="margin-right: 0.5rem;">
+    <ul class="pagination justify-content-end">
+        @if (currentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("AllUsers", "ManageUser", new { query = ViewBag.Query, page = previousPage, area = "Admin" })">Previous</a>
+            </li>
+        }
+        else
+        {
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+        }
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("AllUsers", "ManageUser", new { query = ViewBag.Query, page = currentPage, area = "Admin" })">@currentPage</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("AllUsers", "ManageUser", new { query = ViewBag.Query, page = currentPage + 1, area = "Admin" })">@(currentPage + 1)</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("AllUsers", "ManageUser", new { query = ViewBag.Query, page = currentPage + 2, area = "Admin" })">@(currentPage + 2)</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("AllUsers", "ManageUser", new { query = ViewBag.Query, page = nextPage, area = "Admin" })">Next</a>
+        </li>
+    </ul>
+</nav>
+<style>
+    .page-item {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color: #272e48;
+        color: wheat;
+        font-size: 1rem;
+        padding: 0.3rem;
+        margin-left: 0.3rem;
+    }
+
+        .page-item.disabled a.page-link {
+            color: wheat;
+            background-color: #272e48;
+            opacity: 0.5;
+        }
+
+
+        .page-item a {
+            color: wheat;
+            background-color: #272e48;
+        }
+
+            .page-item a:focus {
+                outline: none;
+            }
+
+</style>

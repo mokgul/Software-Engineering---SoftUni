@@ -1,0 +1,290 @@
+﻿@model ArtfulAdventures.Web.ViewModels.Picture.PictureDetailsViewModel
+@using static ArtfulAdventures.Common.GeneralApplicationConstants.Roles;
+
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success text-black" role="alert">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger text-black" role="alert">
+        @TempData["Message"]
+    </div>
+}
+@{
+    ViewBag.Title = "Picture Details";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="container">
+    <div class="row">
+        <!-- Section 1: Picture -->
+        <style>
+            .frosted-glass {
+                /* Set the background color to a semi-transparent white */
+                background-color: rgba(74, 98, 110, 0.1);
+                /* Apply the backdrop-filter effect */
+                backdrop-filter: blur(100px);
+                border-radius: 15px;
+            }
+        </style>
+        <div style="display: flex; justify-content:space-between">
+            <a class="btn btn-outline-dark my-2 blog-button-white" href="@Context.Request.Headers["Referer"]" role="button" style="color:wheat; width: 80px; margin-bottom: 1rem!important; margin-left: -0.5rem!important;">Return</a>
+            @if (User!.IsInRole(Administrator))
+            {
+                <form method="post" asp-area="Admin" asp-controller="ManageContent" asp-action="DeletePicture" asp-route-pictureId="@Model.Id" asp-route-user="@Model.Owner">
+                    <button type="submit" class="btn btn-outline-dark my-2 delete-blog-button-red" style="color:wheat;">Delete Picture</button>
+                </form>
+            }
+        </div>
+        <div class="col-md-9 d-flex align-items-center frosted-glass">
+           
+                <div style="width: 100%; height: auto; overflow: hidden;">
+                    <img src="~/images/@Model.Url" alt="Picture" class="img-fluid" style="object-fit: contain; width: 100%; margin: auto;">
+                </div>
+            
+        </div>
+
+        <!-- Section 2: Profile Information -->
+        <div class="col-md-3">
+            <!-- Your code for section two goes here -->
+            <section>
+                <div class="row ">
+                    <div class="col-md-12">
+
+                        <div class="card" style="border-radius: 15px; background: radial-gradient(circle at -4% -12.9%, rgb(74, 98, 110) 0.3%, rgb(30, 33, 48) 90.2%);">
+                            <div class="card-body text-center ">
+                                <div class="mt-2 mb-3">
+                                    @if (Model.OwnerPictureUrl != null)
+                                    {
+                                        <img src="~/images/@Model.OwnerPictureUrl" alt="image"
+                                             class="rounded-circle img-fluid" style="width: 100px;">
+                                    }
+                                    else
+                                    {
+                                        <img src="~/local/no-profile-picture.jpg" alt="image"
+                                             class="img-fluid" style="width: 100px;">
+                                    }
+                                </div>
+                                <h4 class="mb-2">@Model.Owner</h4>
+                                <p class="text-muted mb-2 text-purple">
+                                    @Model.OwnerLevel <span class="mx-2">|</span> @Model.OwnerLevel
+                                </p>
+                                <div class="d-flex justify-content-center pt-2">
+                                    <form method="get" asp-area="" asp-controller="UserProfile" asp-action="Profile" asp-route-username="@Model.Owner">
+                                        <input type="hidden" name="username" value="@Model.Owner"/>
+                                        <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">
+                                            Profile
+                                        </button>
+                                    </form>
+                                    <form method="get" asp-area="" asp-controller="Message" asp-action="SendMessage">
+                                        <input type="hidden" name="username" value="@Model.Owner"/>
+                                        <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">
+                                            Message
+                                        </button>
+                                    </form>
+
+
+                                </div>
+                                <div class="d-flex justify-content-center text-center mt-3 mb-2">
+                                    <div class="d-flex justify-content-center rounded-3 p-2 mb-2"
+                                         style="background:radial-gradient(circle at -4% -12.9%, rgb(74, 98, 110) 0.3%, rgb(30, 33, 48) 90.2%); border: 1px solid white; color:white;">
+                                        <div>
+                                            <p class="small mb-1" style="color:white">Followers</p>
+                                            <p class="mb-0 text-purple">@Model.OwnerFollowersCount</p>
+                                        </div>
+                                        <div class="px-3">
+                                            <p class="small mb-1" style="color:white">Following</p>
+                                            <p class="mb-0 text-purple">@Model.OwnerFollowingCount</p>
+                                        </div>
+                                        <div>
+                                            <p class="small mb-1" style="color:white">Uploads</p>
+                                            <p class="mb-0 text-purple">@Model.OwnerPicturesCount</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-3">
+                <div class="justify-content-center rounded-3 p-2 mb-2"
+                     style="background:radial-gradient(circle at -4% -12.9%, rgb(74, 98, 110) 0.3%, rgb(30, 33, 48) 90.2%); border: 1px solid white; color:white;">
+                    <div class="justify-content-center rounded-3 p-3 mb-1"
+                         style="background:radial-gradient(circle at -4% -12.9%, rgb(74, 98, 110) 0.3%, rgb(30, 33, 48) 90.2%); ">
+                        <div class="d-flex justify-content-center">
+                            <form method="post" asp-area="" asp-controller="Picture" asp-action="LikePicture" asp-route-pictureId="@Model.Id">
+                                <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">
+                                    Like
+                                </button>
+                            </form>
+                            <form method="post" asp-area="" asp-controller="Picture" asp-action="AddToCollection" asp-route-pictureId="@Model.Id">
+                                <button type="submit" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; height:42px;padding-left:12px; padding-right:12px;">Add To Favorites</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <p class="mb-1" style="color:white">Likes:</p>
+                        <p class="mb-0 text-purple" style="margin-left:3px;">@Model.Likes</p>
+                    </div>
+                    <div class="d-flex">
+                        <p class="mb-1" style="color:white">Submitted:</p>
+                        <p class="mb-0 text-purple" style="margin-left:3px;">@Model.CreatedOn</p>
+                    </div>
+                    <div>
+                        <p class="mb-1" style="color:white">Description: </p>
+                        <p class="mb-0 text-purple">@Model.Description</p>
+                    </div>
+                </div>
+            </section>
+            @if (Model.HashTags != null && Model.HashTags.Count > 0)
+            {
+                <section class="py-3">
+                    <div class="d-flex justify-content-center text-center mt-3 mb-2">
+                        <div class="d-flex justify-content-center rounded-3 p-2 mb-2 flex-wrap w-100"
+                             style="background:radial-gradient(circle at -4% -12.9%, rgb(74, 98, 110) 0.3%, rgb(30, 33, 48) 90.2%); border: 1px solid white; color:white;">
+                            @foreach (var tag in Model.HashTags)
+                            {
+                                <div class="d-flex justify-content-center text-center mt-3 mb-2">
+                                    <div class="d-flex justify-content-center rounded-3 p-2 mb-2" style="margin-right:5px; border: 1px solid white; color:white;">
+                                        <p class="small text-white mb-1 ">@tag.Name</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </section>
+            }
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <!-- Section 4: Comments -->
+    <section class="col-md-11">
+        <div class="container my-5">
+            <div class="row d-flex justify-content-left">
+                <div class="col-md-12 col-lg-10">
+                    <div class="card text-dark">
+                        <div class="card-body p-4" style="background:#272e48; color:#88c4f7;">
+                            <h4 class="mb-0">Recent comments(@Model.CommentsCount)</h4>
+                            <p class="fw-light mb-4 pb-2">Latest Comments section by users</p>
+
+                            <div class="card-footer py-3 border-0" style="background-color: transparent;">
+                                <div class="d-flex flex-start w-100">
+
+                                    <img class="rounded-circle shadow-1-strong me-3"
+                                         src="~/local/no-profile-picture.jpg" alt="avatar" width="40"
+                                         height="40"/>
+                                    @if (Model.isCurrentUserMuted == false)
+                                    {
+                                        <div class="form-outline w-100">
+                                            <textarea class="form-control" id="textArea" rows="4"
+                                                  style="background-color: transparent; color:#88c4f7;"></textarea>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="form-outline w-100">
+                                            <p>Current user is muted.</p>
+                                            <textarea class="form-control" id="textArea" rows="4" disabled
+                  style="background-color: transparent; color:#88c4f7;"></textarea>
+                                        </div>
+                                    }
+                                </div>
+                                <div style="display: flex; justify-content:space-between">
+                                    <form asp-area="" asp-controller="Comment" asp-action="AddCommentPicture" asp-route-pictureId="@Model.Id" method="post">
+                                        <input type="hidden" name="content" id="contentInput"/>
+                                        @if (Model.isCurrentUserMuted == false)
+                                        {
+                                            <button type="submit" id="button" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; width: 120px; margin-bottom: 1rem!important; margin-left: 3.4rem!important; margin-top: 1rem!important;">Post comment</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" id="button" class="btn btn-outline-dark my-2 blog-button-white" style="color:wheat; width: 120px; margin-bottom: 1rem!important; margin-left: 3.4rem!important; margin-top: 1rem!important;" disabled>Post comment</button>
+                                        }
+                                    </form>
+                                </div>
+                            </div>
+
+                            @if (Model.Comments != null)
+                            {
+                                @foreach (var comment in Model.Comments.OrderByDescending(p => p.CreatedOn))
+                                {
+                                    <div class="card-body p-4">
+                                        <div style="display: flex; justify-content: space-between;">
+                                            <div class="d-flex flex-start">
+                                                <img class="rounded-circle shadow-1-strong me-3"
+                                                     src="~/images/@comment.AuthorPictureUrl" alt="avatar" width="60"
+                                                     height="60"/>
+                                                <div>
+                                                    <a href="@Url.Action("Profile", "UserProfile", new { username = @comment.Author })" style="color:deepskyblue">
+                                                        <i class="fas fa-user"></i> @comment.Author
+                                                    </a>
+                                                    <div class="d-flex align-items-center mb-3">
+                                                        <p class="mb-0">
+                                                            @comment.CreatedOn
+                                                        </p>
+                                                    </div>
+                                                    <p class="mb-0">
+                                                        @comment.Content
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            @if (User!.IsInRole(Administrator))
+                                            {
+                                                <div style="display: flex; justify-content: flex-end;">
+                                                    <form method="post" asp-area="Admin" asp-controller="ManageContent" asp-action="DeleteCommentPicture" asp-route-pictureId="@Model.Id" asp-route-commentId="@comment.Id">
+                                                        <button type="submit" class="btn btn-outline-dark my-2 delete-blog-button-red" style="color:wheat;">Delete Comment</button>
+                                                    </form>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+
+
+                                    <hr class="my-0" style="height: 1px;"/>
+
+                                    <hr class="my-0"/>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .card {
+        /* Set background color to white with 50% transparency */
+        background-color: rgba(74, 98, 110, 0.9);
+        /* Apply blur effect to area behind element */
+        backdrop-filter: blur(10px);
+        color: #bcd0f7;
+    }
+
+    .text-purple {
+        color: #bcd0f7 !important;
+    }
+</style>
+
+ <!-- Script for copying the text from the text area to the hidden input -->
+<script>
+    let button = document.getElementById("button");
+    button.addEventListener("click", function () {
+        let textArea = document.getElementById("textArea");
+        let contentInput = document.getElementById("contentInput");
+        contentInput.value = textArea.value;
+    });
+</script>
