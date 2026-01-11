@@ -12,7 +12,7 @@ This repository contains materials, notes, and exercises for the Software Engine
 
 | **Course**                      | **Certificates**                                                                         |
 | ------------------------------- | -----------------------------------------------------------------------------------------| 
-| Software Engineer with C#       | [Check Certificate](certs/Diploma_for_Back-End_Software Engineer_with_C#.pdf)            |
+| Software Engineer with C#       | [Check Certificate](certs/Diploma_for_Back-End_Software-Engineer_with_C#.pdf)            |
 | ---                             | ---                                                                                      |
 | Programming Basics with C#      | [Check Certificate](certs/Programming_Basics_January_2022_Certificate.pdf)               |
 | Technology Fundamentals with C# | [Check Certificate](certs/Programming_Fundamentals_with_C#_May_2022_Certificate.pdf)     |
