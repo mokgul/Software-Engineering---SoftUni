@@ -1,8 +1,6 @@
 # Software Engineering - SoftUni
 ## Career Path with C#
 
-![SoftUni Logo](https://upload.wikimedia.org/wikipedia/commons/5/5e/SoftUni_logo.png "SoftUni Logo")
-
 This repository contains materials, notes, and exercises for the Software Engineering career path with C# at SoftUni. It covers programming fundamentals, object-oriented programming, databases, web development, and more.
 
 ---
@@ -26,6 +24,7 @@ This repository contains materials, notes, and exercises for the Software Engine
 | JS Front-End                    | [Check Certificate](certs/JS_Front-End_October_2023_Certificate.pdf)                     |
 | Containers and Cloud            | [Check Certificate](certs/Containers_and_Cloud_January_2024_Certificate.pdf)             |
 | DevOps                          | [Check Certificate](certs/Software_Engineering_and_DevOps_February_2024_Certificate.pdf) |
+
 
 
 
