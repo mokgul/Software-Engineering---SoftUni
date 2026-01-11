@@ -12,12 +12,12 @@ This repository contains materials, notes, and exercises for the Software Engine
 
 | **Course**                      | **Certificates**                                                                         |
 | ------------------------------- | -----------------------------------------------------------------------------------------| 
-| Software Engineer with C#       | [Check Certificate](certs/Diploma_for_Back-End_Software-Engineer_with_C#.pdf)            |
+| Software Engineer with C#       | [Check Certificate](certs/Diploma_for_Back-End_Software-Engineer_with_CSharp.pdf)        |
 | ---                             | ---                                                                                      |
 | Programming Basics with C#      | [Check Certificate](certs/Programming_Basics_January_2022_Certificate.pdf)               |
-| Technology Fundamentals with C# | [Check Certificate](certs/Programming_Fundamentals_with_C#_May_2022_Certificate.pdf)     |
-| C# Advanced                     | [Check Certificate](certs/C#_Advanced_September_2022_Certificate.pdf)                    |
-| C# OOP                          | [Check Certificate](certs/C#_OOP_October_2022_Certificate.pdf)                           |
+| Technology Fundamentals with C# | [Check Certificate](certs/Programming_Fundamentals_with_CSharp_May_2022_Certificate.pdf) |
+| C# Advanced                     | [Check Certificate](certs/CSharp_Advanced_September_2022_Certificate.pdf)                |
+| C# OOP                          | [Check Certificate](certs/CSharp_OOP_October_2022_Certificate.pdf)                       |
 | Databases Basics - MS SQL       | [Check Certificate](certs/MS_SQL_January_2023_Certificate.pdf)                           |
 | Entity Framework Core           | [Check Certificate](certs/Entity_Framework_Core_February_2023_Certificate.pdf)           |
 | ASP.NET Fundamentals            | [Check Certificate](certs/ASP.NET_Fundamentals_May_2023_Certificate.pdf)                 |
